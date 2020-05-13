@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import "../stylesheets/Recipes.css";
 
+import Recipe from "./Recipe";
+
 class Recipes extends Component {
   render() {
     return (
       <div className="container">
         {this.props.recipes.map((recipe, index) => (
-          <h3 key={index}>{recipe.recipe.label}</h3> // Going to be the Recipe component
+          <Recipe
+            key={index}
+            recipe={recipe.recipe}
+            label={recipe.recipe.label}
+            image={recipe.recipe.image}
+            calories={recipe.recipe.calories}
+          />
         ))}
       </div>
     );
