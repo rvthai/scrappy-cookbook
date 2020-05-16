@@ -13,9 +13,10 @@ export const getRecipes = () => {
     )
       .then((res) => res.json())
       .then((data) => {
+        // console.log(data.hits);
         dispatch({
           type: GET_RECIPES,
-          payload: data,
+          payload: data.hits,
         });
       });
   };

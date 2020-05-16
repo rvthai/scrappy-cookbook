@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import axios from "axios";
 
-// Redux
 import { connect } from "react-redux";
 import { getRecipes } from "../actions";
 
 import Search from "./Search";
 import Recipes from "./Recipes";
-
-const APP_ID = "b2b48313";
-const APP_KEY = "75c1ef2136cc93da129f58f3a4ebe8df";
-const url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}`;
 
 class Main extends Component {
   constructor(props) {
@@ -18,28 +12,13 @@ class Main extends Component {
 
     this.state = {
       query: "",
-      recipes: [],
     };
   }
 
   handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    axios
-      .get(url, {
-        params: {
-          q: this.state.query,
-          from: 0,
-          to: 10,
-          // calories: (i.e. 500-1000)
-          // health: (i.e. alcohol-free)
-        },
-      })
-      .then((response) => {
-        const recipes = response.data.hits;
-        console.log(recipes);
-        this.setState({ recipes });
-      });
+    this.props.getRecipes();
   };
 
   handleSearchChange = (value) => {
@@ -57,15 +36,18 @@ class Main extends Component {
           onSearchChange={this.handleSearchChange}
           onSearchSubmit={this.handleSearchSubmit}
         />
-        <Recipes recipes={this.state.recipes} />
+        <Recipes recipes={this.props.recipes} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  recipes: state,
+});
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = {
+  getRecipes: getRecipes,
+};
 
-Main = connect(mapStateToProps, mapDispatchToProps)(Main);
-export default Main;
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

@@ -7,9 +7,8 @@ class Recipe extends Component {
     return (
       <div>
         <h3>{this.props.label}</h3>
-        <Link to="/details">
-          <input type="image" src={this.props.image} alt="no image" />
-        </Link>
+        <input type="image" src={this.props.image} alt="no image" />
+        <a href="https://www.youtube.com">random redirect to youtube</a>
         <p>{this.props.calories}</p>
       </div>
     );

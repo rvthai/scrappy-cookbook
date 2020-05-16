@@ -17,7 +17,7 @@ class Search extends Component {
             type="text"
             value={this.props.query}
             onChange={this.handleChange}
-            placeholder="ingredients..."
+            placeholder="chicken, kale..."
           />
           <input type="submit" value="Search" />
         </form>
