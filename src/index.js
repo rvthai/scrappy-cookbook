@@ -1,34 +1,52 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
 
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+
+import reducers from "./reducers";
+
+import TestApp from "./components/TestApp";
+
+const store = createStore(reducers, applyMiddleware(thunk));
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <TestApp recipes={null} />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+
+/*
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-// STORE -> globalized state
+import { INCREMENT } from "../actions/index";
 
-// ACTION -> describes what you want to do
-// save/bookmark recipes
-// search for recipes
-const search = () => {
-  return {
-    type: "SEARCH",
-  };
+const initialState = {
+  count: 0,
 };
 
-// REDUCER -> modify store based on action
-const list = (state = [], action) => {
+// Need to import combineReducers from redux for this
+// const allReducers = combineReducers ({
+//counter: rootReducer
+//})
+
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SEARCH":
+    case INCREMENT:
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    default:
       return state;
   }
 };
 
-// DISPATCH -> send the action to the reducer
+export default createStore(rootReducer, applyMiddleware(thunk));
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+*/

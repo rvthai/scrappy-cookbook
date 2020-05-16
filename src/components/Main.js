@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+// Redux
+import { connect } from "react-redux";
+import { getRecipes } from "../actions";
+
 import Search from "./Search";
 import Recipes from "./Recipes";
 
@@ -59,4 +63,9 @@ class Main extends Component {
   }
 }
 
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({});
+
+Main = connect(mapStateToProps, mapDispatchToProps)(Main);
 export default Main;
