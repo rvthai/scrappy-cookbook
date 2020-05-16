@@ -8,7 +8,7 @@ class TestApp extends Component {
   render() {
     return (
       <div>
-        Testin
+        Testing
         <button onClick={this.props.getRecipes}>
           click to search for chicken recipes
         </button>
