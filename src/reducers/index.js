@@ -1,12 +1,13 @@
-import { GET_RECIPES } from "../actions";
+import { combineReducers } from "redux";
 
-const reducer = (state = [], action) => {
-  switch (action.type) {
-    case GET_RECIPES:
-      return action.payload;
-    default:
-      return state;
-  }
-};
+import searchReducer from "./search";
+import recipesReducer from "./recipes";
+import bookmarkReducer from "./bookmark";
 
-export default reducer;
+const rootReducer = combineReducers({
+  search: searchReducer,
+  recipes: recipesReducer,
+  bookmark: bookmarkReducer,
+});
+
+export default rootReducer;

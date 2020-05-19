@@ -1,30 +1,26 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-import { getRecipes } from "../actions";
+import { withRouter, Link } from "react-router-dom";
 
+// actions
+import { getRecipes, saveSearch } from "../actions";
+
+// components
 import Search from "./Search";
 import Recipes from "./Recipes";
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      query: "",
-    };
-  }
-
   handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    this.props.getRecipes();
+    this.props.getRecipes(this.props.search.query);
+
+    //console.log(this.props.search.query);
   };
 
   handleSearchChange = (value) => {
-    this.setState({
-      query: value,
-    });
+    this.props.saveSearch(value);
   };
 
   render() {
@@ -32,7 +28,7 @@ class Main extends Component {
       <div>
         <h1>Scrappy Cookbook</h1>
         <Search
-          query={this.state.query}
+          query={this.props.search.query}
           onSearchChange={this.handleSearchChange}
           onSearchSubmit={this.handleSearchSubmit}
         />
@@ -43,11 +39,13 @@ class Main extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  recipes: state,
+  recipes: state.recipes,
+  search: state.search,
 });
 
 const mapDispatchToProps = {
-  getRecipes: getRecipes,
+  getRecipes,
+  saveSearch,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
