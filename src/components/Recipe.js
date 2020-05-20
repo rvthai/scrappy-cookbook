@@ -10,7 +10,6 @@ class Recipe extends Component {
         <Link to="/recipe">
           <input type="image" src={this.props.image} alt="no image" />
         </Link>
-        <a href="https://www.youtube.com">random redirect to youtube</a>
         <p>{this.props.calories}</p>
       </div>
     );
