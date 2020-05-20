@@ -20,7 +20,6 @@ class App extends Component {
             <Route exact path="/recipe">
               <RecipeModal />
             </Route>
-            <Route exact path="/bookmarks"></Route>
           </Switch>
         </Router>
       </div>

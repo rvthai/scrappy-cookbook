@@ -2,8 +2,6 @@ export const GET_RECIPES = "GET_RECIPES";
 export const SAVE_SEARCH = "SAVE_SEARCH";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
-export const ADD_BOOKMARK = "ADD_BOOKMARK";
-export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
 
 const APP_ID = "b2b48313";
 const APP_KEY = "75c1ef2136cc93da129f58f3a4ebe8df";

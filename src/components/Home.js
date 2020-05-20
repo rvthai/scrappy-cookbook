@@ -9,9 +9,6 @@ class Home extends Component {
         <Link to="/recipes">
           <h1>Search for recipes </h1>
         </Link>
-        <Link to="/bookmarks">
-          <h1>Go to bookmarks</h1>
-        </Link>
       </div>
     );
   }
