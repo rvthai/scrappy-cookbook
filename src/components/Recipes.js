@@ -7,16 +7,18 @@ class Recipes extends Component {
   render() {
     return (
       <div className="container">
-        {this.props.recipes !== undefined
-          ? this.props.recipes.map((recipe, index) => (
-              <Recipe
-                key={index}
-                recipe={recipe.recipe}
-                label={recipe.recipe.label}
-                image={recipe.recipe.image}
-                calories={recipe.recipe.calories}
-              />
-            ))
+        {this.props.recipes.hits !== undefined
+          ? this.props.recipes.hits
+              .slice(this.props.from, this.props.to)
+              .map((recipe, index) => (
+                <Recipe
+                  key={index}
+                  recipe={recipe.recipe}
+                  label={recipe.recipe.label}
+                  image={recipe.recipe.image}
+                  calories={recipe.recipe.calories}
+                />
+              ))
           : "none"}
       </div>
     );

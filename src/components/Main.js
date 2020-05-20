@@ -4,19 +4,41 @@ import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 
 // actions
-import { getRecipes, saveSearch } from "../actions";
+import { getRecipes, saveSearch, nextPage, prevPage } from "../actions";
 
 // components
 import Search from "./Search";
 import Recipes from "./Recipes";
 
 class Main extends Component {
+  handleBack = () => {
+    console.log("Back button has been clicked");
+
+    if (this.props.pagnition.from <= 0) {
+      console.log("No pages to go back to.");
+    } else {
+      console.log("Go to previous page.");
+      this.props.prevPage();
+    }
+  };
+
+  handleNext = () => {
+    console.log("Next button has been clicked.");
+    if (this.props.pagnition.to < 100) {
+      console.log("Go to next page.");
+      this.props.nextPage();
+    } else {
+      console.log("No pages to go to.");
+    }
+  };
   handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    this.props.getRecipes(this.props.search.query);
-
-    //console.log(this.props.search.query);
+    this.props.getRecipes(
+      this.props.search.query,
+      this.props.search.from,
+      this.props.search.to
+    );
   };
 
   handleSearchChange = (value) => {
@@ -32,7 +54,13 @@ class Main extends Component {
           onSearchChange={this.handleSearchChange}
           onSearchSubmit={this.handleSearchSubmit}
         />
-        <Recipes recipes={this.props.recipes} />
+        <button onClick={this.handleBack}>Back</button>
+        <button onClick={this.handleNext}>Next</button>
+        <Recipes
+          from={this.props.pagnition.from}
+          to={this.props.pagnition.to}
+          recipes={this.props.recipes}
+        />
       </div>
     );
   }
@@ -41,11 +69,14 @@ class Main extends Component {
 const mapStateToProps = (state) => ({
   recipes: state.recipes,
   search: state.search,
+  pagnition: state.pagnition,
 });
 
 const mapDispatchToProps = {
   getRecipes,
   saveSearch,
+  nextPage,
+  prevPage,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));

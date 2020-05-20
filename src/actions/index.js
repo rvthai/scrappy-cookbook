@@ -1,5 +1,7 @@
 export const GET_RECIPES = "GET_RECIPES";
 export const SAVE_SEARCH = "SAVE_SEARCH";
+export const NEXT_PAGE = "NEXT_PAGE";
+export const PREV_PAGE = "PREV_PAGE";
 export const ADD_BOOKMARK = "ADD_BOOKMARK";
 export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
 
@@ -22,17 +24,31 @@ export const saveSearch = (query) => {
   };
 };
 
+export const nextPage = () => {
+  return {
+    type: NEXT_PAGE,
+  };
+};
+
+export const prevPage = () => {
+  return {
+    type: PREV_PAGE,
+  };
+};
+
 export const getRecipes = (query) => {
   // console.log("getRecipes() called");
+  //console.log(from, to);
   return (dispatch) => {
     fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
+      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100`
     )
       .then((res) => res.json())
       .then((data) => {
+        //console.log(data.hits);
         dispatch({
           type: GET_RECIPES,
-          payload: data.hits,
+          payload: data,
         });
       });
   };
