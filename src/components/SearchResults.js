@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import "../stylesheets/Recipes.css";
 
-import Recipe from "./Recipe";
+import RecipeCard from "./RecipeCard";
 
-class Recipes extends Component {
+class SearchResults extends Component {
   render() {
     return (
       <div className="container">
@@ -11,7 +10,7 @@ class Recipes extends Component {
           ? this.props.recipes.hits
               .slice(this.props.from, this.props.to)
               .map((recipe, index) => (
-                <Recipe
+                <RecipeCard
                   key={index}
                   recipe={recipe.recipe}
                   label={recipe.recipe.label}
@@ -25,4 +24,4 @@ class Recipes extends Component {
   }
 }
 
-export default Recipes;
+export default SearchResults;

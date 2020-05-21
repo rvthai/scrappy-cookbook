@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "../stylesheets/Recipe.css";
 import { withRouter, Link } from "react-router-dom";
 
-class Recipe extends Component {
+class RecipeCard extends Component {
   render() {
     return (
       <div>
@@ -16,4 +15,4 @@ class Recipe extends Component {
   }
 }
 
-export default withRouter(Recipe);
+export default withRouter(RecipeCard);

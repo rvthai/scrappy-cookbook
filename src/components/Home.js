@@ -6,8 +6,9 @@ class Home extends Component {
     return (
       <div>
         <h1>Home Page</h1>
+        <br />
         <Link to="/recipes">
-          <h1>Search for recipes </h1>
+          <h1>Main Page - Click here to start searching for recipes</h1>
         </Link>
       </div>
     );

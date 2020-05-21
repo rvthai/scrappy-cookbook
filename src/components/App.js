@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./Home";
-import Main from "./Main";
-import RecipeModal from "./RecipeModal";
+import Search from "./Search";
+import RecipeDetails from "./RecipeDetails";
 
 class App extends Component {
   render() {
@@ -15,10 +15,10 @@ class App extends Component {
               <Home />
             </Route>
             <Route exact path="/recipes">
-              <Main query="" recipes={null} />
+              <Search query="" recipes={null} />
             </Route>
             <Route exact path="/recipe">
-              <RecipeModal />
+              <RecipeDetails />
             </Route>
           </Switch>
         </Router>
