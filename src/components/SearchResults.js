@@ -12,6 +12,7 @@ class SearchResults extends Component {
               .map((recipe, index) => (
                 <RecipeCard
                   key={index}
+                  id={index}
                   recipe={recipe.recipe}
                   label={recipe.recipe.label}
                   image={recipe.recipe.image}

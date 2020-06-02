@@ -11,15 +11,13 @@ class App extends Component {
       <div>
         <Router>
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/recipes">
-              <Search query="" recipes={null} />
-            </Route>
-            <Route exact path="/recipe">
-              <RecipeDetails />
-            </Route>
+            <Route exact path="/" component={Home} />
+            <Route
+              exact
+              path="/recipes"
+              render={(props) => <Search query="" recipes={null} {...props} />}
+            />
+            <Route exact path="/recipe" component={RecipeDetails} />
           </Switch>
         </Router>
       </div>
