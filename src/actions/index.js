@@ -1,24 +1,25 @@
 export const GET_RECIPES = "GET_RECIPES";
 export const SAVE_SEARCH = "SAVE_SEARCH";
+export const SAVE_FILTERS = "SAVE_FILTERS";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
+export const GET_RECIPE = "GET_RECIPE";
+export const GETTING_RECIPE = "GETTING_RECIPE";
 
 const APP_ID = "b2b48313";
 const APP_KEY = "75c1ef2136cc93da129f58f3a4ebe8df";
-//const url = `https://api.edamam.com/search?app_id=${APP_ID}&app_key=${APP_KEY}`;
-
-// Optional Parameters (filters)
-// from (default 0)
-// to (default 10)
-// calories
-// health
-// mealType
-// diet
 
 export const saveSearch = (query) => {
   return {
     type: SAVE_SEARCH,
     query: query,
+  };
+};
+
+export const saveFilters = (filters) => {
+  return {
+    type: SAVE_FILTERS,
+    filters: filters,
   };
 };
 
@@ -34,13 +35,38 @@ export const prevPage = () => {
   };
 };
 
-export const getRecipes = (query) => {
-  // console.log("getRecipes() called");
-  //console.log(from, to);
+export const getRecipe = (id) => {
+  const URI = `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23${id}`;
   return (dispatch) => {
-    fetch(
-      `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100`
+    dispatch({
+      type: GETTING_RECIPE,
+    });
+    return fetch(
+      `https://api.edamam.com/search?r=${URI}&app_id=${APP_ID}&app_key=${APP_KEY}`
     )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data[0]);
+        dispatch({
+          type: GET_RECIPE,
+          payload: data[0],
+        });
+      });
+  };
+};
+
+// can only do diet, health and allergies (maybe calories)
+export const getRecipes = (query, filters) => {
+  // console.log("getRecipes() called");
+  var URL = "";
+
+  if (filters.diet !== "") {
+    URL = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100&diet=${filters.diet}`;
+  } else {
+    URL = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100`;
+  }
+  return (dispatch) => {
+    fetch(URL)
       .then((res) => res.json())
       .then((data) => {
         //console.log(data.hits);
