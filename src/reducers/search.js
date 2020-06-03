@@ -1,15 +1,24 @@
-import { SAVE_SEARCH } from "../actions";
-// import { NEXT_PAGE } from "../actions";
-// import { PREV_PAGE } from "../actions";
+import { SAVE_SEARCH, SAVE_FILTERS } from "../actions";
 
-const initialState = {
+const initialSearchState = {
   query: "",
+  filters: {
+    diet: "", // cant be empty initially, must construct different url
+  },
 };
 
-const searchReducer = (state = initialState, action) => {
+const searchReducer = (state = initialSearchState, action) => {
   switch (action.type) {
     case SAVE_SEARCH:
-      return { ...state, query: action.query };
+      return {
+        ...state,
+        query: action.query,
+      };
+    case SAVE_FILTERS:
+      return {
+        ...state,
+        filters: action.filters,
+      };
     default:
       return state;
   }

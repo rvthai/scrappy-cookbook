@@ -4,11 +4,18 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 // actions
-import { getRecipes, saveSearch, nextPage, prevPage } from "../actions";
+import {
+  getRecipes,
+  saveSearch,
+  saveFilters,
+  nextPage,
+  prevPage,
+} from "../actions";
 
 // components
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
+import SearchFilters from "./SearchFilters";
 
 class Search extends Component {
   handleBack = () => {
@@ -34,15 +41,21 @@ class Search extends Component {
   handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    this.props.getRecipes(
-      this.props.search.query,
-      this.props.search.from,
-      this.props.search.to
-    );
+    this.props.getRecipes(this.props.search.query, this.props.search.filters);
   };
 
   handleSearchChange = (value) => {
     this.props.saveSearch(value);
+  };
+
+  handleFilterChange = (id, value) => {
+    console.log(id);
+    console.log(value);
+    console.log(this.props.search.filters);
+    var newObj = { ...this.props.search.filters };
+    newObj[id] = value;
+    console.log(newObj);
+    this.props.saveFilters(newObj);
   };
 
   render() {
@@ -54,6 +67,7 @@ class Search extends Component {
           onSearchChange={this.handleSearchChange}
           onSearchSubmit={this.handleSearchSubmit}
         />
+        <SearchFilters onFilterChange={this.handleFilterChange} />
         <button onClick={this.handleBack}>Back</button>
         <button onClick={this.handleNext}>Next</button>
         <SearchResults
@@ -75,6 +89,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   getRecipes,
   saveSearch,
+  saveFilters,
   nextPage,
   prevPage,
 };
