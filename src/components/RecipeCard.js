@@ -6,7 +6,7 @@ class RecipeCard extends Component {
     return (
       <div>
         <h3>{this.props.label}</h3>
-        <Link to={`/recipe/${this.props.uri.split("#")[1]}`}>
+        <Link to={`/recipes/${this.props.uri.split("#")[1]}`}>
           <input type="image" src={this.props.image} alt="no image" />
         </Link>
         <p>{this.props.calories}</p>

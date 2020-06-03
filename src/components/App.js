@@ -17,7 +17,7 @@ class App extends Component {
               path="/recipes"
               render={(props) => <Search query="" recipes={null} {...props} />}
             />
-            <Route exact path="/recipe/:id" component={RecipeDetails} />
+            <Route exact path="/recipes/:id" component={RecipeDetails} />
           </Switch>
         </Router>
       </div>
