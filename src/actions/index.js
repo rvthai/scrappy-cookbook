@@ -59,9 +59,15 @@ export const getRecipe = (id) => {
 export const getRecipes = (query, filters) => {
   // console.log("getRecipes() called");
   var URL = "";
-
-  if (filters.diet !== "") {
+  console.log(filters.health);
+  if (filters.diet !== "" && filters.health.length >= 1) {
+    const health = filters.health.join("&health=");
+    URL = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100&diet=${filters.diet}&health=${health}`;
+  } else if (filters.diet !== "") {
     URL = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100&diet=${filters.diet}`;
+  } else if (filters.health.length >= 1) {
+    const health = filters.health.join("&health=");
+    URL = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100&health=${health}`;
   } else {
     URL = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100`;
   }
