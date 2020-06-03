@@ -67,7 +67,10 @@ class Search extends Component {
           onSearchChange={this.handleSearchChange}
           onSearchSubmit={this.handleSearchSubmit}
         />
-        <SearchFilters onFilterChange={this.handleFilterChange} />
+        <SearchFilters
+          tempFilters={this.props.search.filters}
+          onFilterChange={this.handleFilterChange}
+        />
         <button onClick={this.handleBack}>Back</button>
         <button onClick={this.handleNext}>Next</button>
         <SearchResults

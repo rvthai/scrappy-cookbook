@@ -3,7 +3,8 @@ import { SAVE_SEARCH, SAVE_FILTERS } from "../actions";
 const initialSearchState = {
   query: "",
   filters: {
-    diet: "", // cant be empty initially, must construct different url
+    diet: "",
+    health: [],
   },
 };
 
