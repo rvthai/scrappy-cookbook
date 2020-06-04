@@ -1,30 +1,24 @@
 import React, { Component } from "react";
-import Checkbox from "./Checkbox";
-class SearchFilters extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      checked: false,
-    };
-  }
-  handleHealthChange = (name, value, checked) => {
-    console.log(name, value, checked);
+// Components
+import Checkbox from "./Checkbox";
+
+class SearchFilters extends Component {
+  handleHealth = (name, value, checked) => {
     if (checked) {
-      this.props.tempFilters.health.push(value);
+      this.props.filters.health.push(value);
     } else {
-      const index = this.props.tempFilters.health.indexOf(value);
+      const index = this.props.filters.health.indexOf(value);
       if (index > -1) {
-        this.props.tempFilters.health.splice(index, 1);
+        this.props.filters.health.splice(index, 1);
       }
     }
 
-    this.props.onFilterChange(name, this.props.tempFilters.health);
+    this.props.onFiltersChange(name, this.props.filters.health);
   };
 
-  handleDietChange = (event) => {
-    console.log(event.target.value);
-    this.props.onFilterChange(event.target.name, event.target.value);
+  handleDiet = (event) => {
+    this.props.onFiltersChange(event.target.name, event.target.value);
   };
 
   render() {
@@ -32,14 +26,14 @@ class SearchFilters extends Component {
       <div>
         <h2>Allergies</h2>
         <Checkbox
-          onChange={this.handleHealthChange}
+          onChange={this.handleHealth}
           id="peanut-free"
           name="health"
           value="peanut-free"
           label="Peanuts"
         />
         <Checkbox
-          onChange={this.handleHealthChange}
+          onChange={this.handleHealth}
           id="tree-nut-free"
           name="health"
           value="tree-nut-free"
@@ -47,28 +41,28 @@ class SearchFilters extends Component {
         />
         <h2>Health</h2>
         <Checkbox
-          onChange={this.handleHealthChange}
+          onChange={this.handleHealth}
           id="vegan"
           name="health"
           value="vegan"
           label="vegan"
         />
         <Checkbox
-          onChange={this.handleHealthChange}
+          onChange={this.handleHealth}
           id="vegetarian"
           name="health"
           value="vegetarian"
           label="vegetarian"
         />
         <Checkbox
-          onChange={this.handleHealthChange}
+          onChange={this.handleHealth}
           id="sugar-conscious"
           name="health"
           value="sugar-conscious"
           label="sugar-conscious"
         />
         <Checkbox
-          onChange={this.handleHealthChange}
+          onChange={this.handleHealth}
           id="alcohol-free"
           name="health"
           value="alcohol-free"
@@ -76,7 +70,7 @@ class SearchFilters extends Component {
         />
 
         <h2>Diet</h2>
-        <form onChange={this.handleDietChange}>
+        <form onChange={this.handleDiet}>
           <label htmlFor="balanced">balanced</label>
           <input type="radio" id="balanced" name="diet" value="balanced" />
           <label htmlFor="low-carb">low-carb</label>

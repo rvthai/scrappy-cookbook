@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 
-// actions
+// Actions
 import {
   getRecipes,
   saveSearch,
@@ -12,49 +10,35 @@ import {
   prevPage,
 } from "../actions";
 
-// components
+// Components
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 import SearchFilters from "./SearchFilters";
 
 class Search extends Component {
   handleBack = () => {
-    console.log("Back button has been clicked");
-
-    if (this.props.pagnition.from <= 0) {
-      console.log("No pages to go back to.");
-    } else {
-      console.log("Go to previous page.");
+    if (this.props.pagnition.from > 0) {
       this.props.prevPage();
     }
   };
 
   handleNext = () => {
-    console.log("Next button has been clicked.");
     if (this.props.pagnition.to < 100) {
-      console.log("Go to next page.");
       this.props.nextPage();
-    } else {
-      console.log("No pages to go to.");
     }
   };
   handleSearchSubmit = (event) => {
     event.preventDefault();
-
-    this.props.getRecipes(this.props.search.query, this.props.search.filters);
+    this.props.getRecipes(this.props.query, this.props.filters);
   };
 
   handleSearchChange = (value) => {
     this.props.saveSearch(value);
   };
 
-  handleFilterChange = (id, value) => {
-    console.log(id);
-    console.log(value);
-    console.log(this.props.search.filters);
-    var newObj = { ...this.props.search.filters };
+  handleFiltersChange = (id, value) => {
+    var newObj = { ...this.props.filters };
     newObj[id] = value;
-    console.log(newObj);
     this.props.saveFilters(newObj);
   };
 
@@ -63,13 +47,13 @@ class Search extends Component {
       <div>
         <h1>Scrappy Cookbook</h1>
         <SearchBar
-          query={this.props.search.query}
+          query={this.props.query}
           onSearchChange={this.handleSearchChange}
           onSearchSubmit={this.handleSearchSubmit}
         />
         <SearchFilters
-          tempFilters={this.props.search.filters}
-          onFilterChange={this.handleFilterChange}
+          filters={this.props.filters}
+          onFiltersChange={this.handleFiltersChange}
         />
         <button onClick={this.handleBack}>Back</button>
         <button onClick={this.handleNext}>Next</button>
@@ -84,8 +68,9 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  recipes: state.recipes,
-  search: state.search,
+  recipes: state.recipes.hits,
+  query: state.search.query,
+  filters: state.search.filters,
   pagnition: state.pagnition,
 });
 
@@ -97,4 +82,4 @@ const mapDispatchToProps = {
   prevPage,
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
