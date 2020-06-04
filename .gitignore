@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# development
+todo.txt
+
 # testing
 /coverage
 
