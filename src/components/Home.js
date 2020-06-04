@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "../stylesheets/Home.css";
 
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="Home">
         <h1>Home Page</h1>
         <br />
         <Link to="/recipes">
