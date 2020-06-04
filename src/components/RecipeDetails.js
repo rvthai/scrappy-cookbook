@@ -22,7 +22,7 @@ class RecipeDetails extends Component {
       <div>
         <button onClick={this.handleBack}>Back</button>
         <h2>{this.props.recipe.label}</h2>
-        <img src={this.props.recipe.image} alt="recipe image" />
+        <img src={this.props.recipe.image} alt="recipe pic" />
         <p>Source: {this.props.recipe.source}</p>
         <p>URL: {this.props.recipe.url}</p>
         <p>Servings: {this.props.recipe.yield}</p>
