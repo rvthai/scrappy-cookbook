@@ -1,5 +1,4 @@
-import { NEXT_PAGE } from "../actions";
-import { PREV_PAGE } from "../actions";
+import { NEXT_PAGE, PREV_PAGE } from "../actions";
 
 const initialState = {
   from: 0,

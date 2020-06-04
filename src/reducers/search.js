@@ -1,6 +1,6 @@
 import { SAVE_SEARCH, SAVE_FILTERS } from "../actions";
 
-const initialSearchState = {
+const initialState = {
   query: "",
   filters: {
     diet: "",
@@ -8,7 +8,7 @@ const initialSearchState = {
   },
 };
 
-const searchReducer = (state = initialSearchState, action) => {
+const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_SEARCH:
       return {

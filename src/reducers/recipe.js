@@ -1,21 +1,21 @@
-import { GETTING_RECIPE, GET_RECIPE } from "../actions";
+import { LOAD_RECIPE, GET_RECIPE } from "../actions";
 
-const initialstate = {
+const initialState = {
   data: [],
-  isLoading: true,
+  loading: true,
 };
 
-const recipeReducer = (state = initialstate, action) => {
+const recipeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GETTING_RECIPE:
+    case LOAD_RECIPE:
       return {
         ...state,
-        isLoading: true,
+        loading: true,
       };
     case GET_RECIPE:
       return {
-        isLoading: false,
         data: action.payload,
+        loading: false,
       };
     default:
       return state;
