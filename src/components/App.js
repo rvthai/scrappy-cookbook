@@ -6,6 +6,7 @@ import "../stylesheets/App.css";
 import Home from "./Home";
 import Search from "./Search";
 import RecipeDetails from "./RecipeDetails";
+import Bookmarks from "./Bookmarks";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
               render={(props) => <Search query="" recipes={null} {...props} />}
             />
             <Route exact path="/recipes/:id" component={RecipeDetails} />
+            <Route exact path="/bookmarks" component={Bookmarks} />
           </Switch>
         </Router>
       </div>

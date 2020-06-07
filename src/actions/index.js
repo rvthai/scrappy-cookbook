@@ -9,6 +9,9 @@ export const SAVE_FILTERS = "SAVE_FILTERS";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
 
+export const ADD_BOOKMARK = "ADD_BOOKMARK";
+export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
+
 const APP_ID = "b2b48313";
 const APP_KEY = "75c1ef2136cc93da129f58f3a4ebe8df";
 
@@ -80,5 +83,17 @@ export const nextPage = () => {
 export const prevPage = () => {
   return {
     type: PREV_PAGE,
+  };
+};
+
+export const addBookmark = () => {
+  return {
+    type: ADD_BOOKMARK,
+  };
+};
+
+export const removeBookmark = () => {
+  return {
+    type: ADD_BOOKMARK,
   };
 };

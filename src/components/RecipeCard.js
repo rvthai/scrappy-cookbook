@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class RecipeCard extends Component {
+  handleClick = () => {
+    console.log(this.props.bookmarked); //here
+  };
   render() {
     return (
       <div>
@@ -11,6 +14,7 @@ class RecipeCard extends Component {
         </Link>
         <h4>By: {this.props.source}</h4>
         <p>Calories: {this.props.calories}</p>
+        <button onClick={this.handleClick}>Bookmark!</button>
       </div>
     );
   }

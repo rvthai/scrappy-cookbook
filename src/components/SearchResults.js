@@ -23,6 +23,7 @@ class SearchResults extends Component {
               image={recipe.recipe.image}
               calories={recipe.recipe.calories}
               source={recipe.recipe.source}
+              bookmarked={recipe.bookmarked}
             />
           ))}
       </div>
