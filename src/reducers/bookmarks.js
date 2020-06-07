@@ -3,9 +3,9 @@ import { ADD_BOOKMARK, REMOVE_BOOKMARK } from "../actions";
 const bookmarksReducer = (state = [], action) => {
   switch (action.type) {
     case ADD_BOOKMARK:
-      break;
+      return [...state, action.payload];
     case REMOVE_BOOKMARK:
-      break;
+      return state.filter((recipe) => recipe.uri !== action.payload.uri);
     default:
       return state;
   }

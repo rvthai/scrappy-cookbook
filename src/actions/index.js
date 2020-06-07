@@ -86,14 +86,16 @@ export const prevPage = () => {
   };
 };
 
-export const addBookmark = () => {
+export const addBookmark = (data) => {
   return {
     type: ADD_BOOKMARK,
+    payload: data,
   };
 };
 
-export const removeBookmark = () => {
+export const removeBookmark = (data) => {
   return {
-    type: ADD_BOOKMARK,
+    type: REMOVE_BOOKMARK,
+    payload: data,
   };
 };
