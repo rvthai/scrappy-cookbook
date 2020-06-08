@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 // Actions
 import { getRecipe } from "../actions";
 
+// Components
+import Bookmark from "./Bookmark";
+
 class RecipeDetails extends Component {
   componentDidMount() {
     this.props.getRecipe(this.props.match.params.id);
@@ -20,6 +23,13 @@ class RecipeDetails extends Component {
 
     return (
       <div>
+        <Bookmark
+          uri={this.props.recipe.uri}
+          label={this.props.recipe.label}
+          image={this.props.recipe.image}
+          calories={this.props.recipe.calories}
+          source={this.props.recipe.source}
+        />
         <button onClick={this.handleBack}>Back</button>
         <h2>{this.props.recipe.label}</h2>
         <img src={this.props.recipe.image} alt="recipe pic" />

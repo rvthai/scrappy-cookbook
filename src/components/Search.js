@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { Link } from "react-router-dom";
+
 // Actions
 import {
   getRecipes,
@@ -46,6 +48,11 @@ class Search extends Component {
     return (
       <div>
         <h1>Scrappy Cookbook</h1>
+        <Link to="/bookmarks">
+          {" "}
+          {/* need a link in order to continue state, cant just route through url*/}
+          <button>bookmarks</button>
+        </Link>
         <SearchBar
           query={this.props.query}
           onSearchChange={this.handleSearchChange}
