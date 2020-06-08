@@ -1,0 +1,21 @@
+.navbar {
+  background-color: white;
+  height: 75px;
+  box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-left {
+  float: left;
+}
+
+.navbar-right {
+  float: right;
+}
+
+.logo {
+  margin-left: 2rem;
+}
+
+.link {
+  margin: 2rem;
+}
