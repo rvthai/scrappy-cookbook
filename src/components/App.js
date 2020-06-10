@@ -27,7 +27,7 @@ class App extends Component {
             <Route exact path="/bookmarks" component={Bookmarks} />
           </Switch>
         </Router>
-        <Footer />
+        {/*<Footer />*/}
       </div>
     );
   }

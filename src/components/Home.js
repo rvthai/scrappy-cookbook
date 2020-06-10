@@ -6,11 +6,9 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <h1>Home Page</h1>
-        <br />
-        <Link to="/recipes">
-          <h1>Main Page - Click here to start searching for recipes</h1>
-        </Link>
+        {/* <div className="junbotron-left">
+          <Link to="/recipes">search</Link>
+        </div> */}
       </div>
     );
   }

@@ -5,11 +5,13 @@ import "../stylesheets/Navbar.css";
 class Navbar extends Component {
   render() {
     return (
-      <div className="navbar">
-        <div className="navbar-left">
-          <h1 className="logo">Scrappy Cookbook</h1>
+      <nav>
+        <div className="brand">
+          <Link className="logo" to="/">
+            Scrappy Cookbook
+          </Link>
         </div>
-        <div className="navbar-right">
+        <div className="links">
           <Link className="link" to="/">
             Home
           </Link>
@@ -20,7 +22,7 @@ class Navbar extends Component {
             Bookmarks
           </Link>
         </div>
-      </div>
+      </nav>
     );
   }
 }
