@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 import RecipeCard from "./RecipeCard";
 
 class Bookmarks extends Component {
+  componentDidMount() {
+    document.body.style.backgroundImage = "none";
+  }
   render() {
     console.log(this.props.bookmarks);
     return (

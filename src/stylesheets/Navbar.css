@@ -54,3 +54,9 @@ nav {
 .link:focus::after {
   text-decoration: underline;
 }
+
+.active {
+  font-weight: bold;
+  color: white;
+  opacity: 1;
+}

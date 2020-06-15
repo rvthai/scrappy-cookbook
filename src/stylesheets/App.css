@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 
 body {
-  background-color: whitesmoke;
+  /*background-color: whitesmoke;*/
+  background-color: red;
+  background-size: cover;
+  background-repeat: no-repeat;
   margin: 0;
   font-family: "Open Sans", sans-serif;
   font-size: 1.25rem;

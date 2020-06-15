@@ -1,8 +1,40 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 import "../stylesheets/Navbar.css";
-
 class Navbar extends Component {
+  componentDidMount = () => {
+    const page = this.props.location.pathname;
+    var id = "";
+    if (page === "/") {
+      id = "home";
+    } else if (page === "/bookmarks") {
+      id = "bookmarks";
+    } else if (page === "/recipes") {
+      id = "recipes";
+    } else {
+      return;
+    }
+
+    const links = document.getElementsByClassName("link");
+    for (var i = 0; i < links.length; i++) {
+      links[i].classList.remove("active");
+    }
+
+    const t = document.getElementById(id);
+    t.classList.add("active");
+  };
+
+  setActive = (event) => {
+    const links = document.getElementsByClassName("link");
+    for (var i = 0; i < links.length; i++) {
+      links[i].classList.remove("active");
+    }
+
+    const t = document.getElementById(event.target.id);
+    t.classList.add("active");
+  };
+
   render() {
     return (
       <nav>
@@ -12,13 +44,23 @@ class Navbar extends Component {
           </Link>
         </div>
         <div className="links">
-          <Link className="link" to="/">
+          <Link id="home" onClick={this.setActive} className="link" to="/">
             Home
           </Link>
-          <Link className="link" to="/recipes">
+          <Link
+            id="recipes"
+            onClick={this.setActive}
+            className="link"
+            to="/recipes"
+          >
             Recipes
           </Link>
-          <Link className="link" to="/bookmarks">
+          <Link
+            id="bookmarks"
+            onClick={this.setActive}
+            className="link"
+            to="/bookmarks"
+          >
             Bookmarks
           </Link>
         </div>
@@ -27,4 +69,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

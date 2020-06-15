@@ -8,12 +8,13 @@ import Home from "./Home";
 import Search from "./Search";
 import RecipeDetails from "./RecipeDetails";
 import Bookmarks from "./Bookmarks";
-import Footer from "./Footer";
+import GenericNotFound from "./GenericNotFound";
+// import Footer from "./Footer";
 
 class App extends Component {
   render() {
     return (
-      <div className="">
+      <div>
         <Router>
           <Navbar />
           <Switch>
@@ -25,6 +26,7 @@ class App extends Component {
             />
             <Route exact path="/recipes/:id" component={RecipeDetails} />
             <Route exact path="/bookmarks" component={Bookmarks} />
+            <Route path="*" component={GenericNotFound} />
           </Switch>
         </Router>
         {/*<Footer />*/}

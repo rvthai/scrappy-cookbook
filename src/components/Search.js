@@ -18,6 +18,10 @@ import SearchResults from "./SearchResults";
 import SearchFilters from "./SearchFilters";
 
 class Search extends Component {
+  componentDidMount() {
+    document.body.style.backgroundImage = "none";
+  }
+
   handleBack = () => {
     if (this.props.pagnition.from > 0) {
       this.props.prevPage();
