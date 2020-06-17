@@ -5,6 +5,8 @@ import "../stylesheets/Navbar.css";
 class Navbar extends Component {
   componentDidMount = () => {
     const page = this.props.location.pathname;
+    const links = document.getElementsByClassName("link");
+    const logo = document.getElementById("logo");
     var id = "";
     if (page === "/") {
       id = "home";
@@ -16,7 +18,6 @@ class Navbar extends Component {
       return;
     }
 
-    const links = document.getElementsByClassName("link");
     for (var i = 0; i < links.length; i++) {
       links[i].classList.remove("active");
     }
@@ -39,7 +40,7 @@ class Navbar extends Component {
     return (
       <nav>
         <div className="brand">
-          <Link className="logo" to="/">
+          <Link id="logo" className="logo" to="/">
             Scrappy Cookbook
           </Link>
         </div>

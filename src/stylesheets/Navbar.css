@@ -5,6 +5,8 @@ nav {
   height: 100px;
   justify-content: space-between;
   align-items: center;
+  background-color: #f68d41;
+  opacity: 0.5;
 }
 
 .logo {
@@ -24,7 +26,7 @@ nav {
   text-decoration: none;
   margin: 2rem;
   display: inline-block;
-  opacity: 0.75;
+  opacity: 0.5;
 }
 
 .link:after {
@@ -38,6 +40,7 @@ nav {
 
 .link:hover {
   font-weight: bold;
+  opacity: 0.75;
 }
 
 .link:hover::after {
@@ -45,18 +48,7 @@ nav {
   transition: width 0.3s;
 }
 
-.link:focus {
-  font-weight: bold;
-  color: white;
-  opacity: 1;
-}
-
-.link:focus::after {
-  text-decoration: underline;
-}
-
 .active {
   font-weight: bold;
-  color: white;
-  opacity: 1;
+  opacity: 0.75;
 }
