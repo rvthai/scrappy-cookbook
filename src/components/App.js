@@ -9,7 +9,6 @@ import Search from "./Search";
 import RecipeDetails from "./RecipeDetails";
 import Bookmarks from "./Bookmarks";
 import GenericNotFound from "./GenericNotFound";
-// import Footer from "./Footer";
 
 class App extends Component {
   render() {
