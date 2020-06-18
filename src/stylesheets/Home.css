@@ -20,7 +20,7 @@
   color: white;
   text-decoration: none;
   display: inline-block;
-  margin-top: 2rem;
+  margin-top: 3rem;
   transition: 0.5s;
 }
 
@@ -40,7 +40,7 @@
 .description {
   color: white;
   font-size: 1.25rem;
-  margin-top: -45px;
+  margin-top: -60px;
   opacity: 0.75;
 }
 
