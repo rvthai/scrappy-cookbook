@@ -15,7 +15,7 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Navbar />
+          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route
@@ -28,7 +28,6 @@ class App extends Component {
             <Route path="*" component={GenericNotFound} />
           </Switch>
         </Router>
-        {/*<Footer />*/}
       </div>
     );
   }

@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../stylesheets/Home.css";
-// import sho from "../assets/sho.png";
+
+// Components
+
+import HomeNavbar from "./HomeNavbar";
 
 class Home extends Component {
   componentDidMount() {
     document.body.style.background =
       "linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(" +
-      require("../assets/b5.jpg") +
+      require("../assets/background.png") +
       ") no-repeat";
     document.body.style.backgroundSize = "cover";
   }
@@ -15,6 +18,7 @@ class Home extends Component {
   render() {
     return (
       <div className="home">
+        <HomeNavbar />
         <div className="header-container">
           <p className="header">Cook scrappy, not crappy.</p>
         </div>
@@ -24,7 +28,7 @@ class Home extends Component {
             and find the perfect recipe starting from the comfort of your very
             own fridge.
           </p>
-          <Link onMouseEnter={this.handleAnimation} to="/recipes">
+          <Link id="recipes" to="/recipes">
             <div id="btn" className="button">
               SEARCH RECIPES
             </div>
