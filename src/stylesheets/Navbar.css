@@ -1,11 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Mansalva&display=swap");
 
-.nav {
+nav {
   display: flex;
-  height: 100px;
   justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+}
+
+.nav-1 .logo {
+  color: white;
+  text-decoration: none;
+  font-family: "Mansalva", cursive;
+  font-size: 40px;
+  letter-spacing: 0.25rem;
+}
+
+.nav-1 .link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  margin: 2rem;
+  opacity: 0.75;
 }
 
 .nav2 {
@@ -20,8 +33,8 @@
   flex-wrap: wrap;
 }
 
-.logo {
-  color: white;
+.nav-2 .logo {
+  color: black;
   text-decoration: none;
   margin-left: 200px;
   font-family: "Mansalva", cursive;
@@ -40,9 +53,10 @@
 
 .links {
   margin-right: 200px;
+  margin-left: 200px;
 }
 
-.link {
+/* .link {
   color: white;
   text-decoration: none;
   margin: 2rem;
@@ -100,4 +114,4 @@
 
 .active {
   opacity: 1;
-}
+} */

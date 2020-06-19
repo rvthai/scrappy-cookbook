@@ -16,12 +16,9 @@ import {
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 import SearchFilters from "./SearchFilters";
+import HomeNavbar from "./HomeNavbar";
 
 class Search extends Component {
-  componentDidMount() {
-    document.body.style.backgroundImage = "none";
-  }
-
   handleBack = () => {
     if (this.props.pagnition.from > 0) {
       this.props.prevPage();
@@ -51,6 +48,7 @@ class Search extends Component {
   render() {
     return (
       <div>
+        <HomeNavbar />
         <h1>Scrappy Cookbook</h1>
         <h1>Scrappy Cookbook</h1>
         <h1>Scrappy Cookbook</h1>

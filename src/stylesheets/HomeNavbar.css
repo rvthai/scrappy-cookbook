@@ -8,8 +8,8 @@ nav {
   align-items: center;
 }
 
-.logo {
-  color: white;
+.logoa {
+  color: black;
   text-decoration: none;
   margin-left: 200px;
   font-family: "Mansalva", cursive;
@@ -17,32 +17,32 @@ nav {
   letter-spacing: 0.5rem;
 }
 
-.links {
+.linksa {
   margin-right: 200px;
 }
 
-.link {
-  color: white;
+.linka {
+  color: black;
   text-decoration: none;
   margin: 2rem;
   display: inline-block;
   opacity: 0.75;
 }
 
-.link:after {
+.linka:after {
   content: "";
   display: block;
   width: 0;
   height: 2px;
-  background: white;
+  background: black;
   transition: width 0.3s;
 }
 
-.link:hover {
+.linka:hover {
   opacity: 1;
 }
 
-.link:hover::after {
+.linka:hover::after {
   width: 100%;
   transition: width 0.5s;
 }
