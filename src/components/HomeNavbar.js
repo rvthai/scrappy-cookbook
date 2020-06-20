@@ -6,12 +6,20 @@ class HomeNavbar extends Component {
   render() {
     return (
       <nav className="nav-1">
-        <Link id="home" className="link" to="/">
-          Scraps
+        <Link className="logo" to="/">
+          SCRAPPY COOK
         </Link>
-        <Link id="bookmarks" className="link" to="/bookmarks">
-          B
-        </Link>
+        <div className="links">
+          <Link className="link" to="/">
+            Home
+          </Link>
+          <Link className="link" to="/recipes">
+            Recipes
+          </Link>
+          <Link id="bookmarks" className="link" to="/bookmarks">
+            Bookmarks
+          </Link>
+        </div>
       </nav>
     );
   }
