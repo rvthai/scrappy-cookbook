@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-
-class Search extends Component {
+// Actions
+import { saveSearch } from "../actions";
+class SearchBar extends Component {
   handleSubmit = (event) => {
     this.props.onSearchSubmit(event);
   };
@@ -26,4 +27,4 @@ class Search extends Component {
   }
 }
 
-export default Search;
+export default SearchBar;

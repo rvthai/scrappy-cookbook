@@ -49,19 +49,6 @@ class Search extends Component {
     return (
       <div>
         <HomeNavbar />
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
-        <h1>Scrappy Cookbook</h1>
         <Link to="/bookmarks">
           {" "}
           {/* need a link in order to continue state, cant just route through url*/}
