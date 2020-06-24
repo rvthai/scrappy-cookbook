@@ -1,8 +1,20 @@
-.nav-2 {
-  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+.wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: auto;
 }
 
-.nav-2 .brand {
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-1 .brand {
   display: flex;
   align-items: center;
   color: white;
@@ -13,18 +25,18 @@
   margin-bottom: 1rem;
 }
 
-.nav-2 .logo {
+.nav-1 .logo {
   color: white;
   padding-right: 1rem;
 }
 
-.nav-2 .links {
+.nav-1 .links {
   margin-right: 4rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
-.nav-2 .link {
+.nav-1 .link {
   color: white;
   opacity: 0.75;
   font-size: 22px;
@@ -33,11 +45,11 @@
   display: inline-block;
 }
 
-.nav-2 .link:hover {
+.nav-1 .link:hover {
   opacity: 1;
 }
 
-.nav-2 .link:after {
+.nav-1 .link:after {
   content: "";
   display: block;
   background-color: white;
@@ -46,7 +58,7 @@
   transition: width 0.4s;
 }
 
-.nav-2 .link:hover::after {
+.nav-1 .link:hover::after {
   width: 100%;
   transition: width 0.4s;
 }

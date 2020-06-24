@@ -12,14 +12,15 @@ class Home extends Component {
       <body className="home">
         <HomeNavbar />
         <div className="container">
-          <p className="header">Cook scrappy, not crappy.</p>
-          <p className="subheader">
-            Find the perfect recipe starting from the comfort of your very own
-            fridge.
-          </p>
-          <Link className="button" to="/recipes">
-            EXPLORE RECIPES
-          </Link>
+          <div className="header">Cook scrappy, not crappy.</div>
+          <div className="subheader">
+            Find the perfect recipe starting from the comfort of your fridge.
+          </div>
+          <div className="button-container">
+            <Link className="button" to="/recipes">
+              EXPLORE RECIPES
+            </Link>
+          </div>
         </div>
       </body>
     );

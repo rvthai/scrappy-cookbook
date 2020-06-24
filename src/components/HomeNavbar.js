@@ -1,29 +1,30 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../stylesheets/Navbar.css";
+import "../stylesheets/HomeNavbar.css";
 
 // Icons
-import { faInfoCircle, faCookieBite } from "@fortawesome/free-solid-svg-icons";
-
+import { falinkCircle, faCookieBite } from "@fortawesome/free-solid-svg-icons";
+import Logo from "../assets/logo.png";
 class HomeNavbar extends Component {
   render() {
     return (
       <div className="wrapper">
         <nav className="nav-1">
           <Link className="brand" to="/">
-            <FontAwesomeIcon
-              className="logo"
-              icon={faCookieBite}
-            ></FontAwesomeIcon>
-            SCRAPS
+            <img className="logo" src={Logo} width="60px" />
+            Scrappy Cookbook
           </Link>
-          <div className="buttons">
-            <FontAwesomeIcon
-              className="info"
-              icon={faInfoCircle}
-              size="2x"
-            ></FontAwesomeIcon>
+          <div className="links">
+            <Link className="link" to="/">
+              Home
+            </Link>
+            <Link className="link" to="/recipes">
+              Recipes
+            </Link>
+            <Link className="link" to="/bookmarks">
+              Bookmarks
+            </Link>
           </div>
         </nav>
       </div>

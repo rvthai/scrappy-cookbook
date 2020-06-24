@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "../stylesheets/App.css";
 
 // Components
-import Navbar from "./Navbar";
 import Home from "./Home";
 import Search from "./Search";
 import RecipeDetails from "./RecipeDetails";
@@ -15,7 +14,6 @@ class App extends Component {
     return (
       <div>
         <Router>
-          {/* <Navbar /> */}
           <Switch>
             <Route exact path="/" component={Home} />
             <Route

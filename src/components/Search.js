@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
 import { Link } from "react-router-dom";
+import "../stylesheets/Search.css";
 
 // Actions
 import {
@@ -16,7 +16,7 @@ import {
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 import SearchFilters from "./SearchFilters";
-import HomeNavbar from "./HomeNavbar";
+import Navbar from "./Navbar";
 
 class Search extends Component {
   handleBack = () => {
@@ -48,28 +48,25 @@ class Search extends Component {
   render() {
     return (
       <div>
-        <HomeNavbar />
-        <Link to="/bookmarks">
-          {" "}
-          {/* need a link in order to continue state, cant just route through url*/}
-          <button>bookmarks</button>
-        </Link>
-        <SearchBar
-          query={this.props.query}
-          onSearchChange={this.handleSearchChange}
-          onSearchSubmit={this.handleSearchSubmit}
-        />
-        <SearchFilters
-          filters={this.props.filters}
-          onFiltersChange={this.handleFiltersChange}
-        />
-        <button onClick={this.handleBack}>Back</button>
-        <button onClick={this.handleNext}>Next</button>
-        <SearchResults
-          from={this.props.pagnition.from}
-          to={this.props.pagnition.to}
-          recipes={this.props.recipes}
-        />
+        <Navbar />
+        <div className="search-container">
+          <SearchBar
+            query={this.props.query}
+            onSearchChange={this.handleSearchChange}
+            onSearchSubmit={this.handleSearchSubmit}
+          />
+          <SearchFilters
+            filters={this.props.filters}
+            onFiltersChange={this.handleFiltersChange}
+          />
+          <button onClick={this.handleBack}>Back</button>
+          <button onClick={this.handleNext}>Next</button>
+          <SearchResults
+            from={this.props.pagnition.from}
+            to={this.props.pagnition.to}
+            recipes={this.props.recipes}
+          />
+        </div>
       </div>
     );
   }
