@@ -17,6 +17,7 @@ import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 import SearchFilters from "./SearchFilters";
 import Navbar from "./Navbar";
+import Featured from "./Featured";
 
 class Search extends Component {
   handleBack = () => {
@@ -50,23 +51,29 @@ class Search extends Component {
       <div>
         <Navbar />
         <div className="search-container">
-          <SearchBar
-            query={this.props.query}
-            onSearchChange={this.handleSearchChange}
-            onSearchSubmit={this.handleSearchSubmit}
-          />
-          <SearchFilters
+          <div className="sc">
+            <div>filters</div>
+            <div className="vr"></div>
+            <SearchBar
+              className="sb"
+              query={this.props.query}
+              onSearchChange={this.handleSearchChange}
+              onSearchSubmit={this.handleSearchSubmit}
+            />
+          </div>
+        </div>
+        {/* <SearchFilters
             filters={this.props.filters}
             onFiltersChange={this.handleFiltersChange}
           />
           <button onClick={this.handleBack}>Back</button>
-          <button onClick={this.handleNext}>Next</button>
-          <SearchResults
-            from={this.props.pagnition.from}
-            to={this.props.pagnition.to}
-            recipes={this.props.recipes}
-          />
-        </div>
+          <button onClick={this.handleNext}>Next</button> */}
+        <SearchResults
+          from={this.props.pagnition.from}
+          to={this.props.pagnition.to}
+          recipes={this.props.recipes}
+        />
+        {/* <Featured /> */}
       </div>
     );
   }

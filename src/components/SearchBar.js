@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../stylesheets/SearchBar.css";
 // Actions
 import { saveSearch } from "../actions";
 class SearchBar extends Component {
@@ -16,11 +17,12 @@ class SearchBar extends Component {
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
+            className="search-bar"
             value={this.props.query}
             onChange={this.handleChange}
-            placeholder="chicken, kale..."
+            placeholder="Search recipes"
           />
-          <input type="submit" value="Search" />
+          <input className="search-btn" type="submit" value="Search" />
         </form>
       </div>
     );

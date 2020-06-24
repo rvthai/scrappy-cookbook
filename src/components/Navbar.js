@@ -10,7 +10,7 @@ class Navbar extends Component {
       <div className="wrapper">
         <nav className="nav-2">
           <Link className="brand" to="/">
-            <img className="logo" src={Logo} width="60px" />
+            <img className="logo" src={Logo} />
             Scrappy Cookbook
           </Link>
           <div className="links">
