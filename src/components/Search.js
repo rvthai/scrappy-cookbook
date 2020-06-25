@@ -50,30 +50,27 @@ class Search extends Component {
     return (
       <div>
         <Navbar />
-        <div className="search-container">
-          <div className="sc">
-            <div>filters</div>
-            <div className="vr"></div>
-            <SearchBar
-              className="sb"
-              query={this.props.query}
-              onSearchChange={this.handleSearchChange}
-              onSearchSubmit={this.handleSearchSubmit}
-            />
-          </div>
-        </div>
+        <SearchBar
+          className="sb"
+          query={this.props.query}
+          onSearchChange={this.handleSearchChange}
+          onSearchSubmit={this.handleSearchSubmit}
+        />
+
         {/* <SearchFilters
             filters={this.props.filters}
             onFiltersChange={this.handleFiltersChange}
           />
           <button onClick={this.handleBack}>Back</button>
           <button onClick={this.handleNext}>Next</button> */}
-        <SearchResults
-          from={this.props.pagnition.from}
-          to={this.props.pagnition.to}
-          recipes={this.props.recipes}
-        />
-        {/* <Featured /> */}
+        <div className="sr">
+          <SearchResults
+            from={this.props.pagnition.from}
+            to={this.props.pagnition.to}
+            recipes={this.props.recipes}
+          />
+          {/* <Featured /> */}
+        </div>
       </div>
     );
   }

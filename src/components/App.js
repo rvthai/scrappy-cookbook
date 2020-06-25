@@ -23,7 +23,7 @@ class App extends Component {
             />
             <Route exact path="/recipes/:id" component={RecipeDetails} />
             <Route exact path="/bookmarks" component={Bookmarks} />
-            <Route path="*" component={GenericNotFound} />
+            {/* <Route path="*" component={GenericNotFound} /> */}
           </Switch>
         </Router>
       </div>

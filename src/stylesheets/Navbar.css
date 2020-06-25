@@ -1,12 +1,12 @@
 .nav-2 {
-  background-color: white;
+  background-color: rgb(34, 33, 33);
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.3);
 }
 
 .nav-2 .brand {
   display: flex;
   align-items: center;
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 24px;
   margin-left: 4rem;
@@ -15,7 +15,7 @@
 }
 
 .nav-2 .logo {
-  color: black;
+  color: white;
   padding-right: 1rem;
   width: 35px;
 }
@@ -27,7 +27,7 @@
 }
 
 .nav-2 .link {
-  color: black;
+  color: white;
   opacity: 0.75;
   font-size: 20px;
   text-decoration: none;
@@ -42,7 +42,7 @@
 .nav-2 .link:after {
   content: "";
   display: block;
-  background-color: black;
+  background-color: white;
   width: 0;
   height: 2px;
   transition: width 0.4s;
