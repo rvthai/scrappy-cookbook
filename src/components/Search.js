@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "../stylesheets/Search.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 // Actions
 import {
@@ -50,26 +52,29 @@ class Search extends Component {
     return (
       <div>
         <Navbar />
-        <SearchBar
-          className="sb"
-          query={this.props.query}
-          onSearchChange={this.handleSearchChange}
-          onSearchSubmit={this.handleSearchSubmit}
-        />
-
-        {/* <SearchFilters
-            filters={this.props.filters}
-            onFiltersChange={this.handleFiltersChange}
-          />
+        <div className="search-container">
+          <div className="aaa">
+            <SearchBar
+              query={this.props.query}
+              onSearchChange={this.handleSearchChange}
+              onSearchSubmit={this.handleSearchSubmit}
+            />
+            <div className="vr"></div>
+            <SearchFilters
+              filters={this.props.filters}
+              onFiltersChange={this.handleFiltersChange}
+            />
+          </div>
+        </div>
+        <div className="results-container">
           <button onClick={this.handleBack}>Back</button>
-          <button onClick={this.handleNext}>Next</button> */}
-        <div className="sr">
+          <button onClick={this.handleNext}>Next</button>
           <SearchResults
             from={this.props.pagnition.from}
             to={this.props.pagnition.to}
             recipes={this.props.recipes}
           />
-          {/* <Featured /> */}
+          <Featured />
         </div>
       </div>
     );

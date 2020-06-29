@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../stylesheets/SearchFilters.css";
 
 // Components
 import Checkbox from "./Checkbox";
@@ -23,9 +24,9 @@ class SearchFilters extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ccc">
         <h2>Allergies</h2>
-        <Checkbox
+        {/* <Checkbox
           onChange={this.handleHealth}
           id="peanut-free"
           name="health"
@@ -67,9 +68,9 @@ class SearchFilters extends Component {
           name="health"
           value="alcohol-free"
           label="alcohol-free"
-        />
+        /> */}
 
-        <h2>Diet</h2>
+        {/* <h2>Diet</h2>
         <form onChange={this.handleDiet}>
           <label htmlFor="balanced">balanced</label>
           <input type="radio" id="balanced" name="diet" value="balanced" />
@@ -84,7 +85,7 @@ class SearchFilters extends Component {
             name="diet"
             value="high-protein"
           />
-        </form>
+        </form> */}
       </div>
     );
   }
