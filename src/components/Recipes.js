@@ -21,7 +21,7 @@ import SearchFilters from "./SearchFilters";
 import Navbar from "./Navbar";
 import Featured from "./Featured";
 
-class Search extends Component {
+class Recipes extends Component {
   handleBack = () => {
     if (this.props.pagnition.from > 0) {
       this.props.prevPage();
@@ -67,8 +67,8 @@ class Search extends Component {
           </div>
         </div>
         <div className="results-container">
-          <button onClick={this.handleBack}>Back</button>
-          <button onClick={this.handleNext}>Next</button>
+          {/* <button onClick={this.handleBack}>Back</button>
+          <button onClick={this.handleNext}>Next</button> */}
           <SearchResults
             from={this.props.pagnition.from}
             to={this.props.pagnition.to}
@@ -96,4 +96,4 @@ const mapDispatchToProps = {
   prevPage,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Recipes);

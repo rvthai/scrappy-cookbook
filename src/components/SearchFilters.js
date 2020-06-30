@@ -4,7 +4,37 @@ import "../stylesheets/SearchFilters.css";
 // Components
 import Checkbox from "./Checkbox";
 
+// icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+
 class SearchFilters extends Component {
+  componentDidMount() {
+    // Attach a click listener on the document.
+    window.addEventListener("click", this.clickListener);
+  }
+
+  componentWillUnmount() {
+    // Detach the click listener on the document.
+    window.removeEventListener("click", this.clickListener);
+  }
+
+  clickListener = (e) => {
+    console.log("document clicked");
+    var btn = document.getElementById("btn");
+    var click = document.getElementById("dropdown-content");
+    if (
+      click.style.display === "block" &&
+      !document.getElementById("btn").contains(e.target)
+    ) {
+      console.log("cancel him");
+      click.style.display = "none";
+      btn.style.opacity = 0.5;
+    } else {
+      console.log("nothing");
+    }
+  };
+
   handleHealth = (name, value, checked) => {
     if (checked) {
       this.props.filters.health.push(value);
@@ -22,10 +52,60 @@ class SearchFilters extends Component {
     this.props.onFiltersChange(event.target.name, event.target.value);
   };
 
+  showFilters = () => {
+    var click = document.getElementById("dropdown-content");
+    var icon = document.getElementById("arrow");
+    var btn = document.getElementById("btn");
+    if (click.style.display === "none") {
+      click.style.display = "block";
+      icon.classList.add("open");
+      btn.style.opacity = 1;
+    } else {
+      click.style.display = "none";
+      icon.classList.remove("open");
+      btn.style.opacity = 0.5;
+    }
+  };
+
   render() {
     return (
-      <div className="ccc">
-        <h2>Allergies</h2>
+      <div>
+        <div className="dropdown">
+          <button id="btn" onClick={this.showFilters} className="dropbtn">
+            <FontAwesomeIcon className="filter-icon" icon={faFilter} />
+            FILTERS
+            <FontAwesomeIcon
+              id="arrow"
+              className="downarrow-icon"
+              icon={faAngleDown}
+              // icon={this.state.drop ? faAngleUp : faAngleDown}
+            />
+          </button>
+          <div style={{ display: "none" }} id="dropdown-content">
+            <p>contentmorecontentletstrymorehehe</p>
+            <p>content</p>
+          </div>
+        </div>
+        {/* <div className="filter">
+          <button className="dropbtn" onClick={this.handleClick}>
+            <FontAwesomeIcon icon={faFilter} />
+            Filters
+            <FontAwesomeIcon icon={faAngleDown} />
+          </button>
+          <div id="content" className="drop-content">
+            filters go here
+          </div>
+        </div> */}
+        {/* <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn">
+            Dropdown
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div> */}
         {/* <Checkbox
           onChange={this.handleHealth}
           id="peanut-free"

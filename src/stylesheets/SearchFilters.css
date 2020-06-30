@@ -1,4 +1,46 @@
 .ccc {
-  display: flex;
+}
+
+.dropdown {
+  position: relative;
   margin-right: 4rem;
+}
+
+.dropbtn {
+  display: flex;
+  padding: 0.5rem 1rem;
+  letter-spacing: 0.2rem;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  opacity: 0.5;
+  color: black;
+  transition: 0.3s;
+}
+
+#dropdown-content {
+  position: absolute;
+  margin-top: 0.75rem;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  text-align: right;
+}
+
+.filter-icon {
+  margin-right: 0.5rem;
+}
+
+.downarrow-icon {
+  margin-left: 1rem;
+  transform: rotate(0deg);
+  transition: transform 0.2s linear;
+}
+
+.downarrow-icon.open {
+  margin-left: 1rem;
+  transform: rotate(180deg);
+  transition: transform 0.2s linear;
 }

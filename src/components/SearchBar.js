@@ -7,6 +7,31 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 // Actions
 import { saveSearch } from "../actions";
 class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      style: "#e6e6e6",
+    };
+  }
+  componentDidMount() {
+    document.getElementById("bar").addEventListener("focus", this.inFocus);
+    document.getElementById("bar").addEventListener("blur", this.outFocus);
+  }
+
+  componentWillUnmount() {
+    document.getElementById("bar").removeEventListener("focus", this.inFocus);
+    document.getElementById("bar").addEventListener("blur", this.outFocus);
+  }
+
+  inFocus = () => {
+    this.setState({ style: "black" });
+  };
+
+  outFocus = () => {
+    this.setState({ style: "#e6e6e6" });
+  };
+
   handleSubmit = (event) => {
     this.props.onSearchSubmit(event);
   };
@@ -18,9 +43,16 @@ class SearchBar extends Component {
   render() {
     return (
       <div className="bbb">
-        <FontAwesomeIcon className="search-icon" icon={faSearch} size="2x" />
+        <FontAwesomeIcon
+          id="icon"
+          className="search-icon"
+          style={{ color: `${this.state.style}` }}
+          icon={faSearch}
+          size="1x"
+        />
         <form className="form" onSubmit={this.handleSubmit}>
           <input
+            id="bar"
             className="search-bar"
             type="text"
             value={this.props.query}

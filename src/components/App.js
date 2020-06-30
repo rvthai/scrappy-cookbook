@@ -4,7 +4,7 @@ import "../stylesheets/App.css";
 
 // Components
 import Home from "./Home";
-import Search from "./Search";
+import Recipes from "./Recipes";
 import RecipeDetails from "./RecipeDetails";
 import Bookmarks from "./Bookmarks";
 import GenericNotFound from "./GenericNotFound";
@@ -19,7 +19,7 @@ class App extends Component {
             <Route
               exact
               path="/recipes"
-              render={(props) => <Search query="" recipes={null} {...props} />}
+              render={(props) => <Recipes query="" recipes={null} {...props} />}
             />
             <Route exact path="/recipes/:id" component={RecipeDetails} />
             <Route exact path="/bookmarks" component={Bookmarks} />
