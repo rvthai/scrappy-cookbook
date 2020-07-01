@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 // Components
 import RecipeCard from "./RecipeCard";
+import Navbar from "./Navbar";
 
 class Bookmarks extends Component {
   componentDidMount() {
@@ -12,7 +13,7 @@ class Bookmarks extends Component {
     console.log(this.props.bookmarks);
     return (
       <div>
-        <h1>Bookmarks</h1>
+        <Navbar />
         {this.props.bookmarks.map((recipe, index) => (
           <RecipeCard
             key={index}

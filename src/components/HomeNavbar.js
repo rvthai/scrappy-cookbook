@@ -16,7 +16,7 @@ class HomeNavbar extends Component {
             Scrappy Cookbook
           </Link>
           <div className="links">
-            <Link className="link" to="/">
+            <Link className="link active" to="/">
               Home
             </Link>
             <Link className="link" to="/recipes">

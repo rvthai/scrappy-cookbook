@@ -52,3 +52,7 @@
   width: 100%;
   transition: width 0.4s;
 }
+
+.nav-2 .active {
+  opacity: 1;
+}

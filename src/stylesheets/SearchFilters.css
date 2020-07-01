@@ -19,6 +19,14 @@
   transition: 0.3s;
 }
 
+.dropbtn:hover {
+  opacity: 1;
+}
+
+.active {
+  opacity: 1;
+}
+
 #dropdown-content {
   position: absolute;
   margin-top: 0.75rem;
@@ -35,12 +43,13 @@
 
 .downarrow-icon {
   margin-left: 1rem;
-  transform: rotate(0deg);
-  transition: transform 0.2s linear;
+  transition: 0.3s;
+  /* transform: rotate(0deg);
+  transition: transform 0.2s linear; */
 }
 
-.downarrow-icon.open {
+/* .downarrow-icon.open {
   margin-left: 1rem;
   transform: rotate(180deg);
   transition: transform 0.2s linear;
-}
+} */

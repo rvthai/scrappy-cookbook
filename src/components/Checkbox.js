@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../stylesheets/Filters.css";
 
 class Checkbox extends Component {
   handleChange = (event) => {
@@ -11,15 +12,16 @@ class Checkbox extends Component {
 
   render() {
     return (
-      <div>
-        <label htmlFor={this.props.id}>{this.props.label}</label>
+      <div className="filter-btn">
+        Peanut-FreePeanut-FreePeanut-FreePeanut-FreePeanut-FreePeanut-Frees
+        {/* <label htmlFor={this.props.id}>{this.props.label}</label>
         <input
           type="checkbox"
           id={this.props.id}
           name={this.props.name}
           value={this.props.value}
           onChange={this.handleChange}
-        />
+        /> */}
       </div>
     );
   }

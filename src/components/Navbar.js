@@ -1,10 +1,21 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../stylesheets/Navbar.css";
 
 import Logo from "../assets/logo.png";
 class Navbar extends Component {
+  componentDidMount() {
+    const location = this.props.location.pathname;
+    console.log(location);
+    if (location === "/recipes") {
+      var e = document.getElementById("recipes");
+      e.style.opacity = 1;
+    } else {
+      var e = document.getElementById("bookmarks");
+      e.style.opacity = 1;
+    }
+  }
   render() {
     return (
       <div className="wrapper">
@@ -14,13 +25,13 @@ class Navbar extends Component {
             Scrappy Cookbook
           </Link>
           <div className="links">
-            <Link className="link" to="/">
+            <Link id="home" className="link" to="/">
               Home
             </Link>
-            <Link className="link" to="/recipes">
+            <Link id="recipes" className="link" to="/recipes">
               Recipes
             </Link>
-            <Link className="link" to="/bookmarks">
+            <Link id="bookmarks" className="link" to="/bookmarks">
               Bookmarks
             </Link>
           </div>
@@ -30,4 +41,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);
