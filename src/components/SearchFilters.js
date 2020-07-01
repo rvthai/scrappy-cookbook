@@ -3,25 +3,23 @@ import "../stylesheets/SearchFilters.css";
 
 // Components
 import Checkbox from "./Checkbox";
+import HealthFilters from "./HealthFilters";
+import DietFilters from "./DietFilters";
 
-// icons
+// Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import { isCompositeComponent } from "react-dom/test-utils";
 
 class SearchFilters extends Component {
   componentDidMount() {
-    // Attach a click listener on the document.
     window.addEventListener("click", this.clickListener);
   }
 
   componentWillUnmount() {
-    // Detach the click listener on the document.
     window.removeEventListener("click", this.clickListener);
   }
 
   clickListener = (e) => {
-    console.log("document clicked");
     var btn = document.getElementById("btn");
     var click = document.getElementById("dropdown-content");
     if (
@@ -29,11 +27,8 @@ class SearchFilters extends Component {
       !document.getElementById("btn").contains(e.target) &&
       !click.contains(e.target)
     ) {
-      console.log("cancel him");
       click.style.display = "none";
       btn.classList.remove("active");
-    } else {
-      console.log("nothing");
     }
   };
 
@@ -82,8 +77,15 @@ class SearchFilters extends Component {
               icon={faAngleDown}
             />
           </button>
-          <div style={{ display: "none" }} id="dropdown-content">
-            <Checkbox
+          <div
+            className="content"
+            style={{ display: "none" }}
+            id="dropdown-content"
+          >
+            <HealthFilters />
+            <div className="horizontal-rule" />
+            <DietFilters />
+            {/* <Checkbox
               onChange={this.handleHealth}
               id="peanut-free"
               name="health"
@@ -140,7 +142,7 @@ class SearchFilters extends Component {
                 name="diet"
                 value="high-protein"
               />
-            </form>
+            </form> */}
           </div>
         </div>
       </div>
