@@ -11,21 +11,22 @@
   white-space: nowrap;
   padding: 0.5rem 1rem;
   border-radius: 25px;
-  transition: 0.3s;
+  transition: all 0.5s linear;
   cursor: pointer;
   margin: 0.25rem;
 }
 
 .label-icon {
   padding-left: 1rem;
+  transition: 1s;
+  transition: all 0.4s ease 0s;
 }
 
 .filter-btn:hover {
   background-color: black;
   color: white;
-  transition: 0.3s;
+  transition: all 0.4s ease 0s;
 }
-
 .active-filter {
   background-color: black;
   color: white;
