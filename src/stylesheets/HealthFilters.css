@@ -6,8 +6,8 @@
 
 .filter-btn {
   background-color: white;
-  color: purple;
-  border: solid 1px purple;
+  color: black;
+  border: solid 1px black;
   white-space: nowrap;
   padding: 0.5rem 1rem;
   border-radius: 25px;
@@ -21,7 +21,7 @@
 }
 
 .filter-btn:hover {
-  background-color: purple;
+  background-color: black;
   color: white;
   transition: 0.3s;
 }
