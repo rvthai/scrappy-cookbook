@@ -3,7 +3,7 @@ import "../stylesheets/HealthFilters.css";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 class HealthFilters extends Component {
   //   handleChange = (event) => {
@@ -14,32 +14,40 @@ class HealthFilters extends Component {
   //     );
   //   };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      icon: "",
-    };
-  }
-
   handleClick = (id) => {
     console.log(id);
 
     var lab = document.getElementById(id);
+    var ic = document.getElementById(id.concat("-icon"));
     console.log(lab);
     if (lab.className.match("active-filter")) {
       lab.classList.remove("active-filter");
-      this.setState({ icon: "" });
+      ic.style.display = "none";
     } else {
       lab.classList.add("active-filter");
-      this.setState({ icon: faTimes });
+      ic.style.display = "inline-block";
+    }
+  };
+
+  handleClear = () => {
+    var l = document.getElementsByClassName("active-filter");
+
+    while (l.length > 0) {
+      var ic = document.getElementById(l[0].id.concat("-icon"));
+      l[0].classList.remove("active-filter");
+      ic.style.display = "none";
     }
   };
 
   render() {
     return (
       <div>
-        <p>HEALTH & ALLERGIES</p>
+        <div className="mini-header">
+          <p className="start">HEALTH</p>
+          <p onClick={this.handleClear} className="end">
+            clear
+          </p>
+        </div>
         <div className="health-filters-container">
           <div
             id="peanut-free"
@@ -47,7 +55,11 @@ class HealthFilters extends Component {
             className="filter-btn"
           >
             peanut-free
-            <FontAwesomeIcon className="label-icon" icon={faTimes} />
+            <FontAwesomeIcon
+              id="peanut-free-icon"
+              className="label-icon"
+              icon={faTimes}
+            />
           </div>
           <div
             id="tree-nut-free"
@@ -55,7 +67,11 @@ class HealthFilters extends Component {
             className="filter-btn"
           >
             tree nut-free
-            <FontAwesomeIcon className="label-icon" icon={faTimes} />
+            <FontAwesomeIcon
+              id="tree-nut-free-icon"
+              className="label-icon"
+              icon={faTimes}
+            />
           </div>
         </div>
         <div className="health-filters-container">
@@ -65,7 +81,11 @@ class HealthFilters extends Component {
             className="filter-btn"
           >
             sugar-concious
-            <FontAwesomeIcon className="label-icon" icon={faTimes} />
+            <FontAwesomeIcon
+              id="sugar-concious-icon"
+              className="label-icon"
+              icon={faTimes}
+            />
           </div>
           <div
             id="vegan"
@@ -73,7 +93,11 @@ class HealthFilters extends Component {
             className="filter-btn"
           >
             vegan
-            <FontAwesomeIcon className="label-icon" icon={faTimes} />
+            <FontAwesomeIcon
+              id="vegan-icon"
+              className="label-icon"
+              icon={faTimes}
+            />
           </div>
         </div>
         <div className="health-filters-container">
@@ -83,7 +107,11 @@ class HealthFilters extends Component {
             className="filter-btn"
           >
             alcohol-free
-            <FontAwesomeIcon className="label-icon" icon={faTimes} />
+            <FontAwesomeIcon
+              id="alcohol-free-icon"
+              className="label-icon"
+              icon={faTimes}
+            />
           </div>
           <div
             id="vegetarian"
@@ -91,7 +119,11 @@ class HealthFilters extends Component {
             className="filter-btn"
           >
             vegetarian
-            <FontAwesomeIcon className="label-icon" icon={faTimes} />
+            <FontAwesomeIcon
+              id="vegetarian-icon"
+              className="label-icon"
+              icon={faTimes}
+            />
           </div>
         </div>
       </div>

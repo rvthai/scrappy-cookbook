@@ -24,18 +24,24 @@ class DietFilters extends Component {
     tab.classList.add("active-btn");
   };
 
+  handleClear = () => {
+    var oldtab = document.getElementsByClassName("active-btn");
+    if (oldtab.length > 0) {
+      oldtab[0].children[0].checked = false;
+      oldtab[0].classList.remove("active-btn");
+    }
+  };
+
   render() {
     return (
       <div>
-        <p>DIET</p>
+        <div className="mini-header">
+          <p className="start">DIET</p>
+          <p onClick={this.handleClear} className="end">
+            clear
+          </p>
+        </div>
         <form className="container-radio" onChange={this.handleChange}>
-          <label id="all" className="radio-container">
-            All
-            <input className="circle" type="radio" name="diet" value="all" />
-            <div className="checkmark">
-              <div className="mini"></div>
-            </div>
-          </label>
           <label id="balanced" className="radio-container">
             Balanced
             <input
