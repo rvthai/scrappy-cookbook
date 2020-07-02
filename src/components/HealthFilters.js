@@ -14,37 +14,69 @@ class HealthFilters extends Component {
   //     );
   //   };
 
+  handleClick = (event) => {
+    console.log(event.target.id);
+
+    var lab = document.getElementById(event.target.id);
+    console.log(lab);
+    // if (lab.className.match("active-filter")) {
+    //   lab.classList.remove("active-filter");
+    // } else {
+    //   lab.classList.add("active-filter");
+    // }
+  };
+
   render() {
     return (
       <div>
         <p>HEALTH & ALLERGIES</p>
         <div className="health-filters-container">
-          <div className="filter-btn">
+          <div
+            id="peanut-free"
+            onClick={this.handleClick}
+            className="filter-btn"
+          >
             peanut-free
             <FontAwesomeIcon className="label-icon" icon={faCheck} />
           </div>
-          <div className="filter-btn">
+          <div
+            id="tree-nut-free"
+            onClick={this.handleClick}
+            className="filter-btn"
+          >
             tree nut-free
             <FontAwesomeIcon className="label-icon" icon={faCheck} />
           </div>
-          <div className="filter-btn">
+          {/* <div
+            id="alcohol-free"
+            onClick={this.handleClick}
+            className="filter-btn"
+          >
             alcohol-free
             <FontAwesomeIcon className="label-icon" icon={faCheck} />
           </div>
         </div>
         <div className="health-filters-container">
-          <div className="filter-btn">
+          <div
+            id="sugar-concious"
+            onClick={this.handleClick}
+            className="filter-btn"
+          >
             sugar-concious
             <FontAwesomeIcon className="label-icon" icon={faCheck} />
           </div>
-          <div className="filter-btn">
+          <div id="vegan" onClick={this.handleClick} className="filter-btn">
             vegan
             <FontAwesomeIcon className="label-icon" icon={faCheck} />
           </div>
-          <div className="filter-btn">
+          <div
+            id="vegetarian"
+            onClick={this.handleClick}
+            className="filter-btn"
+          >
             vegetarian
             <FontAwesomeIcon className="label-icon" icon={faCheck} />
-          </div>
+          </div> */}
         </div>
       </div>
     );
