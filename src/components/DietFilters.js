@@ -19,7 +19,29 @@ class DietFilters extends Component {
       <div>
         <p>DIET</p>
         <form onChange={this.handleDiet}>
-          <label class="radio-container">
+          <label className="radio-container">
+            All
+            <input
+              className="circle"
+              type="radio"
+              name="diet"
+              id="all"
+              value="all"
+            />
+            <span className="checkmark"></span>
+          </label>
+          {/* <div className="radio-container">
+            <input
+              className="circle"
+              type="radio"
+              name="diet"
+              id="all"
+              value="all"
+            />
+            <label for="all">All</label>
+            <span className="checkmark"></span>
+          </div> */}
+          {/* <label class="radio-container">
             All
             <input type="radio" checked="checked" name="radio" />
             <span class="checkmark"></span>
@@ -43,7 +65,7 @@ class DietFilters extends Component {
             High-carb
             <input type="radio" checked="checked" name="radio" />
             <span class="checkmark"></span>
-          </label>
+          </label> */}
         </form>
       </div>
     );
