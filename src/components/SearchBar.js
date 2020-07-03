@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../stylesheets/SearchBar.css";
 
 // Icons
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 // Actions
 import { saveSearch } from "../actions";
 class SearchBar extends Component {
@@ -25,19 +25,39 @@ class SearchBar extends Component {
   }
 
   inFocus = () => {
+    document.body.classList.add("back");
     this.setState({ style: "black" });
   };
 
   outFocus = () => {
+    this.styleCross(document.getElementById("bar").value);
+    document.body.classList.remove("back");
     this.setState({ style: "#e6e6e6" });
   };
 
+  styleCross = (s) => {
+    if (s != "") {
+      document.getElementById("clear-icon").style.display = "inline-block";
+    } else {
+      document.getElementById("clear-icon").style.display = "none";
+    }
+  };
+
   handleSubmit = (event) => {
+    document.body.classList.remove("back");
+    document.getElementById("bar").blur();
     this.props.onSearchSubmit(event);
   };
 
   handleChange = (event) => {
+    this.styleCross(event.target.value);
     this.props.onSearchChange(event.target.value);
+  };
+
+  handleClear = () => {
+    document.getElementById("bar").focus();
+    this.styleCross("");
+    this.props.onSearchChange("");
   };
 
   render() {
@@ -57,9 +77,18 @@ class SearchBar extends Component {
             type="text"
             value={this.props.query}
             onChange={this.handleChange}
+            autoComplete="off"
             placeholder="chicken, kale, broccoli..."
           />
         </form>
+        <FontAwesomeIcon
+          onClick={this.handleClear}
+          id="clear-icon"
+          style={{ color: `${this.state.style}` }}
+          className="clear-icon"
+          icon={faTimes}
+          size="1x"
+        />
       </div>
     );
   }

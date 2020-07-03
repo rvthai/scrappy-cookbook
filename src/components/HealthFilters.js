@@ -6,26 +6,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 class HealthFilters extends Component {
-  //   handleChange = (event) => {
-  //     this.props.onChange(
-  //       event.target.name,
-  //       event.target.value,
-  //       event.target.checked
-  //     );
-  //   };
-
   handleClick = (id) => {
-    console.log(id);
-
     var lab = document.getElementById(id);
     var ic = document.getElementById(id.concat("-icon"));
     console.log(lab);
     if (lab.className.match("active-filter")) {
       lab.classList.remove("active-filter");
       ic.style.display = "none";
+      this.props.onChange("health", id, false);
     } else {
       lab.classList.add("active-filter");
       ic.style.display = "inline-block";
+      this.props.onChange("health", id, true);
     }
   };
 

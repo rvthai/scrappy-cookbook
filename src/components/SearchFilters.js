@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../stylesheets/SearchFilters.css";
 
 // Components
-import Checkbox from "./Checkbox";
 import HealthFilters from "./HealthFilters";
 import DietFilters from "./DietFilters";
 
@@ -21,6 +20,7 @@ class SearchFilters extends Component {
 
   clickListener = (e) => {
     var btn = document.getElementById("btn");
+    var icon = document.getElementById("arrow");
     var click = document.getElementById("dropdown-content");
     if (
       click.style.display === "block" &&
@@ -29,6 +29,7 @@ class SearchFilters extends Component {
     ) {
       click.style.display = "none";
       btn.classList.remove("active");
+      icon.classList.remove("open");
     }
   };
 
@@ -45,8 +46,8 @@ class SearchFilters extends Component {
     this.props.onFiltersChange(name, this.props.filters.health);
   };
 
-  handleDiet = (event) => {
-    this.props.onFiltersChange(event.target.name, event.target.value);
+  handleDiet = (name, value) => {
+    this.props.onFiltersChange(name, value);
   };
 
   showFilters = () => {
@@ -82,67 +83,10 @@ class SearchFilters extends Component {
             style={{ display: "none" }}
             id="dropdown-content"
           >
-            <HealthFilters />
+            <HealthFilters onChange={this.handleHealth} />
             <div className="horizontal-rule" />
-            <DietFilters />
-            {/* <Checkbox
-              onChange={this.handleHealth}
-              id="peanut-free"
-              name="health"
-              value="peanut-free"
-              label="Peanuts"
-            />
-            <Checkbox
-              onChange={this.handleHealth}
-              id="tree-nut-free"
-              name="health"
-              value="tree-nut-free"
-              label="Tree-nuts"
-            />
-            <h2>Health</h2>
-            <Checkbox
-              onChange={this.handleHealth}
-              id="vegan"
-              name="health"
-              value="vegan"
-              label="vegan"
-            />
-            <Checkbox
-              onChange={this.handleHealth}
-              id="vegetarian"
-              name="health"
-              value="vegetarian"
-              label="vegetarian"
-            />
-            <Checkbox
-              onChange={this.handleHealth}
-              id="sugar-conscious"
-              name="health"
-              value="sugar-conscious"
-              label="sugar-conscious"
-            />
-            <Checkbox
-              onChange={this.handleHealth}
-              id="alcohol-free"
-              name="health"
-              value="alcohol-free"
-              label="alcohol-free"
-            />
-            <form onChange={this.handleDiet}>
-              <label htmlFor="balanced">balanced</label>
-              <input type="radio" id="balanced" name="diet" value="balanced" />
-              <label htmlFor="low-carb">low-carb</label>
-              <input type="radio" id="low-carb" name="diet" value="low-carb" />
-              <label htmlFor="low-fat">low-fat</label>
-              <input type="radio" id="low-fat" name="diet" value="low-fat" />
-              <label htmlFor="high-protein">high-protein</label>
-              <input
-                type="radio"
-                id="high-protein"
-                name="diet"
-                value="high-protein"
-              />
-            </form> */}
+            <DietFilters onChange={this.handleDiet} />
+            <div className="horizontal-rule" />
           </div>
         </div>
       </div>

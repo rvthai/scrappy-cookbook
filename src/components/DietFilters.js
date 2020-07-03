@@ -6,14 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 class DietFilters extends Component {
-  //   handleChange = (event) => {
-  //     this.props.onChange(
-  //       event.target.name,
-  //       event.target.value,
-  //       event.target.checked
-  //     );
-  //   };
-
   handleChange = (event) => {
     var oldtab = document.getElementsByClassName("active-btn");
     if (oldtab.length > 0) {
@@ -22,6 +14,8 @@ class DietFilters extends Component {
 
     var tab = document.getElementById(event.target.value);
     tab.classList.add("active-btn");
+
+    this.props.onChange(event.target.name, event.target.value);
   };
 
   handleClear = () => {

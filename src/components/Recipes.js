@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import "../stylesheets/Search.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import "../stylesheets/Recipes.css";
 
 // Actions
 import {
@@ -67,6 +65,7 @@ class Recipes extends Component {
           </div>
         </div>
         <div className="results-container">
+          <Featured />
           {/* <button onClick={this.handleBack}>Back</button>
           <button onClick={this.handleNext}>Next</button> */}
           <SearchResults
@@ -74,7 +73,6 @@ class Recipes extends Component {
             to={this.props.pagnition.to}
             recipes={this.props.recipes}
           />
-          <Featured />
         </div>
       </div>
     );

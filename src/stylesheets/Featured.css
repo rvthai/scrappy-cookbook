@@ -1,0 +1,42 @@
+.con {
+  margin-top: 300px;
+  text-align: center;
+}
+
+.instructions {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.instructcard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+  width: 300px;
+  margin: 2rem;
+  box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  font-size: 20px;
+  letter-spacing: 0.2rem;
+}
+
+.head-description {
+  font-size: 20px;
+  margin-top: 2rem;
+}
+
+.descriptions {
+  color: rgba(0, 0, 0, 0.5);
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-top: 0;
+}
+
+.food-icon {
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 5rem;
+}
