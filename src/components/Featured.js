@@ -38,7 +38,7 @@ class Featured extends Component {
           </div>
           <div className="instructcard">
             <FontAwesomeIcon className="food-icon" icon={faHotdog} size="3x" />
-            <p className="head-description">Search by ingredients</p>
+            <p className="head-description">Filter recipes</p>
             <p className="descriptions">
               It only takes a few simple steps to find the recipe you're looking
               for.
