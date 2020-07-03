@@ -7,20 +7,13 @@ import {
   faHamburger,
 } from "@fortawesome/free-solid-svg-icons";
 
-//faBookmark
-//faHamburger
-//faPizzaSlice
-//faIceCream
-//faHotDog
-//faCarrot
-
 class Featured extends Component {
   render() {
     return (
       <div className="con">
         <p className="title">HOW IT WORKS</p>
         <p className="descriptions">
-          It only takes a few simple steps to find the recipe you're looking
+          All it takes are a few simple steps to find the recipe you're looking
           for.
         </p>
         <div className="instructions">
@@ -32,16 +25,16 @@ class Featured extends Component {
             />
             <p className="head-description">Search by ingredients</p>
             <p className="descriptions">
-              It only takes a few simple steps to find the recipe you're looking
-              for.
+              Search a variety of recipe ideas by typing in ingredients into the
+              search bar above.
             </p>
           </div>
           <div className="instructcard">
             <FontAwesomeIcon className="food-icon" icon={faHotdog} size="3x" />
             <p className="head-description">Filter recipes</p>
             <p className="descriptions">
-              It only takes a few simple steps to find the recipe you're looking
-              for.
+              Apply filters to find recipes pertaining to any allergies or your
+              current diet.
             </p>
           </div>
 
@@ -51,10 +44,10 @@ class Featured extends Component {
               icon={faPizzaSlice}
               size="3x"
             />
-            <p className="head-description">Search by ingredients</p>
+            <p className="head-description">Bookmark recipes</p>
             <p className="descriptions">
-              It only takes a few simple steps to find the recipe you're looking
-              for.
+              Save potential recipes for later as you continue looking for that
+              perfect recipe.
             </p>
           </div>
         </div>
