@@ -8,7 +8,7 @@ import Bookmark from "./Bookmark";
 class RecipeCard extends Component {
   render() {
     return (
-      <div className="card-container">
+      <div className="card">
         <h3>{this.props.label}</h3>
         <Link to={`/recipes/${this.props.uri.split("#")[1]}`}>
           <input

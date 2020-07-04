@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../stylesheets/SearchResults.css";
 
 // Components
 import RecipeCard from "./RecipeCard";
@@ -18,7 +19,7 @@ class SearchResults extends Component {
     }
 
     return (
-      <div>
+      <div className="cards-container">
         {this.props.recipes
           .slice(this.props.from, this.props.to)
           .map((recipe, index) => (
