@@ -9,7 +9,7 @@ class RecipeCard extends Component {
   render() {
     return (
       <div className="card">
-        <h3>{this.props.label}</h3>
+        {/* <h3>{this.props.label}</h3> */}
         <Link to={`/recipes/${this.props.uri.split("#")[1]}`}>
           <input
             id="recipe-card-image"
@@ -18,7 +18,7 @@ class RecipeCard extends Component {
             alt="recipe pic"
           />
         </Link>
-        <h4>By: {this.props.source}</h4>
+        {/* <h4>By: {this.props.source}</h4>
         <p>Calories: {this.props.calories}</p>
         <Bookmark
           uri={this.props.uri}
@@ -26,7 +26,7 @@ class RecipeCard extends Component {
           image={this.props.image}
           calories={this.props.calories}
           source={this.props.source}
-        />
+        /> */}
       </div>
     );
   }

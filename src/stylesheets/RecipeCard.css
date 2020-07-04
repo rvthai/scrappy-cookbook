@@ -1,14 +1,12 @@
 .card {
-  /* width: 100px; */
   box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.2);
-  overflow-wrap: break-word;
-  /* overflow: hidden;
-  flex-basis: 25%;
   margin: 2rem;
-  flex-grow: 0;
-  flex-shrink: 0; */
+  width: 300px;
 }
 
 #recipe-card-image {
-  border: solid 3px red;
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 300px;
+  max-height: 300px;
 }

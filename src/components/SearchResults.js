@@ -4,6 +4,7 @@ import "../stylesheets/SearchResults.css";
 // Components
 import RecipeCard from "./RecipeCard";
 import Featured from "./Featured";
+import TestCards from "./TestCards";
 
 class SearchResults extends Component {
   render() {
@@ -21,7 +22,8 @@ class SearchResults extends Component {
     return (
       <div className="cards-container">
         {this.props.recipes
-          .slice(this.props.from, this.props.to)
+          // .slice(this.props.from, this.props.to)
+          .slice(0, 20)
           .map((recipe, index) => (
             <RecipeCard
               key={index}
