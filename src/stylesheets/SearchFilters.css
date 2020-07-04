@@ -38,15 +38,9 @@
   margin-right: 0.5rem;
 }
 
-/* .downarrow-icon {
-  margin-left: 1rem;
-  transition: 0.3s;
-} */
-
 .horizontal-rule {
   border-bottom: 1px solid #e6e6e6;
   margin-top: 2em;
-  margin-bottom: 2rem;
 }
 
 .downarrow-icon {
@@ -59,4 +53,32 @@
   margin-left: 1rem;
   transform: rotate(180deg);
   transition: transform 0.3s linear;
+}
+
+.end-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-button {
+  cursor: pointer;
+  margin-right: 1.5rem;
+  transition: 0.4s;
+  opacity: 0.5;
+}
+
+.cancel-button:hover {
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.apply-button {
+  cursor: pointer;
+  color: black;
+  transition: 0.4s;
+}
+
+.apply-button:hover {
+  font-weight: bold;
+  transition: 0.5s;
 }

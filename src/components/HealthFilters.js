@@ -34,7 +34,7 @@ class HealthFilters extends Component {
   render() {
     return (
       <div>
-        <div className="mini-header">
+        <div className="mini-header-health">
           <p className="start">HEALTH</p>
           <p onClick={this.handleClear} className="end">
             clear

@@ -2,13 +2,19 @@ import React, { Component } from "react";
 
 // Components
 import RecipeCard from "./RecipeCard";
+import Featured from "./Featured";
 
 class SearchResults extends Component {
   render() {
     if (this.props.recipes === undefined) {
       return null;
     } else if (this.props.recipes.length <= 0) {
-      return <p>No recipes found.</p>;
+      return (
+        <div>
+          <p>No recipes found.</p>
+          <Featured />
+        </div>
+      );
     }
 
     return (

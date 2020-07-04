@@ -25,13 +25,17 @@ class SearchBar extends Component {
   }
 
   inFocus = () => {
-    document.body.classList.add("back");
+    // document.body.classList.add("back");
+    var over = document.getElementById("overlay");
+    over.style.opacity = 1;
     this.setState({ style: "black" });
   };
 
   outFocus = () => {
     this.styleCross(document.getElementById("bar").value);
-    document.body.classList.remove("back");
+    // document.body.classList.remove("back");
+    var over = document.getElementById("overlay");
+    over.style.opacity = 0;
     this.setState({ style: "#e6e6e6" });
   };
 
@@ -44,7 +48,9 @@ class SearchBar extends Component {
   };
 
   handleSubmit = (event) => {
-    document.body.classList.remove("back");
+    // document.body.classList.remove("back");
+    var over = document.getElementById("overlay");
+    over.style.opacity = 0;
     document.getElementById("bar").blur();
     this.props.onSearchSubmit(event);
   };

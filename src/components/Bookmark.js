@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "../stylesheets/Bookmark.css";
 
 // Actions
 import { addBookmark, removeBookmark } from "../actions";
@@ -36,7 +37,11 @@ class Bookmark extends Component {
     if (this.containsObject(obj, this.props.bookmarks)) {
       return (
         <div>
-          <button onClick={() => this.handleUnbookmark(obj)} type="button">
+          <button
+            className="bb"
+            onClick={() => this.handleUnbookmark(obj)}
+            type="button"
+          >
             Bookmarked.
           </button>
         </div>
@@ -44,7 +49,11 @@ class Bookmark extends Component {
     }
     return (
       <div>
-        <button onClick={() => this.handleBookmark(obj)} type="button">
+        <button
+          className="bb"
+          onClick={() => this.handleBookmark(obj)}
+          type="button"
+        >
           Bookmark?
         </button>
       </div>

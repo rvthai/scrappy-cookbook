@@ -35,22 +35,7 @@
   color: white;
 }
 
-/*
-<a href="#" class="lock">
-    <i class="icon-unlock"></i>
-    <i class="icon-lock"></i>
-</a>
-CSS:
-.lock:hover .icon-unlock,
-.lock .icon-lock {
-    display: none;
+.mini-header-health {
+  display: flex;
+  justify-content: space-between;
 }
-.lock:hover .icon-lock {
-    display: inline;
-}
-Or, you could change the content of the icon-unlock class:
-
-.lock:hover .icon-unlock:before {
-    content: "\f023";
-}
-*/

@@ -20,6 +20,14 @@ import Navbar from "./Navbar";
 import Featured from "./Featured";
 
 class Recipes extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      intro: true,
+    };
+  }
+
   handleBack = () => {
     if (this.props.pagnition.from > 0) {
       this.props.prevPage();
@@ -34,6 +42,7 @@ class Recipes extends Component {
   handleSearchSubmit = (event) => {
     event.preventDefault();
     this.props.getRecipes(this.props.query, this.props.filters);
+    this.setState({ intro: false });
   };
 
   handleSearchChange = (value) => {
@@ -50,6 +59,7 @@ class Recipes extends Component {
     return (
       <div>
         <Navbar />
+        <div id="overlay" className="overlay" />
         <div className="search-container">
           <div className="aaa">
             <SearchBar
@@ -61,18 +71,19 @@ class Recipes extends Component {
             <SearchFilters
               filters={this.props.filters}
               onFiltersChange={this.handleFiltersChange}
+              onFiltersApply={this.handleSearchSubmit}
             />
           </div>
         </div>
         <div className="results-container">
-          <Featured />
-          {/* <button onClick={this.handleBack}>Back</button>
-          <button onClick={this.handleNext}>Next</button> */}
           <SearchResults
             from={this.props.pagnition.from}
             to={this.props.pagnition.to}
             recipes={this.props.recipes}
           />
+          {this.state.intro ? <Featured /> : null}
+          {/* <button onClick={this.handleBack}>Back</button>
+          <button onClick={this.handleNext}>Next</button> */}
         </div>
       </div>
     );

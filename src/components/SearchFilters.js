@@ -65,6 +65,20 @@ class SearchFilters extends Component {
     }
   };
 
+  handleCancel = () => {
+    var click = document.getElementById("dropdown-content");
+    var icon = document.getElementById("arrow");
+    var btn = document.getElementById("btn");
+    click.style.display = "none";
+    icon.classList.remove("open");
+    btn.classList.remove("active");
+  };
+
+  handleApply = (event) => {
+    this.handleCancel();
+    this.props.onFiltersApply(event);
+  };
+
   render() {
     return (
       <div>
@@ -87,6 +101,14 @@ class SearchFilters extends Component {
             <div className="horizontal-rule" />
             <DietFilters onChange={this.handleDiet} />
             <div className="horizontal-rule" />
+            <div className="end-buttons">
+              <p className="cancel-button" onClick={this.handleCancel}>
+                Cancel
+              </p>
+              <p className="apply-button" onClick={this.handleApply}>
+                Apply
+              </p>
+            </div>
           </div>
         </div>
       </div>
