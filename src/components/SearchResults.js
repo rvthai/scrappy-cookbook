@@ -34,6 +34,9 @@ class SearchResults extends Component {
               source={recipe.recipe.source}
             />
           ))}
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
+        <i aria-hidden="true"></i>
       </div>
     );
   }

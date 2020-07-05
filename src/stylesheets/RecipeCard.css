@@ -1,7 +1,32 @@
 .card {
-  box-shadow: 0 5px 16px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.23);
   margin: 2rem;
   width: 300px;
+  word-break: break-all;
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.card-description {
+  margin: 1rem;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.card-souce {
+  color: #c9c9c9;
+}
+
+.card-calories {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 #recipe-card-image {

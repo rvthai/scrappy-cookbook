@@ -24,7 +24,7 @@ class Recipes extends Component {
     super(props);
 
     this.state = {
-      intro: true,
+      intro: true, //problematic when going back
     };
   }
 
@@ -76,12 +76,15 @@ class Recipes extends Component {
           </div>
         </div>
         <div className="results-container">
-          <SearchResults
-            from={this.props.pagnition.from}
-            to={this.props.pagnition.to}
-            recipes={this.props.recipes}
-          />
-          {this.state.intro ? <Featured /> : null}
+          {this.state.intro ? (
+            <Featured />
+          ) : (
+            <SearchResults
+              from={this.props.pagnition.from}
+              to={this.props.pagnition.to}
+              recipes={this.props.recipes}
+            />
+          )}
           {/* <button onClick={this.handleBack}>Back</button>
           <button onClick={this.handleNext}>Next</button> */}
         </div>
