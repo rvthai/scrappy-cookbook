@@ -24,8 +24,16 @@ class Recipes extends Component {
     super(props);
 
     this.state = {
-      intro: true, //problematic when going back
+      intro: null,
     };
+  }
+
+  componentDidMount() {
+    if (this.props.checker.length <= 0) {
+      this.setState({ intro: true });
+    } else {
+      this.setState({ intro: false });
+    }
   }
 
   handleBack = () => {
@@ -94,6 +102,7 @@ class Recipes extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  checker: state.recipes,
   recipes: state.recipes.hits,
   query: state.search.query,
   filters: state.search.filters,

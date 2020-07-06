@@ -32,11 +32,9 @@ class SearchResults extends Component {
               image={recipe.recipe.image}
               calories={recipe.recipe.calories}
               source={recipe.recipe.source}
+              numOfIngredients={recipe.recipe.ingredientLines.length}
             />
           ))}
-        <i aria-hidden="true"></i>
-        <i aria-hidden="true"></i>
-        <i aria-hidden="true"></i>
       </div>
     );
   }

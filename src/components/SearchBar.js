@@ -17,6 +17,8 @@ class SearchBar extends Component {
   componentDidMount() {
     document.getElementById("bar").addEventListener("focus", this.inFocus);
     document.getElementById("bar").addEventListener("blur", this.outFocus);
+
+    this.styleCross(this.props.query);
   }
 
   componentWillUnmount() {
@@ -27,9 +29,11 @@ class SearchBar extends Component {
   inFocus = () => {
     // document.body.classList.add("back");
     var over = document.getElementById("overlay");
+    // var i = document.getElementById("Card");
+    // i.style.zIndex = -1;
     // over.style.display = "block";
     over.style.opacity = 1;
-    over.style.zIndex = 1;
+    over.style.zIndex = 100;
     this.setState({ style: "black" });
   };
 
@@ -38,6 +42,8 @@ class SearchBar extends Component {
     // document.body.classList.remove("back");
     var over = document.getElementById("overlay");
     // over.style.display = "none";
+    // var i = document.getElementById("Card");
+    // i.style.zIndex = 1;
     over.style.opacity = 0;
     over.style.zIndex = -1;
     this.setState({ style: "#e6e6e6" });
@@ -57,6 +63,7 @@ class SearchBar extends Component {
     // over.style.display = "none";
     over.style.opacity = 0;
     over.style.zIndex = -1;
+    // i.style.zIndex = 1;
     document.getElementById("bar").blur();
     this.props.onSearchSubmit(event);
   };
