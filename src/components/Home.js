@@ -9,7 +9,7 @@ import HomeNavbar from "./HomeNavbar";
 class Home extends Component {
   render() {
     return (
-      <body className="home">
+      <div className="home">
         <HomeNavbar />
         <div className="container">
           <div className="header">Cook scrappy, not crappy.</div>
@@ -22,7 +22,7 @@ class Home extends Component {
             </Link>
           </div>
         </div>
-      </body>
+      </div>
     );
   }
 }
