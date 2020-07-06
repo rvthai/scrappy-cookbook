@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "redux";
 import "../stylesheets/SearchFilters.css";
 
 // Components
@@ -97,9 +98,15 @@ class SearchFilters extends Component {
             style={{ display: "none" }}
             id="dropdown-content"
           >
-            <HealthFilters onChange={this.handleHealth} />
+            <HealthFilters
+              filters={this.props.filters}
+              onChange={this.handleHealth}
+            />
             <div className="horizontal-rule" />
-            <DietFilters onChange={this.handleDiet} />
+            <DietFilters
+              filters={this.props.filters}
+              onChange={this.handleDiet}
+            />
             <div className="horizontal-rule" />
             <div className="end-buttons">
               <p className="cancel-button" onClick={this.handleCancel}>
