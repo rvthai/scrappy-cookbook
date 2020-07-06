@@ -1,10 +1,12 @@
 export const GET_RECIPES = "GET_RECIPES";
+export const RESET_RECIPES = "RESET_RECIPES";
 
 export const LOAD_RECIPE = "LOAD_RECIPE";
 export const GET_RECIPE = "GET_RECIPE";
 
 export const SAVE_SEARCH = "SAVE_SEARCH";
 export const SAVE_FILTERS = "SAVE_FILTERS";
+export const RESET_SEARCH = "RESET_SEARCH";
 
 export const NEXT_PAGE = "NEXT_PAGE";
 export const PREV_PAGE = "PREV_PAGE";
@@ -40,6 +42,12 @@ export const getRecipes = (query, filters) => {
   };
 };
 
+export const resetRecipes = () => {
+  return {
+    type: RESET_RECIPES,
+  };
+};
+
 export const getRecipe = (id) => {
   const URI = `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23${id}`;
   const URL = `https://api.edamam.com/search?r=${URI}&app_id=${APP_ID}&app_key=${APP_KEY}`;
@@ -71,6 +79,12 @@ export const saveFilters = (filters) => {
   return {
     type: SAVE_FILTERS,
     filters: filters,
+  };
+};
+
+export const resetSearch = () => {
+  return {
+    type: RESET_SEARCH,
   };
 };
 

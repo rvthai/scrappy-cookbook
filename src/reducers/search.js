@@ -1,4 +1,4 @@
-import { SAVE_SEARCH, SAVE_FILTERS } from "../actions";
+import { SAVE_SEARCH, SAVE_FILTERS, RESET_SEARCH } from "../actions";
 
 const initialState = {
   query: "",
@@ -20,6 +20,8 @@ const searchReducer = (state = initialState, action) => {
         ...state,
         filters: action.filters,
       };
+    case RESET_SEARCH:
+      return initialState;
     default:
       return state;
   }

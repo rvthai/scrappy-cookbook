@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../stylesheets/Navbar.css";
 
 import Logo from "../assets/logo.png";
+
+// Actions
+import { resetRecipes, resetSearch } from "../actions";
 class Navbar extends Component {
   componentDidMount() {
     const location = this.props.location.pathname;
@@ -16,16 +20,27 @@ class Navbar extends Component {
       e.style.opacity = 1;
     }
   }
+
+  handleHomeReturn = () => {
+    this.props.resetRecipes();
+    this.props.resetSearch();
+  };
+
   render() {
     return (
       <div className="wrapper">
         <nav className="nav-2">
-          <Link className="brand" to="/">
+          <Link className="brand" to="/" onClick={this.handleHomeReturn}>
             <img className="logo" src={Logo} />
             Scrappy Cookbook
           </Link>
           <div className="links">
-            <Link id="home" className="link" to="/">
+            <Link
+              id="home"
+              className="link"
+              to="/"
+              onClick={this.handleHomeReturn}
+            >
               Home
             </Link>
             <Link id="recipes" className="link" to="/recipes">
@@ -41,4 +56,9 @@ class Navbar extends Component {
   }
 }
 
-export default withRouter(Navbar);
+const mapDispatchToProps = {
+  resetRecipes,
+  resetSearch,
+};
+
+export default connect(null, mapDispatchToProps)(withRouter(Navbar));
