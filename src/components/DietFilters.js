@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import "../stylesheets/DietFilters.css";
 
-// Font Awesome Icons
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-
 class DietFilters extends Component {
+  componentDidMount() {
+    const dietFilter = this.props.filters.diet;
+
+    var tab = document.getElementById(dietFilter);
+
+    if (tab != null) {
+      tab.classList.add("active-btn");
+      tab.children[0].checked = true;
+    }
+  }
+
   handleChange = (event) => {
     var oldtab = document.getElementsByClassName("active-btn");
     if (oldtab.length > 0) {
@@ -84,42 +91,6 @@ class DietFilters extends Component {
               <div className="mini"></div>
             </div>
           </label>
-          {/* <div className="radio-container">
-            <input
-              className="circle"
-              type="radio"
-              name="diet"
-              id="all"
-              value="all"
-            />
-            <label for="all">All</label>
-            <div className="checkmark"></div>
-          </div> */}
-          {/* <label class="radio-container">
-            All
-            <input type="radio" checked="checked" name="radio" />
-            <div class="checkmark"></div>
-          </label>
-          <label class="radio-container">
-            Balanced
-            <input type="radio" checked="checked" name="radio" />
-            <div class="checkmark"></div>
-          </label>
-          <label class="radio-container">
-            Low-carb
-            <input type="radio" checked="checked" name="radio" />
-            <div class="checkmark"></div>
-          </label>
-          <label class="radio-container">
-            Low-fat
-            <input type="radio" checked="checked" name="radio" />
-            <div class="checkmark"></div>
-          </label>
-          <label class="radio-container">
-            High-carb
-            <input type="radio" checked="checked" name="radio" />
-            <div class="checkmark"></div>
-          </label> */}
         </form>
       </div>
     );

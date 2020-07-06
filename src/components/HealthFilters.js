@@ -6,10 +6,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 class HealthFilters extends Component {
+  componentDidMount() {
+    const healthFilters = this.props.filters.health;
+    for (var i = 0; i < healthFilters.length; i++) {
+      var lab = document.getElementById(healthFilters[i]);
+      var ic = document.getElementById(healthFilters[i].concat("-icon"));
+      lab.classList.add("active-filter");
+      ic.style.display = "inline-block";
+    }
+  }
+
   handleClick = (id) => {
     var lab = document.getElementById(id);
     var ic = document.getElementById(id.concat("-icon"));
-    console.log(lab);
     if (lab.className.match("active-filter")) {
       lab.classList.remove("active-filter");
       ic.style.display = "none";
