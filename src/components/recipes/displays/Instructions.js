@@ -9,45 +9,49 @@ import {
   faHamburger,
 } from "@fortawesome/free-solid-svg-icons";
 
-class Featured extends Component {
+class Instructions extends Component {
   render() {
     return (
-      <div className="con">
-        <p className="title">HOW IT WORKS</p>
-        <p className="descriptions">
+      <div className="instructions-container">
+        <p className="instructions-heading">HOW IT WORKS</p>
+        <p className="secondary-description">
           All it takes are a few simple steps to find the recipe you're looking
           for.
         </p>
-        <div className="instructions">
-          <div className="instructcard">
+        <div className="instruction-cards">
+          <div className="instruction-card">
             <FontAwesomeIcon
-              className="food-icon"
+              className="instruction-icon"
               icon={faHamburger}
               size="3x"
             />
-            <p className="head-description">Search by ingredients</p>
-            <p className="descriptions">
+            <p className="primary-description">Search by ingredients</p>
+            <p className="secondary-description">
               Search a variety of recipe ideas by typing in ingredients into the
               search bar above.
             </p>
           </div>
-          <div className="instructcard">
-            <FontAwesomeIcon className="food-icon" icon={faHotdog} size="3x" />
-            <p className="head-description">Filter recipes</p>
-            <p className="descriptions">
+          <div className="instruction-card">
+            <FontAwesomeIcon
+              className="instruction-icon"
+              icon={faHotdog}
+              size="3x"
+            />
+            <p className="primary-description">Filter recipes</p>
+            <p className="secondary-description">
               Apply filters to find recipes pertaining to any allergies or your
               current diet.
             </p>
           </div>
 
-          <div className="instructcard">
+          <div className="instruction-card">
             <FontAwesomeIcon
-              className="food-icon"
+              className="instruction-icon"
               icon={faPizzaSlice}
               size="3x"
             />
-            <p className="head-description">Bookmark recipes</p>
-            <p className="descriptions">
+            <p className="primary-description">Bookmark recipes</p>
+            <p className="secondary-description">
               Save potential recipes for later as you continue looking for that
               perfect recipe.
             </p>
@@ -58,4 +62,4 @@ class Featured extends Component {
   }
 }
 
-export default Featured;
+export default Instructions;

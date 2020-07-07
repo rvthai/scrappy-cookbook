@@ -7,45 +7,46 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 class HealthFilters extends Component {
   componentDidMount() {
-    const healthFilters = this.props.filters.health;
-    for (var i = 0; i < healthFilters.length; i++) {
-      var lab = document.getElementById(healthFilters[i]);
-      var ic = document.getElementById(healthFilters[i].concat("-icon"));
-      lab.classList.add("active-filter");
-      ic.style.display = "inline-block";
+    const health_filters = this.props.filters.health;
+    for (var i = 0; i < health_filters.length; i++) {
+      var label = document.getElementById(health_filters[i]);
+      var icon = document.getElementById(health_filters[i].concat("-icon"));
+      label.classList.add("active-health-label");
+      icon.style.display = "inline-block";
     }
   }
 
   handleClick = (id) => {
-    var lab = document.getElementById(id);
-    var ic = document.getElementById(id.concat("-icon"));
-    if (lab.className.match("active-filter")) {
-      lab.classList.remove("active-filter");
-      ic.style.display = "none";
+    var label = document.getElementById(id);
+    var icon = document.getElementById(id.concat("-icon"));
+
+    if (label.className.match("active-health-label")) {
+      label.classList.remove("active-health-label");
+      icon.style.display = "none";
       this.props.onChange("health", id, false);
     } else {
-      lab.classList.add("active-filter");
-      ic.style.display = "inline-block";
+      label.classList.add("active-health-label");
+      icon.style.display = "inline-block";
       this.props.onChange("health", id, true);
     }
   };
 
   handleClear = () => {
-    var l = document.getElementsByClassName("active-filter");
+    var labels = document.getElementsByClassName("active-health-label");
 
-    while (l.length > 0) {
-      var ic = document.getElementById(l[0].id.concat("-icon"));
-      l[0].classList.remove("active-filter");
-      ic.style.display = "none";
+    while (labels.length > 0) {
+      var icon = document.getElementById(labels[0].id.concat("-icon"));
+      labels[0].classList.remove("active-health-label");
+      icon.style.display = "none";
     }
   };
 
   render() {
     return (
       <div>
-        <div className="mini-header-health">
-          <p className="start">HEALTH</p>
-          <p onClick={this.handleClear} className="end">
+        <div className="health-heading">
+          <p>HEALTH</p>
+          <p className="clear-button" onClick={this.handleClear}>
             clear
           </p>
         </div>
@@ -53,7 +54,7 @@ class HealthFilters extends Component {
           <div
             id="peanut-free"
             onClick={() => this.handleClick("peanut-free")}
-            className="filter-btn"
+            className="label"
           >
             peanut-free
             <FontAwesomeIcon
@@ -65,7 +66,7 @@ class HealthFilters extends Component {
           <div
             id="tree-nut-free"
             onClick={() => this.handleClick("tree-nut-free")}
-            className="filter-btn"
+            className="label"
           >
             tree nut-free
             <FontAwesomeIcon
@@ -79,7 +80,7 @@ class HealthFilters extends Component {
           <div
             id="sugar-concious"
             onClick={() => this.handleClick("sugar-concious")}
-            className="filter-btn"
+            className="label"
           >
             sugar-concious
             <FontAwesomeIcon
@@ -91,7 +92,7 @@ class HealthFilters extends Component {
           <div
             id="vegan"
             onClick={() => this.handleClick("vegan")}
-            className="filter-btn"
+            className="label"
           >
             vegan
             <FontAwesomeIcon
@@ -105,7 +106,7 @@ class HealthFilters extends Component {
           <div
             id="alcohol-free"
             onClick={() => this.handleClick("alcohol-free")}
-            className="filter-btn"
+            className="label"
           >
             alcohol-free
             <FontAwesomeIcon
@@ -117,7 +118,7 @@ class HealthFilters extends Component {
           <div
             id="vegetarian"
             onClick={() => this.handleClick("vegetarian")}
-            className="filter-btn"
+            className="label"
           >
             vegetarian
             <FontAwesomeIcon

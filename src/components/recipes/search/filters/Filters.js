@@ -11,29 +11,57 @@ import DietFilters from "components/recipes/search/filters/DietFilters";
 
 class Filters extends Component {
   componentDidMount() {
-    window.addEventListener("click", this.clickListener);
+    window.addEventListener("click", this.handleWindowClick);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("click", this.clickListener);
+    window.removeEventListener("click", this.handleWindowClick);
   }
 
-  clickListener = (e) => {
-    var btn = document.getElementById("btn");
-    var icon = document.getElementById("arrow");
-    var click = document.getElementById("dropdown-content");
+  handleWindowClick = (event) => {
+    var dropdown = document.getElementById("dropdown-content");
+    var button = document.getElementById("filters-button");
+
     if (
-      click.style.display === "block" &&
-      !document.getElementById("btn").contains(e.target) &&
-      !click.contains(e.target)
+      dropdown.style.display === "block" &&
+      !button.contains(event.target) &&
+      !dropdown.contains(event.target)
     ) {
-      click.style.display = "none";
-      btn.classList.remove("active");
-      icon.classList.remove("open");
+      this.hideFilters();
     }
   };
 
-  handleHealth = (name, value, checked) => {
+  hideFilters = () => {
+    var dropdown = document.getElementById("dropdown-content");
+    var button = document.getElementById("filters-button");
+    var arrow = document.getElementById("arrow-icon");
+
+    dropdown.style.display = "none";
+    button.classList.remove("active");
+    arrow.classList.remove("reverse");
+  };
+
+  displayFilters = () => {
+    var dropdown = document.getElementById("dropdown-content");
+    var arrow = document.getElementById("arrow-icon");
+    var button = document.getElementById("filters-button");
+
+    dropdown.style.display = "block";
+    button.classList.add("active");
+    arrow.classList.add("reverse");
+  };
+
+  handleClick = () => {
+    var dropdown = document.getElementById("dropdown-content");
+
+    if (dropdown.style.display === "none") {
+      this.displayFilters();
+    } else {
+      this.hideFilters();
+    }
+  };
+
+  handleHealthChange = (name, value, checked) => {
     if (checked) {
       this.props.filters.health.push(value);
     } else {
@@ -46,75 +74,57 @@ class Filters extends Component {
     this.props.onFiltersChange(name, this.props.filters.health);
   };
 
-  handleDiet = (name, value) => {
+  handleDietChange = (name, value) => {
     this.props.onFiltersChange(name, value);
   };
 
-  showFilters = () => {
-    var click = document.getElementById("dropdown-content");
-    var icon = document.getElementById("arrow");
-    var btn = document.getElementById("btn");
-    if (click.style.display === "none") {
-      click.style.display = "block";
-      icon.classList.add("open");
-      btn.classList.add("active");
-    } else {
-      click.style.display = "none";
-      icon.classList.remove("open");
-      btn.classList.remove("active");
-    }
-  };
-
   handleCancel = () => {
-    var click = document.getElementById("dropdown-content");
-    var icon = document.getElementById("arrow");
-    var btn = document.getElementById("btn");
-    click.style.display = "none";
-    icon.classList.remove("open");
-    btn.classList.remove("active");
+    this.hideFilters();
   };
 
   handleApply = (event) => {
-    this.handleCancel();
+    this.hideFilters();
     this.props.onFiltersApply(event);
   };
 
   render() {
     return (
-      <div>
-        <div className="dropdown">
-          <button id="btn" onClick={this.showFilters} className="dropbtn">
-            <FontAwesomeIcon className="filter-icon" icon={faFilter} />
-            FILTERS
-            <FontAwesomeIcon
-              id="arrow"
-              className="downarrow-icon"
-              icon={faAngleDown}
-            />
-          </button>
-          <div
-            className="content"
-            style={{ display: "none" }}
-            id="dropdown-content"
-          >
-            <HealthFilters
-              filters={this.props.filters}
-              onChange={this.handleHealth}
-            />
-            <div className="horizontal-rule" />
-            <DietFilters
-              filters={this.props.filters}
-              onChange={this.handleDiet}
-            />
-            <div className="horizontal-rule" />
-            <div className="end-buttons">
-              <p className="cancel-button" onClick={this.handleCancel}>
-                Cancel
-              </p>
-              <p className="apply-button" onClick={this.handleApply}>
-                Apply
-              </p>
-            </div>
+      <div className="dropdown-container">
+        <button
+          id="filters-button"
+          onClick={this.handleClick}
+          className="filters-button"
+        >
+          <FontAwesomeIcon className="filter-icon" icon={faFilter} />
+          FILTERS
+          <FontAwesomeIcon
+            id="arrow-icon"
+            className="arrow-icon"
+            icon={faAngleDown}
+          />
+        </button>
+        <div
+          className="dropdown-content"
+          style={{ display: "none" }}
+          id="dropdown-content"
+        >
+          <HealthFilters
+            filters={this.props.filters}
+            onChange={this.handleHealthChange}
+          />
+          <div className="hr" />
+          <DietFilters
+            filters={this.props.filters}
+            onChange={this.handleDietChange}
+          />
+          <div className="hr" />
+          <div className="action-buttons">
+            <p className="cancel-button" onClick={this.handleCancel}>
+              Cancel
+            </p>
+            <p className="apply-button" onClick={this.handleApply}>
+              Apply
+            </p>
           </div>
         </div>
       </div>

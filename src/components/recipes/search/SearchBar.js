@@ -10,100 +10,102 @@ class SearchBar extends Component {
     super(props);
 
     this.state = {
-      style: "#e6e6e6",
+      iconColor: "#e6e6e6",
     };
   }
-  componentDidMount() {
-    document.getElementById("bar").addEventListener("focus", this.inFocus);
-    document.getElementById("bar").addEventListener("blur", this.outFocus);
 
-    this.styleCross(this.props.query);
+  componentDidMount() {
+    document
+      .getElementById("search-bar")
+      .addEventListener("focus", this.searchBarInFocus);
+    document
+      .getElementById("search-bar")
+      .addEventListener("blur", this.searchBarOutOfFocus);
+
+    this.styleCrossIcon(this.props.query);
   }
 
   componentWillUnmount() {
-    document.getElementById("bar").removeEventListener("focus", this.inFocus);
-    document.getElementById("bar").addEventListener("blur", this.outFocus);
+    document
+      .getElementById("search-bar")
+      .removeEventListener("focus", this.searchBarInFocus);
+    document
+      .getElementById("search-bar")
+      .addEventListener("blur", this.searchBarOutOfFocus);
   }
 
-  inFocus = () => {
-    // document.body.classList.add("back");
-    var over = document.getElementById("overlay");
-    // var i = document.getElementById("Card");
-    // i.style.zIndex = -1;
-    // over.style.display = "block";
-    over.style.opacity = 1;
-    over.style.zIndex = 10;
-    this.setState({ style: "black" });
+  searchBarInFocus = () => {
+    var overlay = document.getElementById("overlay");
+    overlay.style.opacity = 1;
+    overlay.style.zIndex = 10;
+
+    this.setState({ iconColor: "#000000" });
   };
 
-  outFocus = () => {
-    this.styleCross(document.getElementById("bar").value);
-    // document.body.classList.remove("back");
-    var over = document.getElementById("overlay");
-    // over.style.display = "none";
-    // var i = document.getElementById("Card");
-    // i.style.zIndex = 1;
-    over.style.opacity = 0;
-    over.style.zIndex = -1;
-    this.setState({ style: "#e6e6e6" });
+  searchBarOutOfFocus = () => {
+    this.styleCrossIcon(document.getElementById("search-bar").value);
+
+    var overlay = document.getElementById("overlay");
+    overlay.style.opacity = 0;
+    overlay.style.zIndex = -1;
+
+    this.setState({ iconColor: "#e6e6e6" });
   };
 
-  styleCross = (s) => {
-    if (s !== "") {
+  styleCrossIcon = (query) => {
+    if (query !== "") {
       document.getElementById("clear-icon").style.display = "inline-block";
     } else {
       document.getElementById("clear-icon").style.display = "none";
     }
   };
 
-  handleSubmit = (event) => {
-    // document.body.classList.remove("back");
-    var over = document.getElementById("overlay");
-    // over.style.display = "none";
-    over.style.opacity = 0;
-    over.style.zIndex = -1;
-    // i.style.zIndex = 1;
-    document.getElementById("bar").blur();
-    this.props.onSearchSubmit(event);
-  };
-
   handleChange = (event) => {
-    this.styleCross(event.target.value);
+    this.styleCrossIcon(event.target.value);
     this.props.onSearchChange(event.target.value);
   };
 
   handleClear = () => {
-    document.getElementById("bar").focus();
-    this.styleCross("");
+    document.getElementById("search-bar").focus();
+    this.styleCrossIcon("");
     this.props.onSearchChange("");
+  };
+
+  handleSubmit = (event) => {
+    var overlay = document.getElementById("overlay");
+    overlay.style.opacity = 0;
+    overlay.style.zIndex = -1;
+    document.getElementById("search-bar").blur();
+
+    this.props.onSearchSubmit(event);
   };
 
   render() {
     return (
       <div className="search-bar-wrapper">
         <FontAwesomeIcon
-          id="icon"
+          id="search-icon"
           className="search-icon"
-          style={{ color: `${this.state.style}` }}
+          style={{ color: `${this.state.iconColor}` }}
           icon={faSearch}
           size="1x"
         />
         <form className="form" onSubmit={this.handleSubmit}>
           <input
-            id="bar"
+            id="search-bar"
             className="search-bar"
             type="text"
             value={this.props.query}
             onChange={this.handleChange}
-            autoComplete="off"
             placeholder="chicken, kale, broccoli..."
+            autoComplete="off"
           />
         </form>
         <FontAwesomeIcon
-          onClick={this.handleClear}
           id="clear-icon"
-          style={{ color: `${this.state.style}` }}
           className="clear-icon"
+          style={{ color: `${this.state.iconColor}` }}
+          onClick={this.handleClear}
           icon={faTimes}
           size="1x"
         />

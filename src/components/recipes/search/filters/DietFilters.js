@@ -3,92 +3,95 @@ import "stylesheets/recipes/search/filters/DietFilters.css";
 
 class DietFilters extends Component {
   componentDidMount() {
-    const dietFilter = this.props.filters.diet;
+    const diet_filter = this.props.filters.diet;
 
-    var tab = document.getElementById(dietFilter);
+    var label = document.getElementById(diet_filter);
 
-    if (tab != null) {
-      tab.classList.add("active-btn");
-      tab.children[0].checked = true;
+    if (label !== null) {
+      label.classList.add("active-diet-label");
+      label.children[0].checked = true;
     }
   }
 
   handleChange = (event) => {
-    var oldtab = document.getElementsByClassName("active-btn");
-    if (oldtab.length > 0) {
-      oldtab[0].classList.remove("active-btn");
+    var labels = document.getElementsByClassName("active-diet-label");
+
+    if (labels.length > 0) {
+      var prev_label = labels[0];
+      prev_label.classList.remove("active-diet-label");
     }
 
-    var tab = document.getElementById(event.target.value);
-    tab.classList.add("active-btn");
+    var label = document.getElementById(event.target.value);
+    label.classList.add("active-diet-label");
 
     this.props.onChange(event.target.name, event.target.value);
   };
 
   handleClear = () => {
-    var oldtab = document.getElementsByClassName("active-btn");
-    if (oldtab.length > 0) {
-      oldtab[0].children[0].checked = false;
-      oldtab[0].classList.remove("active-btn");
+    var labels = document.getElementsByClassName("active-diet-label");
+    if (labels.length > 0) {
+      var prev_label = labels[0];
+      prev_label.children[0].checked = false;
+      prev_label.classList.remove("active-diet-label");
     }
   };
 
   render() {
     return (
       <div>
-        <div className="mini-header">
-          <p className="start">DIET</p>
-          <p onClick={this.handleClear} className="end">
+        <div className="diet-heading">
+          <p>DIET</p>
+          <p className="clear-button" onClick={this.handleClear}>
             clear
           </p>
         </div>
-        <form className="container-radio" onChange={this.handleChange}>
-          <label id="balanced" className="radio-container">
+        <form className="radio-container" onChange={this.handleChange}>
+          <label id="balanced" className="radio-wrapper">
             Balanced
             <input
-              className="circle"
+              className="checkmark"
               type="radio"
               name="diet"
               value="balanced"
             />
-            <div className="checkmark">
-              <div className="mini"></div>
+            <div className="custom-checkmark">
+              <div className="mini-custom-checkmark"></div>
             </div>
           </label>
-          <label id="low-carb" className="radio-container">
+          <label id="low-carb" className="radio-wrapper">
             Low-carb
             <input
-              className="circle"
+              className="checkmark"
               type="radio"
               name="diet"
               value="low-carb"
             />
-            <div className="checkmark">
-              <div className="mini"></div>
+            <div className="custom-checkmark">
+              <div className="mini-custom-checkmark"></div>
             </div>
           </label>
-          <label id="low-fat" className="radio-container">
+          <label id="low-fat" className="radio-wrapper">
             Low-fat
             <input
-              className="circle"
+              className="checkmark"
               type="radio"
               name="diet"
               value="low-fat"
             />
-            <div className="checkmark">
-              <div className="mini"></div>
+            <div className="custom-checkmark">
+              <div className="mini-custom-checkmark"></div>
             </div>
           </label>
-          <label id="high-protein" className="radio-container">
+          <label id="high-protein" className="radio-wrapper">
             High-protein
             <input
-              className="circle"
+              className="checkmark"
               type="radio"
               name="diet"
               value="high-protein"
             />
-            <div className="checkmark">
-              <div className="mini"></div>
+            <div className="custom-checkmark">
+              <div className="mini-custom-checkmark"></div>
             </div>
           </label>
         </form>

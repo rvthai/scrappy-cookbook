@@ -16,7 +16,7 @@ import SearchBar from "components/recipes/search/SearchBar";
 import Filters from "components/recipes/search/filters/Filters";
 import Instructions from "components/recipes/displays/Instructions";
 import Results from "components/recipes/displays/Results";
-import Pagnition from "components/recipes/pagnition/Pagnition";
+import Pagination from "components/recipes/pagination/Pagination";
 
 class Recipes extends Component {
   constructor(props) {
@@ -52,13 +52,13 @@ class Recipes extends Component {
   };
 
   handleBack = () => {
-    if (this.props.pagnition.from > 0) {
+    if (this.props.pagination.from > 0) {
       this.props.prevPage();
     }
   };
 
   handleNext = () => {
-    if (this.props.pagnition.to < 100) {
+    if (this.props.pagination.to < 100) {
       this.props.nextPage();
     }
   };
@@ -87,17 +87,17 @@ class Recipes extends Component {
             <Instructions />
           ) : (
             <Results
-              from={this.props.pagnition.from}
-              to={this.props.pagnition.to}
+              from={this.props.pagination.from}
+              to={this.props.pagination.to}
               recipes={
                 this.props.recipes !== null ? this.props.recipes.hits : []
               }
             />
           )}
         </div>
-        <div className="pagnition-container">
+        <div className="pagination-container">
           {this.props.recipes !== null ? (
-            <Pagnition recipes={this.props.recipes.hits} />
+            <Pagination recipes={this.props.recipes.hits} />
           ) : null}
         </div>
       </div>
@@ -109,7 +109,7 @@ const mapStateToProps = (state) => ({
   recipes: state.recipes,
   query: state.search.query,
   filters: state.search.filters,
-  pagnition: state.pagnition,
+  pagination: state.pagination,
 });
 
 const mapDispatchToProps = {

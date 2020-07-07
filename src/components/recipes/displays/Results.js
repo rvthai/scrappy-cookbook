@@ -15,10 +15,9 @@ class Results extends Component {
     }
 
     return (
-      <div className="cards-container">
+      <div className="recipe-cards-container">
         {this.props.recipes
-          // .slice(this.props.from, this.props.to)
-          .slice(0, 20)
+          .slice(this.props.from, this.props.to)
           .map((recipe, index) => (
             <RecipeCard
               key={index}
@@ -27,7 +26,7 @@ class Results extends Component {
               image={recipe.recipe.image}
               calories={recipe.recipe.calories}
               source={recipe.recipe.source}
-              numOfIngredients={recipe.recipe.ingredientLines.length}
+              ingredientCount={recipe.recipe.ingredientLines.length}
             />
           ))}
       </div>

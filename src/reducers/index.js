@@ -3,14 +3,14 @@ import { combineReducers } from "redux";
 import searchReducer from "./search";
 import recipesReducer from "./recipes";
 import recipeReducer from "./recipe";
-import pagnitionReducer from "./pagnition";
+import paginationReducer from "./pagination";
 import bookmarksReducer from "./bookmarks";
 
 const rootReducer = combineReducers({
   search: searchReducer,
   recipes: recipesReducer,
   recipe: recipeReducer,
-  pagnition: pagnitionReducer,
+  pagination: paginationReducer,
   bookmarks: bookmarksReducer,
 });
 

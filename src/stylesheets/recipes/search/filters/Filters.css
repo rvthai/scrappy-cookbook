@@ -1,84 +1,72 @@
-.dropdown {
+.dropdown-container {
   position: relative;
   margin-right: 4rem;
 }
 
-.dropbtn {
+.filters-button {
   display: flex;
   padding: 0.5rem 1rem;
-  letter-spacing: 0.2rem;
+  color: black;
+  opacity: 0.5;
   border: none;
   background: none;
   outline: none;
+  letter-spacing: 0.2rem;
   cursor: pointer;
-  opacity: 0.5;
-  color: black;
   transition: 0.3s;
 }
 
-.dropbtn:hover {
+.filters-button:hover {
   opacity: 1;
+  transition: 0.3s;
 }
 
 .active {
   opacity: 1;
 }
 
-#dropdown-content {
+.dropdown-content {
   position: absolute;
+  background-color: #ffffff;
+  padding: 2rem;
   margin-top: 0.75rem;
   right: 0;
-  background-color: #ffffff;
   box-shadow: 1px 2px 6px 0px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  /* text-align: right; */
 }
 
 .filter-icon {
   margin-right: 0.5rem;
 }
 
-.horizontal-rule {
-  border-bottom: 1px solid #e6e6e6;
+.hr {
+  border-bottom: solid 1px #e6e6e6;
   margin-top: 2em;
 }
 
-.downarrow-icon {
+.arrow-icon {
   margin-left: 1rem;
   transform: rotate(0deg);
   transition: transform 0.3s linear;
 }
 
-.downarrow-icon.open {
+.reverse {
   margin-left: 1rem;
   transform: rotate(180deg);
   transition: transform 0.3s linear;
 }
 
-.end-buttons {
+.action-buttons {
   display: flex;
   justify-content: flex-end;
 }
 
 .cancel-button {
-  cursor: pointer;
-  margin-right: 1.5rem;
-  transition: 0.4s;
   opacity: 0.5;
-}
-
-.cancel-button:hover {
-  font-weight: bold;
-  transition: 0.5s;
+  margin-right: 1.5rem;
+  cursor: pointer;
 }
 
 .apply-button {
-  cursor: pointer;
   color: black;
-  transition: 0.4s;
-}
-
-.apply-button:hover {
-  font-weight: bold;
-  transition: 0.5s;
+  cursor: pointer;
 }

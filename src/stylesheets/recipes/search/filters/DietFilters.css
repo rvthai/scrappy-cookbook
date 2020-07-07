@@ -1,10 +1,25 @@
-/* The container */
-
-.container-radio {
+.radio-container {
   display: block;
 }
 
-.radio-container {
+.diet-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.75rem;
+}
+
+.active-diet-label {
+  color: white;
+  background-color: black;
+  transition: 0.3s;
+}
+
+.clear-button {
+  color: #c9c9c9;
+  cursor: pointer;
+}
+
+.radio-wrapper {
   display: flex;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
@@ -13,28 +28,26 @@
   border: solid 1px;
   align-items: middle;
   justify-content: space-between;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-/* Hide the browser's default radio button */
-.circle {
+.checkmark {
   opacity: 0;
   cursor: pointer;
 }
 
-/* Create a custom radio button */
-.checkmark {
-  text-align: center;
-  height: 20px;
-  width: 20px;
+.custom-checkmark {
   background-color: white;
   border: solid 2px black;
   border-radius: 50%;
+  text-align: center;
+  height: 20px;
+  width: 20px;
   right: 0;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-.mini {
+.mini-custom-checkmark {
   display: inline-block;
   height: 12px;
   width: 12px;
@@ -42,44 +55,27 @@
   opacity: 0;
 }
 
-.radio-container:hover .circle ~ .checkmark {
+.radio-wrapper:hover .checkmark ~ .custom-checkmark {
   background-color: black;
   border: solid white 2px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-.radio-container .circle:checked ~ .checkmark {
+.radio-wrapper .checkmark:checked ~ .custom-checkmark {
   background-color: black;
   border: solid white 2px;
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-.radio-container .circle:checked ~ .checkmark .mini {
-  opacity: 1;
+.radio-wrapper .checkmark:checked ~ .custom-checkmark .mini-custom-checkmark {
   background-color: white;
-  transition: 0.5s;
+  opacity: 1;
+  transition: 0.3s;
 }
 
-.radio-container:hover {
-  background-color: black;
+.radio-wrapper:hover {
   color: white;
+  background-color: black;
   box-shadow: 0 0 11px rgba(0, 0, 0, 0.4);
-  transition: 0.5s;
-}
-
-.active-btn {
-  background-color: black;
-  color: white;
-  transition: 0.5s;
-}
-
-.mini-header {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.75rem;
-}
-
-.end {
-  cursor: pointer;
-  color: #c9c9c9;
+  transition: 0.3s;
 }

@@ -37,11 +37,7 @@ class Bookmark extends Component {
     if (this.containsObject(obj, this.props.bookmarks)) {
       return (
         <div>
-          <button
-            className="bb"
-            onClick={() => this.handleUnbookmark(obj)}
-            type="button"
-          >
+          <button onClick={() => this.handleUnbookmark(obj)} type="button">
             Bookmarked.
           </button>
         </div>
