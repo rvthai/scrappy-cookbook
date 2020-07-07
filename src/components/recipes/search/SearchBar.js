@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../stylesheets/SearchBar.css";
+import "stylesheets/recipes/search/SearchBar.css";
 
 // Icons
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
-// Actions
-import { saveSearch } from "../actions";
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +32,7 @@ class SearchBar extends Component {
     // i.style.zIndex = -1;
     // over.style.display = "block";
     over.style.opacity = 1;
-    over.style.zIndex = 100;
+    over.style.zIndex = 10;
     this.setState({ style: "black" });
   };
 
@@ -50,7 +49,7 @@ class SearchBar extends Component {
   };
 
   styleCross = (s) => {
-    if (s != "") {
+    if (s !== "") {
       document.getElementById("clear-icon").style.display = "inline-block";
     } else {
       document.getElementById("clear-icon").style.display = "none";
@@ -81,7 +80,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <div className="bbb">
+      <div className="search-bar-wrapper">
         <FontAwesomeIcon
           id="icon"
           className="search-icon"

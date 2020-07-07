@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class GenericNotFound extends Component {
+class PageNotFound extends Component {
   render() {
     return <div>404 error</div>;
   }
 }
 
-export default GenericNotFound;
+export default PageNotFound;

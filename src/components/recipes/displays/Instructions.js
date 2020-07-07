@@ -1,5 +1,7 @@
 import React, { Component } from "react";
-import "../stylesheets/Featured.css";
+import "stylesheets/recipes/displays/Instructions.css";
+
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPizzaSlice,

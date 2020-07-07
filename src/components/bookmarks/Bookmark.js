@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "../stylesheets/Bookmark.css";
+import "stylesheets/bookmarks/Bookmark.css";
 
 // Actions
-import { addBookmark, removeBookmark } from "../actions";
+import { addBookmark, removeBookmark } from "actions";
 
 class Bookmark extends Component {
   handleBookmark = (obj) => {

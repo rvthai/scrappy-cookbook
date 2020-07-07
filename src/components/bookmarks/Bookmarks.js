@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "stylesheets/bookmarks/Bookmarks.css";
 
 // Components
-import RecipeCard from "./RecipeCard";
-import Navbar from "./Navbar";
+import RecipeCard from "components/recipes/recipe/RecipeCard";
 
 class Bookmarks extends Component {
   componentDidMount() {
     document.body.style.backgroundImage = "none";
   }
   render() {
-    console.log(this.props.bookmarks);
     return (
       <div>
-        <Navbar />
         {this.props.bookmarks.map((recipe, index) => (
           <RecipeCard
             key={index}

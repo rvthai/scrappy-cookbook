@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 
 import rootReducer from "./reducers";
 
-import App from "./components/App";
+import App from "./components/app/App";
 
 const store = createStore(
   rootReducer,

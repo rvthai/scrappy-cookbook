@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import "../stylesheets/HealthFilters.css";
+import "stylesheets/recipes/search/filters/HealthFilters.css";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 class HealthFilters extends Component {
   componentDidMount() {

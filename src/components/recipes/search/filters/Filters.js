@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import { connect } from "redux";
-import "../stylesheets/SearchFilters.css";
+import "stylesheets/recipes/search/filters/Filters.css";
 
-// Components
-import HealthFilters from "./HealthFilters";
-import DietFilters from "./DietFilters";
-
-// Font Awesome Icons
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
-class SearchFilters extends Component {
+// Components
+import HealthFilters from "components/recipes/search/filters/HealthFilters";
+import DietFilters from "components/recipes/search/filters/DietFilters";
+
+class Filters extends Component {
   componentDidMount() {
     window.addEventListener("click", this.clickListener);
   }
@@ -123,4 +122,4 @@ class SearchFilters extends Component {
   }
 }
 
-export default SearchFilters;
+export default Filters;

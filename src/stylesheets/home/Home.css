@@ -1,0 +1,53 @@
+.home-container {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../../assets/background.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  color: white;
+  font-size: 90px;
+  margin: 20rem 2rem 0 4rem;
+}
+
+.subheading {
+  color: white;
+  font-size: 35px;
+  opacity: 0.75;
+  margin-top: 1rem;
+  margin-left: 4rem;
+  margin-right: 2rem;
+}
+
+.explore-button-wrapper {
+  margin: 4rem 2rem 4rem 4rem;
+}
+
+.explore-button {
+  color: white;
+  border: solid 1px;
+  font-size: 24px;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 0.2rem;
+  padding: 1rem 2rem 1rem 2rem;
+  transition: 0.3s;
+}
+
+.explore-button:hover {
+  color: #5c5b6f;
+  border-color: white;
+  background-color: white;
+  opacity: 0.75;
+  transition: 0.3s;
+}

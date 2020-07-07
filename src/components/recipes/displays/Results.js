@@ -1,20 +1,15 @@
 import React, { Component } from "react";
-import "../stylesheets/SearchResults.css";
+import "stylesheets/recipes/displays/Results.css";
 
 // Components
-import RecipeCard from "./RecipeCard";
-import Featured from "./Featured";
-import TestCards from "./TestCards";
+import RecipeCard from "components/recipes/recipe/RecipeCard";
 
-class SearchResults extends Component {
+class Results extends Component {
   render() {
-    if (this.props.recipes === undefined) {
-      return null;
-    } else if (this.props.recipes.length <= 0) {
+    if (this.props.recipes.length <= 0) {
       return (
         <div>
           <p>No recipes found.</p>
-          <Featured />
         </div>
       );
     }
@@ -40,4 +35,4 @@ class SearchResults extends Component {
   }
 }
 
-export default SearchResults;
+export default Results;

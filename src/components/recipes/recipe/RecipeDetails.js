@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 // Actions
-import { getRecipe } from "../actions";
+import { getRecipe } from "../../../actions";
 
 // Components
-import Bookmark from "./Bookmark";
+import Bookmark from "components/bookmarks/Bookmark";
 
 class RecipeDetails extends Component {
   componentDidMount() {

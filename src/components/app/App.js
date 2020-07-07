@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "../stylesheets/App.css";
+import "stylesheets/app/App.css";
 
 // Components
-import Home from "./Home";
-import Recipes from "./Recipes";
-import RecipeDetails from "./RecipeDetails";
-import Bookmarks from "./Bookmarks";
-import GenericNotFound from "./GenericNotFound";
+import Navbar from "components/app/Navbar";
+import PageNotFound from "components/app/PageNotFound";
+import Home from "components/home/Home";
+import Recipes from "components/recipes/Recipes";
+import RecipeDetails from "components/recipes/recipe/RecipeDetails";
+import Bookmarks from "components/bookmarks/Bookmarks";
 
 class App extends Component {
   render() {
     return (
       <div>
         <Router>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route
@@ -23,7 +25,7 @@ class App extends Component {
             />
             <Route exact path="/recipes/:id" component={RecipeDetails} />
             <Route exact path="/bookmarks" component={Bookmarks} />
-            {/* <Route path="*" component={GenericNotFound} /> */}
+            <Route path="*" component={PageNotFound} />
           </Switch>
         </Router>
       </div>
