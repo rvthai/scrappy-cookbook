@@ -3,12 +3,19 @@ import "stylesheets/recipes/pagination/Pagination.css";
 
 class Pagination extends Component {
   render() {
-    if (this.props.recipes.length > 20) {
-      console.log("here 2");
-      return <div>pagination</div>;
+    if (this.props.recipes.length <= 20) {
+      return <div> no pagination</div>;
     }
 
-    return <div>NO pagination</div>;
+    return (
+      <div className="pagnition-bar">
+        <button>First</button>
+        <button>Prev</button>
+        <p> 1 2 3 4 </p>
+        <button>Next</button>
+        <button>Last</button>
+      </div>
+    );
   }
 }
 

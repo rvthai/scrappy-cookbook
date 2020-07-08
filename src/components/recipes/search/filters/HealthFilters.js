@@ -78,13 +78,13 @@ class HealthFilters extends Component {
         </div>
         <div className="health-filters-container">
           <div
-            id="sugar-concious"
-            onClick={() => this.handleClick("sugar-concious")}
+            id="sugar-conscious"
+            onClick={() => this.handleClick("sugar-conscious")}
             className="label"
           >
-            sugar-concious
+            sugar-conscious
             <FontAwesomeIcon
-              id="sugar-concious-icon"
+              id="sugar-conscious-icon"
               className="label-icon"
               icon={faTimes}
             />

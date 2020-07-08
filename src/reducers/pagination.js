@@ -2,7 +2,7 @@ import { NEXT_PAGE, PREV_PAGE } from "../actions";
 
 const initialState = {
   from: 0,
-  to: 10,
+  to: 20,
 };
 
 const paginationReducer = (state = initialState, action) => {
