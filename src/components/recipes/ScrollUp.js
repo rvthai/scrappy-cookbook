@@ -10,6 +10,10 @@ class ScrollUp extends Component {
     window.addEventListener("scroll", this.checkScrollHeight);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.checkScrollHeight);
+  }
+
   checkScrollHeight = () => {
     if (window.scrollY >= document.body.scrollHeight * 0.2) {
       document.getElementById("arrow-up-icon").style.opacity = 1;
