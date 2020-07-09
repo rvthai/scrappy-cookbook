@@ -26,25 +26,27 @@
 }
 
 .recipe-card-title {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
 }
 
 .recipe-card-source {
   color: rgba(0, 0, 0, 0.5);
-  font-size: 14px;
+  font-size: 16px;
   margin-top: -1rem;
 }
 
 .recipe-card-stats {
   position: absolute;
-  bottom: 0;
+  bottom: 1.5rem;
   left: 1rem;
-}
-
-.card-calories {
   font-size: 24px;
   font-weight: bold;
+}
+
+.recipe-card-stats .text {
+  font-size: 24px;
+  font-weight: bolder;
 }
 
 .unit {

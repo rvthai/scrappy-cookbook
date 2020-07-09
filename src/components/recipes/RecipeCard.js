@@ -18,13 +18,11 @@ class RecipeCard extends Component {
           <p className="recipe-card-title">{this.props.label}</p>
           <p className="recipe-card-source">{this.props.source}</p>
           <div className="recipe-card-stats">
-            <p className="card-calories">
-              {this.props.calories.toFixed()}
-              <span className="unit">Calories</span>
-              <span className="vr"></span>
-              {this.props.ingredientCount}
-              <span className="unit">Ingredients</span>
-            </p>
+            {this.props.calories.toFixed()}
+            <span className="unit">Calories</span>
+            <span className="vr"></span>
+            {this.props.ingredientCount}
+            <span className="unit">Ingredients</span>
           </div>
         </div>
       </Link>
