@@ -1,4 +1,4 @@
-import { ADD_BOOKMARK, REMOVE_BOOKMARK } from "../actions";
+import { ADD_BOOKMARK, REMOVE_BOOKMARK } from "actions";
 
 const bookmarksReducer = (state = [], action) => {
   switch (action.type) {

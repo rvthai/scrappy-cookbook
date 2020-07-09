@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "stylesheets/recipes/RecipeDetails.css";
 
 // Actions
 import { getRecipe } from "actions";
@@ -22,7 +23,7 @@ class RecipeDetails extends Component {
     }
 
     return (
-      <div>
+      <div className="recipe-details-container">
         <Bookmark
           uri={this.props.recipe.uri}
           label={this.props.recipe.label}
