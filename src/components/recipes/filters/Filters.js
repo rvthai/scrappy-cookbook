@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import "stylesheets/recipes/search/filters/Filters.css";
+import "stylesheets/recipes/filters/Filters.css";
 
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 // Components
-import HealthFilters from "components/recipes/search/filters/HealthFilters";
-import DietFilters from "components/recipes/search/filters/DietFilters";
+import HealthFilters from "components/recipes/filters/HealthFilters";
+import DietFilters from "components/recipes/filters/DietFilters";
 
 class Filters extends Component {
   componentDidMount() {

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "stylesheets/recipes/search/filters/DietFilters.css";
+import "stylesheets/recipes/filters/DietFilters.css";
 
 class DietFilters extends Component {
   componentDidMount() {

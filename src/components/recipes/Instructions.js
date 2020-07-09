@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "stylesheets/recipes/displays/Instructions.css";
+import "stylesheets/recipes/Instructions.css";
 
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

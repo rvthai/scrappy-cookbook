@@ -1,3 +1,4 @@
+export const LOAD_RECIPES = "LOAD_RECIPES";
 export const GET_RECIPES = "GET_RECIPES";
 export const RESET_RECIPES = "RESET_RECIPES";
 
@@ -7,9 +8,6 @@ export const GET_RECIPE = "GET_RECIPE";
 export const SAVE_SEARCH = "SAVE_SEARCH";
 export const SAVE_FILTERS = "SAVE_FILTERS";
 export const RESET_SEARCH = "RESET_SEARCH";
-
-export const NEXT_PAGE = "NEXT_PAGE";
-export const PREV_PAGE = "PREV_PAGE";
 
 export const ADD_BOOKMARK = "ADD_BOOKMARK";
 export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
@@ -31,7 +29,11 @@ export const getRecipes = (query, filters) => {
   }
 
   return (dispatch) => {
-    fetch(URL)
+    dispatch({
+      type: LOAD_RECIPES,
+    });
+
+    return fetch(URL)
       .then((res) => res.json())
       .then((data) => {
         dispatch({
@@ -85,18 +87,6 @@ export const saveFilters = (filters) => {
 export const resetSearch = () => {
   return {
     type: RESET_SEARCH,
-  };
-};
-
-export const nextPage = () => {
-  return {
-    type: NEXT_PAGE,
-  };
-};
-
-export const prevPage = () => {
-  return {
-    type: PREV_PAGE,
   };
 };
 

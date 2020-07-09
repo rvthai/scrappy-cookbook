@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "stylesheets/recipes/search/filters/HealthFilters.css";
+import "stylesheets/recipes/filters/HealthFilters.css";
 
 // Font Awesome Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

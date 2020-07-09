@@ -1,0 +1,37 @@
+.recipe-cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: space-between;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+@media (max-width: 1500px) {
+  .recipe-cards-container {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 1000px) {
+  .recipe-cards-container {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (max-width: 500px) {
+  .recipe-cards-container {
+    grid-template-columns: repeat(1, auto);
+  }
+}
+
+.results {
+  text-align: center;
+}
+
+.ingredients {
+  font-weight: bold;
+}
+
+.count {
+  color: #c9c9c9;
+}

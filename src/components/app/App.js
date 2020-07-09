@@ -7,7 +7,7 @@ import Navbar from "components/app/Navbar";
 import PageNotFound from "components/app/PageNotFound";
 import Home from "components/home/Home";
 import Recipes from "components/recipes/Recipes";
-import RecipeDetails from "components/recipes/recipe/RecipeDetails";
+import RecipeDetails from "components/recipes/RecipeDetails";
 import Bookmarks from "components/bookmarks/Bookmarks";
 
 class App extends Component {

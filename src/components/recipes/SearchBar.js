@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "stylesheets/recipes/search/SearchBar.css";
+import "stylesheets/recipes/SearchBar.css";
 
 // Icons
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";

@@ -3,20 +3,14 @@ import { connect } from "react-redux";
 import "stylesheets/recipes/Recipes.css";
 
 // Actions
-import {
-  getRecipes,
-  saveSearch,
-  saveFilters,
-  nextPage,
-  prevPage,
-} from "actions";
+import { getRecipes, saveSearch, saveFilters } from "actions";
 
 // Components
-import SearchBar from "components/recipes/search/SearchBar";
-import Filters from "components/recipes/search/filters/Filters";
-import Instructions from "components/recipes/displays/Instructions";
-import Results from "components/recipes/displays/Results";
-import Pagination from "components/recipes/pagination/Pagination";
+import SearchBar from "components/recipes/SearchBar";
+import Filters from "components/recipes/filters/Filters";
+import Instructions from "components/recipes/Instructions";
+import Results from "components/recipes/Results";
+import ScrollUp from "components/recipes/ScrollUp";
 
 class Recipes extends Component {
   constructor(props) {
@@ -24,6 +18,7 @@ class Recipes extends Component {
 
     this.state = {
       showInstructions: null,
+      finalQuery: "",
     };
   }
 
@@ -48,19 +43,7 @@ class Recipes extends Component {
   handleSearchSubmit = (event) => {
     event.preventDefault();
     this.props.getRecipes(this.props.query, this.props.filters);
-    this.setState({ showInstructions: false });
-  };
-
-  handleBack = () => {
-    if (this.props.pagination.from > 0) {
-      this.props.prevPage();
-    }
-  };
-
-  handleNext = () => {
-    if (this.props.pagination.to < 100) {
-      this.props.nextPage();
-    }
+    this.setState({ showInstructions: false, finalQuery: this.props.query });
   };
 
   render() {
@@ -87,37 +70,31 @@ class Recipes extends Component {
             <Instructions />
           ) : (
             <Results
-              from={this.props.pagination.from}
-              to={this.props.pagination.to}
               recipes={
                 this.props.recipes !== null ? this.props.recipes.hits : []
               }
+              loading={this.props.loading}
+              query={this.state.finalQuery}
             />
           )}
         </div>
-        <div className="pagination-container">
-          {this.props.recipes !== null ? (
-            <Pagination recipes={this.props.recipes.hits} />
-          ) : null}
-        </div>
+        <ScrollUp />
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  recipes: state.recipes,
+  recipes: state.recipes.data,
+  loading: state.recipes.loading,
   query: state.search.query,
   filters: state.search.filters,
-  pagination: state.pagination,
 });
 
 const mapDispatchToProps = {
   getRecipes,
   saveSearch,
   saveFilters,
-  nextPage,
-  prevPage,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Recipes);

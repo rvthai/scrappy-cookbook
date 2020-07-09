@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "stylesheets/bookmarks/Bookmarks.css";
 
 // Components
-import RecipeCard from "components/recipes/recipe/RecipeCard";
+import RecipeCard from "components/recipes/RecipeCard";
 
 class Bookmarks extends Component {
   componentDidMount() {

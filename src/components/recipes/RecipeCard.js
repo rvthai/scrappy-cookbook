@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "stylesheets/recipes/recipe/RecipeCard.css";
+import "stylesheets/recipes/RecipeCard.css";
 
 class RecipeCard extends Component {
   render() {

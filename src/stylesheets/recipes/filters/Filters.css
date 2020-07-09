@@ -1,6 +1,6 @@
 .dropdown-container {
   position: relative;
-  margin-right: 4rem;
+  margin-right: 6rem;
 }
 
 .filters-button {
@@ -40,7 +40,7 @@
 
 .hr {
   border-bottom: solid 1px #e6e6e6;
-  margin-top: 2em;
+  margin-top: 2rem;
 }
 
 .arrow-icon {
