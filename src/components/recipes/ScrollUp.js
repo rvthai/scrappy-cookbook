@@ -15,7 +15,7 @@ class ScrollUp extends Component {
   }
 
   checkScrollHeight = () => {
-    if (window.scrollY >= document.body.scrollHeight * 0.2) {
+    if (window.scrollY >= 1000) {
       document.getElementById("arrow-up-icon").style.opacity = 1;
     } else {
       document.getElementById("arrow-up-icon").style.opacity = 0;
