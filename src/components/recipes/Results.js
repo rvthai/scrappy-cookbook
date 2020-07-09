@@ -7,7 +7,6 @@ import ScrollUp from "components/recipes/ScrollUp";
 
 class Results extends Component {
   render() {
-    console.log(this.props.loading);
     if (this.props.loading) {
       return (
         <div>
@@ -27,7 +26,7 @@ class Results extends Component {
     return (
       <div>
         <div className="results">
-          Search results for
+          Search results for{" "}
           <span className="ingredients">"{this.props.query}"</span>{" "}
           <span className="count">({this.props.recipes.length} recipes)</span>
         </div>

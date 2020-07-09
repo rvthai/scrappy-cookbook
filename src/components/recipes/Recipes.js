@@ -17,7 +17,6 @@ class Recipes extends Component {
 
     this.state = {
       showInstructions: null,
-      finalQuery: "",
     };
   }
 
@@ -42,7 +41,7 @@ class Recipes extends Component {
   handleSearchSubmit = (event) => {
     event.preventDefault();
     this.props.getRecipes(this.props.query, this.props.filters);
-    this.setState({ showInstructions: false, finalQuery: this.props.query });
+    this.setState({ showInstructions: false });
   };
 
   render() {
@@ -72,8 +71,8 @@ class Recipes extends Component {
               recipes={
                 this.props.recipes !== null ? this.props.recipes.hits : []
               }
+              query={this.props.recipes !== null ? this.props.recipes.q : ""}
               loading={this.props.loading}
-              query={this.state.finalQuery}
             />
           )}
         </div>
