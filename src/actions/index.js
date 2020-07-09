@@ -91,9 +91,6 @@ export const resetSearch = () => {
 };
 
 export const addBookmark = (data) => {
-  const dataa = {};
-  localStorage.setItem("bookmarks", { bookmarks: JSON.stringify(data) });
-  console.log(localStorage.getItem("bookmarks"));
   return {
     type: ADD_BOOKMARK,
     payload: data,
