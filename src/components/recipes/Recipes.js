@@ -10,7 +10,6 @@ import SearchBar from "components/recipes/SearchBar";
 import Filters from "components/recipes/filters/Filters";
 import Instructions from "components/recipes/Instructions";
 import Results from "components/recipes/Results";
-import ScrollUp from "components/recipes/ScrollUp";
 
 class Recipes extends Component {
   constructor(props) {
@@ -78,7 +77,6 @@ class Recipes extends Component {
             />
           )}
         </div>
-        <ScrollUp />
       </div>
     );
   }

@@ -3,6 +3,7 @@ import "stylesheets/recipes/Results.css";
 
 // Components
 import RecipeCard from "components/recipes/RecipeCard";
+import ScrollUp from "components/recipes/ScrollUp";
 
 class Results extends Component {
   render() {
@@ -43,6 +44,7 @@ class Results extends Component {
             />
           ))}
         </div>
+        <ScrollUp />
       </div>
     );
   }
