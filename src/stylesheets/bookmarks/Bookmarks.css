@@ -1,0 +1,41 @@
+.bookmarks-container {
+  margin-top: 10rem;
+}
+
+.bookmarks-heading {
+  font-size: 36px;
+  margin-bottom: 0;
+  margin-left: 6rem;
+  letter-spacing: 0.2rem;
+}
+
+.bookmarks-count {
+  color: #c9c9c9;
+  font-size: 28px;
+}
+
+.bookmarks-container .recipe-cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: start;
+  margin-left: 4rem;
+  margin-right: 4rem;
+}
+
+@media (max-width: 1500px) {
+  .bookmarks-container .recipe-cards-container {
+    grid-template-columns: repeat(3, auto);
+  }
+}
+
+@media (max-width: 1000px) {
+  .bookmarks-container .recipe-cards-container {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+@media (max-width: 500px) {
+  .bookmarks-container .recipe-cards-container {
+    grid-template-columns: repeat(1, auto);
+  }
+}

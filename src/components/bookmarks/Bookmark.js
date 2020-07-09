@@ -32,6 +32,7 @@ class Bookmark extends Component {
       image: this.props.image,
       calories: this.props.calories,
       source: this.props.source,
+      ingredientCount: this.props.ingredientCount,
     };
 
     if (this.containsObject(obj, this.props.bookmarks)) {
