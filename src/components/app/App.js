@@ -4,11 +4,11 @@ import "stylesheets/app/App.css";
 
 // Components
 import Navbar from "components/app/Navbar";
-import PageNotFound from "components/app/PageNotFound";
 import Home from "components/home/Home";
 import Recipes from "components/recipes/Recipes";
 import RecipeDetails from "components/recipes/RecipeDetails";
 import Bookmarks from "components/bookmarks/Bookmarks";
+import PageNotFound from "components/app/PageNotFound";
 
 class App extends Component {
   render() {

@@ -9,15 +9,24 @@
   letter-spacing: 0.2rem;
 }
 
+.bookmark-icon {
+  margin-right: 1rem;
+}
+
 .bookmarks-count {
   color: #c9c9c9;
   font-size: 28px;
 }
 
 .bookmarks-container .recipe-cards-container {
-  display: grid;
-  grid-template-columns: repeat(4, auto);
+  /* display: grid;
+  grid-template-columns: repeat(4, 25%);
   justify-content: start;
+  margin-left: 4rem;
+  margin-right: 4rem; */
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  justify-content: space-between;
   margin-left: 4rem;
   margin-right: 4rem;
 }
@@ -38,4 +47,9 @@
   .bookmarks-container .recipe-cards-container {
     grid-template-columns: repeat(1, auto);
   }
+}
+
+.bookmarks-notfound-message {
+  text-align: center;
+  margin-top: 12rem;
 }

@@ -38,11 +38,11 @@ class Navbar extends Component {
     if (location === "/") {
       document.getElementById("home").style.opacity = 1;
       navbar.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-    } else if (location === "/recipes") {
-      document.getElementById("recipes").style.opacity = 1;
+    } else if (location === "/bookmarks") {
+      document.getElementById("bookmarks").style.opacity = 1;
       navbar.style.backgroundColor = "rgba(33, 33, 33, 1)";
     } else {
-      document.getElementById("bookmarks").style.opacity = 1;
+      document.getElementById("recipes").style.opacity = 1;
       navbar.style.backgroundColor = "rgba(33, 33, 33, 1)";
     }
   };

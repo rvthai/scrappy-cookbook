@@ -52,8 +52,8 @@ class Instructions extends Component {
             />
             <p className="primary-description">Bookmark recipes</p>
             <p className="secondary-description">
-              Save potential recipes for later as you continue looking for that
-              perfect recipe.
+              Save recipes for later as you browse through over 1.7 million
+              different recipes worldwide.
             </p>
           </div>
         </div>

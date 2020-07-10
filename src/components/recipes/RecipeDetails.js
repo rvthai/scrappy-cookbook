@@ -1,105 +1,71 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import "stylesheets/recipes/RecipeDetails.css";
-
-// Actions
-import { getRecipe } from "actions";
 
 // Components
 import Bookmark from "components/bookmarks/Bookmark";
 
 class RecipeDetails extends Component {
   componentDidMount() {
-    this.props.getRecipe(this.props.match.params.id);
+    window.scrollTo(0, 0);
   }
 
-  handleBack = () => {
-    this.props.history.push("/recipes");
+  handleBackClick = () => {
+    this.props.history.goBack();
   };
 
   render() {
-    if (this.props.loading) {
-      return <div>Loading...</div>;
-    }
+    const recipe = this.props.location.state.recipe;
 
     return (
       <div className="recipe-details-container">
-        <Bookmark
-          uri={this.props.recipe.uri}
-          label={this.props.recipe.label}
-          image={this.props.recipe.image}
-          calories={this.props.recipe.calories}
-          source={this.props.recipe.source}
-          ingredientCount={this.props.recipe.ingredientLines.length}
-        />
-        <button onClick={this.handleBack}>Back</button>
-        <h2>{this.props.recipe.label}</h2>
-        <img src={this.props.recipe.image} alt="recipe pic" />
-        <p>Source: {this.props.recipe.source}</p>
-        <p>URL: {this.props.recipe.url}</p>
-        <p>Servings: {this.props.recipe.yield}</p>
+        <Bookmark recipe={recipe} />
+        <button onClick={this.handleBackClick}>Back</button>
+        <h2>{recipe.label}</h2>
+        <img src={recipe.image} alt="recipe pic" />
+        <p>Source: {recipe.source}</p>
+        <p>URL: {recipe.url}</p>
+        <p>Servings: {recipe.yield}</p>
         <p>Diet Labels:</p>
-        {this.props.recipe.dietLabels !== undefined
-          ? this.props.recipe.dietLabels.map((label, index) => (
+        {recipe.dietLabels !== undefined
+          ? recipe.dietLabels.map((label, index) => (
               <li key={index}>{label}</li>
             ))
           : "None "}
         <p>Health Labels:</p>
-        {this.props.recipe.healthLabels !== undefined
-          ? this.props.recipe.healthLabels.map((label, index) => (
+        {recipe.healthLabels !== undefined
+          ? recipe.healthLabels.map((label, index) => (
               <li key={index}>{label}</li>
             ))
           : "None "}
         <p>Ingredients: </p>
-        {this.props.recipe.ingredientLines.map((ingredient, index) => (
+        {recipe.ingredientLines.map((ingredient, index) => (
           <li key={index}>{ingredient}</li>
         ))}
-        <p>Time to cook: {this.props.recipe.totalTime} min</p>
-        <p>Total Calories: {Math.round(this.props.recipe.calories)}</p>
+        <p>Time to cook: {recipe.totalTime} min</p>
+        <p>Total Calories: {Math.round(recipe.calories)}</p>
         <h3>Macros Per Serving...</h3>
         <p>
           Calories:
-          {Math.round(
-            this.props.recipe.totalNutrients.ENERC_KCAL.quantity /
-              this.props.recipe.yield
-          )}
+          {Math.round(recipe.totalNutrients.ENERC_KCAL.quantity / recipe.yield)}
         </p>
         <p>
-          {this.props.recipe.totalNutrients.CHOCDF.label}
-          {Math.round(
-            this.props.recipe.totalNutrients.CHOCDF.quantity /
-              this.props.recipe.yield
-          )}
-          {this.props.recipe.totalNutrients.FAT.unit}
+          {recipe.totalNutrients.CHOCDF.label}
+          {Math.round(recipe.totalNutrients.CHOCDF.quantity / recipe.yield)}
+          {recipe.totalNutrients.FAT.unit}
         </p>
         <p>
-          {this.props.recipe.totalNutrients.FAT.label}
-          {Math.round(
-            this.props.recipe.totalNutrients.FAT.quantity /
-              this.props.recipe.yield
-          )}
-          {this.props.recipe.totalNutrients.FAT.unit}
+          {recipe.totalNutrients.FAT.label}
+          {Math.round(recipe.totalNutrients.FAT.quantity / recipe.yield)}
+          {recipe.totalNutrients.FAT.unit}
         </p>
         <p>
-          {this.props.recipe.totalNutrients.PROCNT.label}
-          {Math.round(
-            this.props.recipe.totalNutrients.PROCNT.quantity /
-              this.props.recipe.yield
-          )}
-          {this.props.recipe.totalNutrients.FAT.unit}
+          {recipe.totalNutrients.PROCNT.label}
+          {Math.round(recipe.totalNutrients.PROCNT.quantity / recipe.yield)}
+          {recipe.totalNutrients.FAT.unit}
         </p>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
-  recipe: state.recipe.data,
-  loading: state.recipe.loading,
-});
-
-const mapDispatchToProps = {
-  getRecipe,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(RecipeDetails);
+export default RecipeDetails;

@@ -6,18 +6,20 @@ import "stylesheets/bookmarks/Bookmark.css";
 import { addBookmark, removeBookmark } from "actions";
 
 class Bookmark extends Component {
-  handleBookmark = (obj) => {
-    this.props.addBookmark(obj);
+  handleBookmark = () => {
+    this.props.addBookmark(this.props.recipe);
   };
 
-  handleUnbookmark = (obj) => {
-    this.props.removeBookmark(obj);
+  handleUnbookmark = () => {
+    this.props.removeBookmark(this.props.recipe);
   };
 
-  containsObject = (obj, list) => {
-    var i;
-    for (i = 0; i < list.length; i++) {
-      if (list[i].uri === obj.uri) {
+  containsRecipe = () => {
+    const recipe = this.props.recipe;
+    const bookmarks = this.props.bookmarks;
+
+    for (var i = 0; i < bookmarks.length; i++) {
+      if (bookmarks[i].uri === recipe.uri) {
         return true;
       }
     }
@@ -26,33 +28,16 @@ class Bookmark extends Component {
   };
 
   render() {
-    const obj = {
-      uri: this.props.uri,
-      label: this.props.label,
-      image: this.props.image,
-      calories: this.props.calories,
-      source: this.props.source,
-      ingredientCount: this.props.ingredientCount,
-    };
-
-    if (this.containsObject(obj, this.props.bookmarks)) {
+    if (this.containsRecipe()) {
       return (
         <div>
-          <button onClick={() => this.handleUnbookmark(obj)} type="button">
-            Bookmarked.
-          </button>
+          <button onClick={this.handleUnbookmark}>Bookmarked.</button>
         </div>
       );
     }
     return (
       <div>
-        <button
-          className="bb"
-          onClick={() => this.handleBookmark(obj)}
-          type="button"
-        >
-          Bookmark?
-        </button>
+        <button onClick={this.handleBookmark}>Bookmark?</button>
       </div>
     );
   }

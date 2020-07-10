@@ -1,6 +1,6 @@
 .recipe-cards-container {
   display: grid;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(4, 25%);
   justify-content: space-between;
   margin-left: 4rem;
   margin-right: 4rem;
@@ -34,4 +34,9 @@
 
 .count {
   color: #c9c9c9;
+}
+
+.results-notfound-message {
+  text-align: center;
+  margin-top: 12rem;
 }

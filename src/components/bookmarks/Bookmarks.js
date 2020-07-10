@@ -9,13 +9,30 @@ import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 // Components
 import RecipeCard from "components/recipes/RecipeCard";
 import ScrollUp from "components/recipes/ScrollUp";
+import BookmarksNotFound from "components/bookmarks/BookmarksNotFound";
 
 class Bookmarks extends Component {
   render() {
+    if (this.props.bookmarks.length <= 0) {
+      return (
+        <div className="bookmarks-container">
+          <p className="bookmarks-heading">
+            <FontAwesomeIcon className="bookmark-icon" icon={faBookmark} />
+            Bookmarks{" "}
+            <span className="bookmarks-count">
+              ({this.props.bookmarks.length})
+            </span>
+          </p>
+          <div className="bookmarks-notfound-message">
+            <BookmarksNotFound />
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="bookmarks-container">
         <p className="bookmarks-heading">
-          <FontAwesomeIcon icon={faBookmark} />
+          <FontAwesomeIcon className="bookmark-icon" icon={faBookmark} />
           Bookmarks{" "}
           <span className="bookmarks-count">
             ({this.props.bookmarks.length})
@@ -23,15 +40,7 @@ class Bookmarks extends Component {
         </p>
         <div className="recipe-cards-container">
           {this.props.bookmarks.map((recipe, index) => (
-            <RecipeCard
-              key={index}
-              uri={recipe.uri}
-              label={recipe.label}
-              image={recipe.image}
-              calories={recipe.calories}
-              source={recipe.source}
-              ingredientCount={recipe.ingredientCount}
-            />
+            <RecipeCard key={index} recipe={recipe} />
           ))}
         </div>
         <ScrollUp />
