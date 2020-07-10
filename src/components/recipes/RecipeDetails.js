@@ -21,7 +21,7 @@ class RecipeDetails extends Component {
         <Bookmark recipe={recipe} />
         <button onClick={this.handleBackClick}>Back</button>
         <h2>{recipe.label}</h2>
-        <img src={recipe.image} alt="recipe pic" />
+        <img className="recipe-image" src={recipe.image} alt="recipe" />
         <p>Source: {recipe.source}</p>
         <p>URL: {recipe.url}</p>
         <p>Servings: {recipe.yield}</p>
