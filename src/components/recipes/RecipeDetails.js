@@ -3,6 +3,11 @@ import "stylesheets/recipes/RecipeDetails.css";
 
 // Components
 import Bookmark from "components/bookmarks/Bookmark";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faExternalLinkAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 class RecipeDetails extends Component {
   componentDidMount() {
@@ -18,11 +23,41 @@ class RecipeDetails extends Component {
 
     return (
       <div className="recipe-details-container">
-        <Bookmark recipe={recipe} />
-        <button onClick={this.handleBackClick}>Back</button>
-        <h2>{recipe.label}</h2>
-        <img className="recipe-image" src={recipe.image} alt="recipe" />
-        <p>Source: {recipe.source}</p>
+        <div class="top-half">
+          <img className="recipe-image" src={recipe.image} alt="recipe" />{" "}
+          <p className="recipe-label">{recipe.label}</p>
+          <Bookmark recipe={recipe} />
+        </div>
+        {/* <div className="top-half">
+          <img className="recipe-image" src={recipe.image} alt="recipe" />
+          <div className="recipe-primary-details">
+            <div className="return-button" onClick={this.handleBackClick}>
+              <FontAwesomeIcon className="arrow-left-icon" icon={faArrowLeft} />{" "}
+              Return to Recipes
+            </div>
+            <p className="recipe-label">{recipe.label}</p>
+            <p className="recipe-source">
+              By <span className="recipe-source-text">{recipe.source}</span>
+            </p>
+            <div className="recipe-buttons">
+              <a className="source-button" target="_blank" href={recipe.url}>
+                <FontAwesomeIcon
+                  className="external-link-icon"
+                  icon={faExternalLinkAlt}
+                />
+                Visit source page
+              </a>
+              <Bookmark recipe={recipe} />
+            </div>
+          </div> */}
+        {/* </div> */}
+        {/* <div>
+          <p>Ingredients: </p>
+          {recipe.ingredientLines.map((ingredient, index) => (
+            <p key={index}>{ingredient}</p>
+          ))}
+        </div> */}
+        {/* <p>Source: {recipe.source}</p>
         <p>URL: {recipe.url}</p>
         <p>Servings: {recipe.yield}</p>
         <p>Diet Labels:</p>
@@ -62,7 +97,7 @@ class RecipeDetails extends Component {
           {recipe.totalNutrients.PROCNT.label}
           {Math.round(recipe.totalNutrients.PROCNT.quantity / recipe.yield)}
           {recipe.totalNutrients.FAT.unit}
-        </p>
+        </p> */}
       </div>
     );
   }

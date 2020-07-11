@@ -8,13 +8,16 @@ import { addBookmark, removeBookmark } from "actions";
 // Icons
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
+import { faBookmark as fasBookmark } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faBookmark);
+library.add(farBookmark);
+library.add(fasBookmark);
 
 class Bookmark extends Component {
   handleBookmark = () => {
     this.props.addBookmark(this.props.recipe);
+    // document.getElementById("solid-bookmark")
   };
 
   handleUnbookmark = () => {
@@ -37,21 +40,27 @@ class Bookmark extends Component {
   render() {
     if (this.containsRecipe()) {
       return (
-        <div>
+        <div
+          id="solid-bookmark"
+          className="bookmark-button"
+          onClick={this.handleUnbookmark}
+        >
           <FontAwesomeIcon
+            className="bookmark-icon"
             icon={["fas", "bookmark"]}
-            onClick={this.handleUnbookmark}
           />
-          <button onClick={this.handleUnbookmark}>Bookmarked.</button>
+          Bookmarked
         </div>
       );
     }
     return (
-      <div>
-        <FontAwesomeIcon
-          icon={["far", "bookmark"]}
-          onClick={this.handleBookmark}
-        />
+      <div
+        id="empty-bookmark"
+        className="bookmark-button"
+        onClick={this.handleBookmark}
+      >
+        <FontAwesomeIcon className="bookmark-icon" icon={["far", "bookmark"]} />
+        Bookmark
       </div>
     );
   }

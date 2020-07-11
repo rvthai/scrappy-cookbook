@@ -17,20 +17,18 @@
 .heading {
   color: white;
   font-size: 90px;
-  margin: 20rem 2rem 0 4rem;
+  margin: 20rem 2rem 0 6rem;
 }
 
 .subheading {
   color: white;
   font-size: 35px;
   opacity: 0.75;
-  margin-top: 1rem;
-  margin-left: 4rem;
-  margin-right: 2rem;
+  margin: 1rem 2rem 0 6rem;
 }
 
 .explore-button-wrapper {
-  margin: 4rem 2rem 4rem 4rem;
+  margin: 4rem 2rem 4rem 6rem;
 }
 
 .explore-button {

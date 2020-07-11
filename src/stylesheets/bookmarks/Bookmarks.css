@@ -19,34 +19,16 @@
 }
 
 .bookmarks-container .recipe-cards-container {
-  /* display: grid;
-  grid-template-columns: repeat(4, 25%);
-  justify-content: start;
-  margin-left: 4rem;
-  margin-right: 4rem; */
-  display: grid;
-  grid-template-columns: repeat(4, 25%);
+  display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  margin-left: 4rem;
-  margin-right: 4rem;
+  margin-left: 6rem;
+  margin-right: 6rem;
 }
 
-@media (max-width: 1500px) {
-  .bookmarks-container .recipe-cards-container {
-    grid-template-columns: repeat(3, auto);
-  }
-}
-
-@media (max-width: 1000px) {
-  .bookmarks-container .recipe-cards-container {
-    grid-template-columns: repeat(2, auto);
-  }
-}
-
-@media (max-width: 500px) {
-  .bookmarks-container .recipe-cards-container {
-    grid-template-columns: repeat(1, auto);
-  }
+.bookmarks-container .phantom-card {
+  width: 300px;
+  height: 0;
 }
 
 .bookmarks-notfound-message {

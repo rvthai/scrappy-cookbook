@@ -42,6 +42,11 @@ class Results extends Component {
           {this.props.recipes.map((recipe, index) => (
             <RecipeCard key={index} recipe={recipe.recipe} />
           ))}
+          <div className="phantom-card"></div>
+          <div className="phantom-card"></div>
+          <div className="phantom-card"></div>
+          <div className="phantom-card"></div>
+          <div className="phantom-card"></div>
         </div>
         <ScrollUp />
       </div>
