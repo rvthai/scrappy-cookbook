@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import "stylesheets/home/Home.css";
 
+// Actions
+import { resetRecipes, resetSearch } from "actions";
+
 class Home extends Component {
+  componentDidMount() {
+    this.props.resetRecipes();
+    this.props.resetSearch();
+  }
+
   render() {
     return (
       <div className="home-container">
@@ -22,4 +31,9 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapDispatchToProps = {
+  resetRecipes,
+  resetSearch,
+};
+
+export default connect(null, mapDispatchToProps)(Home);

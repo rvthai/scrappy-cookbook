@@ -6,9 +6,6 @@ import "stylesheets/app/Navbar.css";
 // Images
 import Logo from "assets/logo.png";
 
-// Actions
-import { resetRecipes, resetSearch } from "actions";
-
 class Navbar extends Component {
   componentDidMount() {
     const original_location = this.props.location.pathname;
@@ -47,11 +44,6 @@ class Navbar extends Component {
     }
   };
 
-  handleHomeReturn = () => {
-    this.props.resetRecipes();
-    this.props.resetSearch();
-  };
-
   render() {
     return (
       <div id="nav-wrapper" className="nav-wrapper">
@@ -61,12 +53,7 @@ class Navbar extends Component {
             Scrappy Cookbook
           </Link>
           <div className="links">
-            <Link
-              id="home"
-              className="link"
-              to="/"
-              onClick={this.handleHomeReturn}
-            >
+            <Link id="home" className="link" to="/">
               Home
             </Link>
             <Link id="recipes" className="link" to="/recipes">
@@ -82,9 +69,4 @@ class Navbar extends Component {
   }
 }
 
-const mapDispatchToProps = {
-  resetRecipes,
-  resetSearch,
-};
-
-export default connect(null, mapDispatchToProps)(withRouter(Navbar));
+export default withRouter(Navbar);

@@ -1,15 +1,16 @@
 .bookmark-button {
+  display: inline-block;
+  opacity: 0.5;
   font-size: 20px;
   cursor: pointer;
   transition: 0.3s;
-  margin-left: 1rem;
-  padding: 1rem;
-  border: solid 1px black;
 }
 
 .bookmark-button:hover {
   opacity: 1;
+  transition: 0.3s;
 }
 
-.bookmark-icon {
+.bookmarked {
+  opacity: 1;
 }

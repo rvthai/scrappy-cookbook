@@ -6,6 +6,7 @@ import Bookmark from "components/bookmarks/Bookmark";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowLeft,
+  faClock,
   faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,16 +22,20 @@ class RecipeDetails extends Component {
   render() {
     const recipe = this.props.location.state.recipe;
 
+    var estimated_time = recipe.totalTime;
+    if (estimated_time <= 0) {
+      estimated_time = "unknown";
+    }
+
+    console.log(recipe);
+
     return (
       <div className="recipe-details-container">
         <div class="top-half">
-          <img className="recipe-image" src={recipe.image} alt="recipe" />{" "}
-          <p className="recipe-label">{recipe.label}</p>
-          <Bookmark recipe={recipe} />
-        </div>
-        {/* <div className="top-half">
-          <img className="recipe-image" src={recipe.image} alt="recipe" />
-          <div className="recipe-primary-details">
+          <div class="top-left-half">
+            <img className="recipe-image" src={recipe.image} alt="recipe" />{" "}
+          </div>
+          <div class="top-right-half">
             <div className="return-button" onClick={this.handleBackClick}>
               <FontAwesomeIcon className="arrow-left-icon" icon={faArrowLeft} />{" "}
               Return to Recipes
@@ -47,57 +52,49 @@ class RecipeDetails extends Component {
                 />
                 Visit source page
               </a>
+              <div className="vr" />
               <Bookmark recipe={recipe} />
             </div>
-          </div> */}
-        {/* </div> */}
-        {/* <div>
-          <p>Ingredients: </p>
-          {recipe.ingredientLines.map((ingredient, index) => (
-            <p key={index}>{ingredient}</p>
-          ))}
-        </div> */}
-        {/* <p>Source: {recipe.source}</p>
-        <p>URL: {recipe.url}</p>
-        <p>Servings: {recipe.yield}</p>
-        <p>Diet Labels:</p>
-        {recipe.dietLabels !== undefined
-          ? recipe.dietLabels.map((label, index) => (
-              <li key={index}>{label}</li>
-            ))
-          : "None "}
-        <p>Health Labels:</p>
-        {recipe.healthLabels !== undefined
-          ? recipe.healthLabels.map((label, index) => (
-              <li key={index}>{label}</li>
-            ))
-          : "None "}
-        <p>Ingredients: </p>
-        {recipe.ingredientLines.map((ingredient, index) => (
-          <li key={index}>{ingredient}</li>
-        ))}
-        <p>Time to cook: {recipe.totalTime} min</p>
-        <p>Total Calories: {Math.round(recipe.calories)}</p>
-        <h3>Macros Per Serving...</h3>
-        <p>
-          Calories:
-          {Math.round(recipe.totalNutrients.ENERC_KCAL.quantity / recipe.yield)}
-        </p>
-        <p>
-          {recipe.totalNutrients.CHOCDF.label}
-          {Math.round(recipe.totalNutrients.CHOCDF.quantity / recipe.yield)}
-          {recipe.totalNutrients.FAT.unit}
-        </p>
-        <p>
-          {recipe.totalNutrients.FAT.label}
-          {Math.round(recipe.totalNutrients.FAT.quantity / recipe.yield)}
-          {recipe.totalNutrients.FAT.unit}
-        </p>
-        <p>
-          {recipe.totalNutrients.PROCNT.label}
-          {Math.round(recipe.totalNutrients.PROCNT.quantity / recipe.yield)}
-          {recipe.totalNutrients.FAT.unit}
-        </p> */}
+          </div>
+        </div>
+        <div className="bottom-half">
+          <div className="bottom-left-half">
+            <p className="ingredients-header-text">Ingredients</p>
+            <p className="ingredients-note">
+              (visit source page for preparation instructions)
+            </p>
+            {recipe.ingredientLines.map((ingredient, index) => (
+              <p className="ingredients-text" key={index}>
+                {ingredient}
+              </p>
+            ))}
+          </div>
+          <div className="bottom-right-half">
+            Nutrition<p>Total Calories: {Math.round(recipe.calories)}</p>
+            <h3>Macros Per Serving...</h3>
+            <p>
+              Calories:
+              {Math.round(
+                recipe.totalNutrients.ENERC_KCAL.quantity / recipe.yield
+              )}
+            </p>
+            <p>
+              {recipe.totalNutrients.CHOCDF.label}
+              {Math.round(recipe.totalNutrients.CHOCDF.quantity / recipe.yield)}
+              {recipe.totalNutrients.FAT.unit}
+            </p>
+            <p>
+              {recipe.totalNutrients.FAT.label}
+              {Math.round(recipe.totalNutrients.FAT.quantity / recipe.yield)}
+              {recipe.totalNutrients.FAT.unit}
+            </p>
+            <p>
+              {recipe.totalNutrients.PROCNT.label}
+              {Math.round(recipe.totalNutrients.PROCNT.quantity / recipe.yield)}
+              {recipe.totalNutrients.FAT.unit}
+            </p>
+          </div>
+        </div>
       </div>
     );
   }

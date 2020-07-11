@@ -17,11 +17,12 @@ library.add(fasBookmark);
 class Bookmark extends Component {
   handleBookmark = () => {
     this.props.addBookmark(this.props.recipe);
-    // document.getElementById("solid-bookmark")
+    document.getElementById("bookmark").classList.add("bookmarked");
   };
 
   handleUnbookmark = () => {
     this.props.removeBookmark(this.props.recipe);
+    document.getElementById("bookmark").classList.remove("bookmarked");
   };
 
   containsRecipe = () => {
@@ -41,7 +42,7 @@ class Bookmark extends Component {
     if (this.containsRecipe()) {
       return (
         <div
-          id="solid-bookmark"
+          id="bookmark"
           className="bookmark-button"
           onClick={this.handleUnbookmark}
         >
@@ -55,7 +56,7 @@ class Bookmark extends Component {
     }
     return (
       <div
-        id="empty-bookmark"
+        id="bookmark"
         className="bookmark-button"
         onClick={this.handleBookmark}
       >
