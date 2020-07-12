@@ -31,7 +31,60 @@ class RecipeDetails extends Component {
 
     return (
       <div className="recipe-details-container">
-        <div class="top-half">
+        <div className="top-half">
+          <img className="recipe-image" src={recipe.image} alt="recipe" />
+          <div className="the-text">
+            <div className="return-button" onClick={this.handleBackClick}>
+              <FontAwesomeIcon className="arrow-left-icon" icon={faArrowLeft} />{" "}
+              Return to Recipes
+            </div>
+            <p className="recipe-label">{recipe.label}</p>
+            <p className="recipe-source">
+              By <span className="recipe-source-text">{recipe.source}</span>
+            </p>
+            <div className="recipe-buttons">
+              <a className="source-button" target="_blank" href={recipe.url}>
+                <FontAwesomeIcon
+                  className="external-link-icon"
+                  icon={faExternalLinkAlt}
+                />
+                Visit source page
+              </a>
+              <div className="vr" />
+              <Bookmark recipe={recipe} />
+            </div>
+          </div>
+        </div>
+        <div className="bottom-half">
+          <div className="ingredients-card">
+            <p className="the-header-text">Ingredients</p>
+            {recipe.ingredientLines.map((ingredient, index) => (
+              <p className="ingredients-text" key={index}>
+                {ingredient}
+              </p>
+            ))}
+          </div>
+          <div className="nutrition-card">
+            <p className="the-header-text">Nutrition</p>
+            {Object.keys(recipe.totalNutrients).map((key, index) => {
+              return ( <p className="nutrition-text" key={index}>
+              {recipe.totalNutrients[key].label},
+              {Math.round(recipe.totalNutrients[key].quantity / recipe.yield)}
+              ,{recipe.totalNutrients[key].unit}
+            </p>
+            <div />}
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default RecipeDetails;
+
+/*
+  {/* <div class="top-half">
           <div class="top-left-half">
             <img className="recipe-image" src={recipe.image} alt="recipe" />{" "}
           </div>
@@ -94,10 +147,5 @@ class RecipeDetails extends Component {
               {recipe.totalNutrients.FAT.unit}
             </p>
           </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default RecipeDetails;
+        </div> 
+*/
