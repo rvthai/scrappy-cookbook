@@ -4,7 +4,7 @@
 
 .bookmarks-heading {
   font-size: 36px;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   margin-left: 6rem;
   letter-spacing: 0.2rem;
 }
@@ -18,10 +18,10 @@
   font-size: 28px;
 }
 
-.bookmarks-container .recipe-cards-container {
+.bookmark-cards-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-left: 6rem;
   margin-right: 6rem;
 }

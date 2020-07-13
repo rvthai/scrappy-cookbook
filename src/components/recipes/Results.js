@@ -11,7 +11,9 @@ class Results extends Component {
     if (this.props.loading) {
       return (
         <div>
-          <p>Loading...</p>
+          <div className="loader-container">
+            <div className="loader" />
+          </div>
         </div>
       );
     }
@@ -40,7 +42,7 @@ class Results extends Component {
         </div>
         <div className="recipe-cards-container">
           {this.props.recipes.map((recipe, index) => (
-            <RecipeCard key={index} recipe={recipe.recipe} />
+            <RecipeCard key={index} recipe={recipe.recipe} from="Recipes" />
           ))}
           <div className="phantom-card"></div>
           <div className="phantom-card"></div>

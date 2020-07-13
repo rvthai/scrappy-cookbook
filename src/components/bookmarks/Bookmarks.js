@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-regular-svg-icons";
 
 // Components
-import RecipeCard from "components/recipes/RecipeCard";
+import BookmarkCard from "components/bookmarks/BookmarkCard";
 import ScrollUp from "components/recipes/ScrollUp";
 import BookmarksNotFound from "components/bookmarks/BookmarksNotFound";
 
@@ -38,15 +38,10 @@ class Bookmarks extends Component {
             ({this.props.bookmarks.length})
           </span>
         </p>
-        <div className="recipe-cards-container">
+        <div className="bookmark-cards-container">
           {this.props.bookmarks.map((recipe, index) => (
-            <RecipeCard key={index} recipe={recipe} />
+            <BookmarkCard key={index} recipe={recipe} from="Bookmarks" />
           ))}
-          <div className="phantom-card"></div>
-          <div className="phantom-card"></div>
-          <div className="phantom-card"></div>
-          <div className="phantom-card"></div>
-          <div className="phantom-card"></div>
         </div>
         <ScrollUp />
       </div>

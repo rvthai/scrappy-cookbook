@@ -13,6 +13,7 @@ class RecipeCard extends Component {
           pathname: `/recipes/${recipe.uri.split("#")[1]}`,
           state: {
             recipe: recipe,
+            from: this.props.from,
           },
         }}
       >

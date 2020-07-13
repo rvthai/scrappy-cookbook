@@ -15,6 +15,12 @@ library.add(farBookmark);
 library.add(fasBookmark);
 
 class Bookmark extends Component {
+  componentDidMount() {
+    if (this.containsRecipe()) {
+      document.getElementById("bookmark").classList.add("bookmarked");
+    }
+  }
+
   handleBookmark = () => {
     this.props.addBookmark(this.props.recipe);
     document.getElementById("bookmark").classList.add("bookmarked");
