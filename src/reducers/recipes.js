@@ -1,4 +1,4 @@
-import { LOAD_RECIPES, GET_RECIPES, RESET_RECIPES } from "../actions";
+import { LOAD_RECIPES, GET_RECIPES, RESET_RECIPES } from "actions";
 
 const initial_state = { data: null, loading: true };
 

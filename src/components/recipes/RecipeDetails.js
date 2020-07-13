@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { withRouter, Redirect } from "react-router-dom";
 import "stylesheets/recipes/RecipeDetails.css";
 
 // Components
@@ -12,17 +14,51 @@ import {
   faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
 
+// Actions
+import { getRecipe } from "actions";
+
 class RecipeDetails extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      redirect: false,
+    };
+  }
   componentDidMount() {
     window.scrollTo(0, 0);
+
+    if (this.props.location.state === undefined) {
+      this.props.getRecipe(this.props.match.params.id);
+    }
   }
 
   handleBackClick = () => {
-    this.props.history.goBack();
+    if (this.props.location.state === undefined) {
+      this.setState({ redirect: true });
+    } else {
+      this.props.history.goBack();
+    }
   };
 
   render() {
-    const recipe = this.props.location.state.recipe;
+    if (this.state.redirect) {
+      return <Redirect to="/recipes" />;
+    }
+
+    if (this.props.location.state !== undefined) {
+      var recipe = this.props.location.state.recipe;
+      var from = this.props.location.state.from;
+    }
+
+    if (this.props.location.state === undefined && this.props.recipe !== null) {
+      var recipe = this.props.recipe;
+      var from = "Recipe";
+    }
+
+    if (this.props.location.state === undefined && this.props.recipe === null) {
+      return <div style={{ marginTop: "16rem" }}>hi</div>;
+    }
 
     var estimated_time = recipe.totalTime;
     if (estimated_time <= 0) {
@@ -40,7 +76,7 @@ class RecipeDetails extends Component {
           <div className="the-text">
             <div className="return-button" onClick={this.handleBackClick}>
               <FontAwesomeIcon className="arrow-left-icon" icon={faArrowLeft} />{" "}
-              Return to {this.props.location.state.from}
+              Return to {from}
             </div>
             <p className="recipe-label">{recipe.label}</p>
             <p className="recipe-source">
@@ -154,4 +190,14 @@ class RecipeDetails extends Component {
   }
 }
 
-export default RecipeDetails;
+const mapStateToProps = (state) => ({
+  recipe: state.recipe.data,
+});
+
+const mapDispatchToProps = {
+  getRecipe,
+};
+
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(RecipeDetails)
+);

@@ -78,6 +78,14 @@ class Filters extends Component {
     this.props.onFiltersChange(name, value);
   };
 
+  handleHealthClear = () => {
+    this.props.onFiltersChange("health", []);
+  };
+
+  handleDietClear = () => {
+    this.props.onFiltersChange("diet", "");
+  };
+
   handleCancel = () => {
     this.hideFilters();
   };
@@ -111,11 +119,13 @@ class Filters extends Component {
           <HealthFilters
             filters={this.props.filters}
             onChange={this.handleHealthChange}
+            onClear={this.handleHealthClear}
           />
           <div className="hr" />
           <DietFilters
             filters={this.props.filters}
             onChange={this.handleDietChange}
+            onClear={this.handleDietClear}
           />
           <div className="hr" />
           <div className="action-buttons">

@@ -5,9 +5,9 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
-import rootReducer from "./reducers";
+import rootReducer from "reducers";
 
-import App from "./components/app/App";
+import App from "components/app/App";
 
 function saveToLocalStorage(state) {
   try {
@@ -24,7 +24,6 @@ function loadFromLocalStorage() {
     if (serializedState === null) {
       return undefined;
     }
-
     return JSON.parse(serializedState);
   } catch (err) {
     console.log(err);
@@ -37,8 +36,8 @@ const store = createStore(
   rootReducer,
   persistedState,
   compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : (f) => f
+    applyMiddleware(thunk)
+    // window.devToolsExtension ? window.devToolsExtension() : (f) => f
   )
 );
 

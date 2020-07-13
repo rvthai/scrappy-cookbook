@@ -7,8 +7,8 @@ import Logo from "assets/logo.png";
 
 class Navbar extends Component {
   componentDidMount() {
-    const original_location = this.props.location.pathname;
-    this.setCurrentLink(original_location);
+    const current_location = this.props.location.pathname;
+    this.setCurrentLink(current_location);
 
     this.unlisten = this.props.history.listen((location) => {
       this.resetLinks();

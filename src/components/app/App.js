@@ -13,22 +13,21 @@ import PageNotFound from "components/app/PageNotFound";
 class App extends Component {
   render() {
     return (
-      <div>
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route
-              exact
-              path="/recipes"
-              render={(props) => <Recipes query="" recipes={null} {...props} />}
-            />
-            <Route exact path="/recipes/:id" component={RecipeDetails} />
-            <Route exact path="/bookmarks" component={Bookmarks} />
-            <Route path="*" component={PageNotFound} />
-          </Switch>
-        </Router>
-      </div>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route
+            exact
+            path="/recipes"
+            component={Recipes}
+            // render={(props) => <Recipes query="" recipes={null} {...props} />}
+          />
+          <Route exact path="/recipes/:id" component={RecipeDetails} />
+          <Route exact path="/bookmarks" component={Bookmarks} />
+          <Route path="*" component={PageNotFound} />
+        </Switch>
+      </Router>
     );
   }
 }

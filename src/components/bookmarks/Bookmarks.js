@@ -42,6 +42,9 @@ class Bookmarks extends Component {
           {this.props.bookmarks.map((recipe, index) => (
             <BookmarkCard key={index} recipe={recipe} from="Bookmarks" />
           ))}
+          <div className="phantom-card"></div>
+          <div className="phantom-card"></div>
+          <div className="phantom-card"></div>
         </div>
         <ScrollUp />
       </div>

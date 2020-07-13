@@ -34,6 +34,8 @@ class DietFilters extends Component {
       prev_label.children[0].checked = false;
       prev_label.classList.remove("active-diet-label");
     }
+
+    this.props.onClear();
   };
 
   render() {

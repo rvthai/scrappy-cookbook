@@ -1,6 +1,6 @@
-import { SAVE_SEARCH, SAVE_FILTERS, RESET_SEARCH } from "../actions";
+import { SAVE_SEARCH, SAVE_FILTERS, RESET_SEARCH } from "actions";
 
-const initialState = {
+const initial_state = {
   query: "",
   filters: {
     diet: "",
@@ -8,7 +8,7 @@ const initialState = {
   },
 };
 
-const searchReducer = (state = initialState, action) => {
+const searchReducer = (state = initial_state, action) => {
   switch (action.type) {
     case SAVE_SEARCH:
       return {
@@ -21,7 +21,7 @@ const searchReducer = (state = initialState, action) => {
         filters: action.filters,
       };
     case RESET_SEARCH:
-      return initialState;
+      return initial_state;
     default:
       return state;
   }

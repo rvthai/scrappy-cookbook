@@ -39,6 +39,8 @@ class HealthFilters extends Component {
       labels[0].classList.remove("active-health-label");
       icon.style.display = "none";
     }
+
+    this.props.onClear();
   };
 
   render() {
