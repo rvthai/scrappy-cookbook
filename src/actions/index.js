@@ -7,7 +7,6 @@ export const GET_RECIPE = "GET_RECIPE";
 
 export const SAVE_SEARCH = "SAVE_SEARCH";
 export const SAVE_FILTERS = "SAVE_FILTERS";
-export const RESET_FILTERS = "RESET_FILTERS";
 export const RESET_SEARCH = "RESET_SEARCH";
 
 export const ADD_BOOKMARK = "ADD_BOOKMARK";
@@ -43,7 +42,6 @@ export const getRecipes = (query, filters) => {
 };
 
 export const getRecipe = (id) => {
-  console.log("called");
   const URI = `http%3A%2F%2Fwww.edamam.com%2Fontologies%2Fedamam.owl%23${id}`;
   const URL = `https://api.edamam.com/search?r=${URI}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}`;
   return (dispatch) => {

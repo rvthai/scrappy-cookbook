@@ -1,21 +1,24 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import "stylesheets/recipes/RecipeDetails.css";
-
-// Components
-import Bookmark from "components/bookmarks/Bookmark";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faArrowLeft,
-  faClock,
-  faFire,
-  faUtensils,
-  faExternalLinkAlt,
-} from "@fortawesome/free-solid-svg-icons";
 
 // Actions
 import { getRecipe } from "actions";
+
+// Icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faExternalLinkAlt,
+  faClock,
+  faFire,
+  faUtensils,
+} from "@fortawesome/free-solid-svg-icons";
+
+// Components
+import Bookmark from "components/bookmarks/Bookmark";
+import PageNotFound from "components/app/PageNotFound";
 
 class RecipeDetails extends Component {
   constructor(props) {
@@ -25,6 +28,7 @@ class RecipeDetails extends Component {
       redirect: false,
     };
   }
+
   componentDidMount() {
     window.scrollTo(0, 0);
 
@@ -46,18 +50,27 @@ class RecipeDetails extends Component {
       return <Redirect to="/recipes" />;
     }
 
+    var recipe = null;
+    var from = "";
+
     if (this.props.location.state !== undefined) {
-      var recipe = this.props.location.state.recipe;
-      var from = this.props.location.state.from;
+      recipe = this.props.location.state.recipe;
+      from = this.props.location.state.from;
     }
 
-    if (this.props.location.state === undefined && this.props.recipe !== null) {
-      var recipe = this.props.recipe;
-      var from = "Recipe";
+    if (
+      this.props.location.state === undefined &&
+      this.props.recipe === undefined
+    ) {
+      return <PageNotFound />;
     }
 
-    if (this.props.location.state === undefined && this.props.recipe === null) {
-      return <div style={{ marginTop: "16rem" }}>hi</div>;
+    if (
+      this.props.location.state === undefined &&
+      this.props.recipe !== undefined
+    ) {
+      recipe = this.props.recipe;
+      from = "Recipe";
     }
 
     var estimated_time = recipe.totalTime;

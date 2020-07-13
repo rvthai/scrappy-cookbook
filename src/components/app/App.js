@@ -17,12 +17,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path="/recipes"
-            component={Recipes}
-            // render={(props) => <Recipes query="" recipes={null} {...props} />}
-          />
+          <Route exact path="/recipes" component={Recipes} />
           <Route exact path="/recipes/:id" component={RecipeDetails} />
           <Route exact path="/bookmarks" component={Bookmarks} />
           <Route path="*" component={PageNotFound} />
