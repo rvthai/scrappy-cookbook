@@ -9,11 +9,8 @@ export const RESET_SEARCH = "RESET_SEARCH";
 export const ADD_BOOKMARK = "ADD_BOOKMARK";
 export const REMOVE_BOOKMARK = "REMOVE_BOOKMARK";
 
-const APP_ID = "b2b48313";
-const APP_KEY = "75c1ef2136cc93da129f58f3a4ebe8df";
-
 export const getRecipes = (query, filters) => {
-  var URL = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=100`;
+  var URL = `https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_APP_KEY}&from=0&to=100`;
   const health = filters.health.join("&health=");
   const diet = filters.diet;
 
