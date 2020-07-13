@@ -4,11 +4,12 @@
   background-color: white;
   width: 500px;
   height: auto;
-  margin: 1rem 2rem 1rem 0;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   text-decoration: none;
   color: black;
-  transition: 0.3s;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s;
 }
 
 .bookmark-card-image {
@@ -17,17 +18,30 @@
   min-height: 200px;
 }
 
-.bookmark-card-title {
+.bookmark-card-label {
   font-size: 24px;
   font-weight: bold;
   margin: 2rem;
   margin-bottom: 6rem;
 }
 
-.the-button {
+.bookmark-card-delete-icon {
+  position: absolute;
+  opacity: 0.25;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bookmark-card-delete-icon:hover {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.view-recipe-button {
   position: absolute;
   text-align: center;
-  border: solid 1px black;
   background-color: black;
   color: white;
   text-decoration: none;
@@ -35,25 +49,12 @@
   left: 14.25rem;
   right: 2rem;
   letter-spacing: 0.2rem;
-  padding: 0.5rem 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   transition: 0.3s;
 }
 
-.the-button:hover {
+.view-recipe-button:hover {
   box-shadow: 0 0 11px rgba(0, 0, 0, 0.4);
-  transition: 0.3s;
-}
-
-.bookmark-card-delete-icon {
-  opacity: 0.25;
-  cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  transition: 0.3s;
-}
-
-.bookmark-card-delete-icon:hover {
-  opacity: 1;
   transition: 0.3s;
 }

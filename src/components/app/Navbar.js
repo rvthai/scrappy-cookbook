@@ -47,7 +47,7 @@ class Navbar extends Component {
     return (
       <div id="nav-wrapper" className="nav-wrapper">
         <nav>
-          <Link className="brand" to="/" onClick={this.handleHomeReturn}>
+          <Link className="brand" to="/">
             <img className="logo" alt="scrappy-cookbook-logo" src={Logo} />
             Scrappy Cookbook
           </Link>

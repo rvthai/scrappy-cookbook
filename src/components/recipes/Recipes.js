@@ -63,6 +63,7 @@ class Recipes extends Component {
             />
           </div>
         </div>
+
         <div className="results-container">
           {this.state.showInstructions ? (
             <Instructions />

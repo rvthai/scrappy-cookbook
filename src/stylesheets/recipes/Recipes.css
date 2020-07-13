@@ -21,13 +21,6 @@
   margin-top: 12rem;
 }
 
-.pagination-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 3rem;
-  margin-bottom: 4rem;
-}
-
 .vr {
   border-left: 1px solid #e6e6e6;
   height: 50px;

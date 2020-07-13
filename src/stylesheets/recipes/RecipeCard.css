@@ -7,8 +7,8 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
   text-decoration: none;
-  transition: 0.3s;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.23);
+  transition: 0.3s;
 }
 
 .recipe-card:hover {
@@ -27,7 +27,7 @@
   margin: 1rem;
 }
 
-.recipe-card-title {
+.recipe-card-label {
   font-size: 24px;
   font-weight: bold;
 }

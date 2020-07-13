@@ -86,7 +86,7 @@ class RecipeDetails extends Component {
       <div className="recipe-details-container">
         <div className="top-half">
           <img className="recipe-image" src={recipe.image} alt="recipe" />
-          <div className="the-text">
+          <div className="recipe-info">
             <div className="return-button" onClick={this.handleBackClick}>
               <FontAwesomeIcon className="arrow-left-icon" icon={faArrowLeft} />{" "}
               Return to {from}
@@ -113,64 +113,67 @@ class RecipeDetails extends Component {
             </div>
           </div>
         </div>
+
         <div className="bottom-half">
-          <div className="ingredients-card">
-            <p className="the-header-text">Ingredients</p>
+          <div className="ingredients-section">
+            <p className="section-header">Ingredients</p>
             {recipe.ingredientLines.map((ingredient, index) => (
-              <p className="ingredients-text" key={index}>
+              <p className="ingredients-list" key={index}>
                 {ingredient}
               </p>
             ))}
           </div>
-          <div className="nutrition-card">
-            <div className="facts">
+          <div className="nutrition-section">
+            <div className="general-info">
               <div>
                 <FontAwesomeIcon
-                  className="big-icons"
+                  className="general-info-icons"
                   icon={faFire}
                   size="4x"
                 />
-                <p className="the-stats-label">Total Calories</p>
-                <p className="the-stats">{Math.round(recipe.calories)}</p>
+                <p className="general-info-label">Total Calories</p>
+                <p className="general-info-stats">
+                  {Math.round(recipe.calories)}
+                </p>
               </div>
               <div>
                 <FontAwesomeIcon
-                  className="big-icons"
+                  className="general-info-icons"
                   icon={faUtensils}
                   size="4x"
                 />
-                <p className="the-stats-label">Servings</p>
-                <p className="the-stats">{recipe.yield}</p>
+                <p className="general-info-label">Servings</p>
+                <p className="general-info-stats">{recipe.yield}</p>
               </div>
               <div>
                 <FontAwesomeIcon
-                  className="big-icons"
+                  className="general-info-icons"
                   icon={faClock}
                   size="4x"
                 />
-                <p className="the-stats-label">Cook Time</p>
-                <p className="the-stats">{estimated_time}</p>
+                <p className="general-info-label">Cook Time</p>
+                <p className="general-info-stats">{estimated_time}</p>
               </div>
             </div>
             <div className="nutrition-facts">
-              <p className="the-header-text">Nutrition</p>
-              <div className="yes">
+              <p className="section-header">Nutrition</p>
+              <div className="nutrition-list">
                 {Object.keys(recipe.totalNutrients).map((key, index) => (
                   <div key={index}>
                     {macros.includes(key) ? (
                       <div
-                        className="nutrition-text-row"
+                        className="nutrition-row"
                         style={{ backgroundColor: "#e6e6e6" }}
                       >
                         <p
                           style={{ fontWeight: "bold" }}
-                          className="nutrition-text"
+                          className="nutrition-row-text"
                         >
                           {recipe.totalNutrients[key].label}
                         </p>
                         <p
                           style={{ fontWeight: "bold" }}
-                          className="nutrition-text"
+                          className="nutrition-row-text"
                         >
                           {Math.round(
                             recipe.totalNutrients[key].quantity / recipe.yield
@@ -179,11 +182,11 @@ class RecipeDetails extends Component {
                         </p>
                       </div>
                     ) : (
-                      <div className="nutrition-text-row">
-                        <p className="nutrition-text">
+                      <div className="nutrition-row">
+                        <p className="nutrition-row-text">
                           {recipe.totalNutrients[key].label}
                         </p>
-                        <p className="nutrition-text">
+                        <p className="nutrition-row-text">
                           {Math.round(
                             recipe.totalNutrients[key].quantity / recipe.yield
                           )}{" "}

@@ -6,8 +6,8 @@ import "stylesheets/bookmarks/Bookmark.css";
 import { addBookmark, removeBookmark } from "actions";
 
 // Icons
-import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBookmark as farBookmark } from "@fortawesome/free-regular-svg-icons";
 import { faBookmark as fasBookmark } from "@fortawesome/free-solid-svg-icons";
 

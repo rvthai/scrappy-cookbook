@@ -1,5 +1,6 @@
 .bookmarks-container {
   margin-top: 10rem;
+  margin-bottom: 12rem;
 }
 
 .bookmarks-heading {
@@ -26,7 +27,7 @@
   margin-right: 6rem;
 }
 
-.bookmarks-cards-container .phantom-card {
+.bookmark-cards-container .phantom-card {
   width: 500px;
   height: 0;
 }

@@ -29,6 +29,7 @@ class Bookmarks extends Component {
         </div>
       );
     }
+
     return (
       <div className="bookmarks-container">
         <p className="bookmarks-heading">
@@ -56,4 +57,4 @@ const mapStateToProps = (state) => ({
   bookmarks: state.bookmarks,
 });
 
-export default connect(mapStateToProps)(Bookmarks);
+export default connect(mapStateToProps, null)(Bookmarks);

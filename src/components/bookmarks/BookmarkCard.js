@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "stylesheets/bookmarks/BookmarkCard.css";
 
+// Actions
+import { removeBookmark } from "actions";
+
 // Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-
-// Actions
-import { removeBookmark } from "actions";
 
 class BookmarkCard extends Component {
   handleDeleteClick = () => {
@@ -20,14 +20,14 @@ class BookmarkCard extends Component {
     return (
       <div className="bookmark-card">
         <img className="bookmark-card-image" src={recipe.image} alt="recipe" />
-        <p className="bookmark-card-title">{recipe.label}</p>
+        <p className="bookmark-card-label">{recipe.label}</p>
         <FontAwesomeIcon
           className="bookmark-card-delete-icon"
           icon={faTimes}
           onClick={this.handleDeleteClick}
         />
         <Link
-          className="the-button"
+          className="view-recipe-button"
           to={{
             pathname: `/recipes/${recipe.uri.split("#")[1]}`,
             state: {

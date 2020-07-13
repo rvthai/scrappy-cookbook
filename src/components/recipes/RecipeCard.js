@@ -19,7 +19,7 @@ class RecipeCard extends Component {
       >
         <img className="recipe-card-image" src={recipe.image} alt="recipe" />
         <div className="recipe-card-description">
-          <p className="recipe-card-title">{recipe.label}</p>
+          <p className="recipe-card-label">{recipe.label}</p>
           <p className="recipe-card-source">{recipe.source}</p>
           <div className="recipe-card-stats">
             {recipe.calories.toFixed()}
