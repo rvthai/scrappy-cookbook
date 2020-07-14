@@ -1,68 +1,27 @@
+# Scrappy Cookbook
+
+Got half an onion just stiting in the fridge? Is that block of cheese about to go bad? Maybe you have some extra chicken leftover from last night's potluck. Whatever the case, **Scrappy Cookbook** offers over 1.7 million different recipes for you to explore. Find that perfect recipe and clean out the scraps from your fridge.
+
+## Project Details
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+This project was deployed with Netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/7db468ee-d9c0-4552-97c5-4724734612bd/deploy-status)](https://app.netlify.com/sites/scrappycookbook/deploys)
 
-In the project directory, you can run:
+This project makes use of the Edamam's Recipe Search API.
 
-### `npm start`
+> **Note:** This project uses a free "Developer" subscription of the API, which places strict limits on API calls and other features.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Basic Features
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![Demo](static/demo-1.gif)
 
-### `npm test`
+![Search for recipes!](/static/search.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Apply some filters!](/static/filter.png)
 
-### `npm run build`
+![Bookmark your favorite recipes!](/static/bookmark.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## License
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright (c) 2020 Ricky Thai
