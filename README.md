@@ -24,22 +24,22 @@ This project makes use of the Edamam's Recipe Search API.
 
 Demo
 
-![Demo](static/demo.gif)
+  ![Demo](static/demo.gif)
 
 
 Search for recipes!
 
-![Search for recipes!](/static/search.png)
+  ![Search for recipes!](/static/search.png)
 
 
 Apply some filters!
 
-![Apply some filters!](/static/filter.png)
+  ![Apply some filters!](/static/filter.png)
 
 
 Bookmark your favorite recipes!
 
-![Bookmark your favorite recipes!](/static/bookmark.png)
+  ![Bookmark your favorite recipes!](/static/bookmark.png)
 
 ## License
 
