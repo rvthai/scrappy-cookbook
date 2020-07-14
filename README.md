@@ -27,18 +27,27 @@ Demo
 ![Demo](static/demo.gif)
 
 <br/>
+
 Search for recipes!
+
 <br/>
+
 ![Search for recipes!](/static/search.png)
 
 <br/>
+
 Apply some filters!
+
 <br/>
+
 ![Apply some filters!](/static/filter.png)
 
 <br/>
+
 Bookmark your favorite recipes!
+
 <br/>
+
 ![Bookmark your favorite recipes!](/static/bookmark.png)
 
 ## License
