@@ -27,6 +27,9 @@ Demo
   ![Demo](static/demo.gif)
 
 
+
+
+
 Search for recipes!
 
   ![Search for recipes!](/static/search.png)
