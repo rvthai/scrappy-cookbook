@@ -2,7 +2,7 @@
 
 Got half an onion just stiting in the fridge? Is that block of cheese about to go bad? Maybe you have some extra chicken leftover from last night's potluck. 
 
-Whatever the case, **Scrappy Cookbook** offers over 1.7 million different recipes for you to explore. Find that perfect recipe and clean out the scraps from your fridge.
+Whatever the case, **Scrappy Cookbook** offers over 1.7 million different recipes for you to explore. Find that perfect recipe and clean out those scraps from your fridge while you're at it!
 
 ## Project Details
 
