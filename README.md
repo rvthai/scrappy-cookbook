@@ -7,8 +7,6 @@ Got half an onion just stiting in the fridge? Is that block of cheese about to g
 
 Whatever the case, **Scrappy Cookbook** offers over 1.7 million different recipes for you to explore. Find that perfect recipe and clean out those scraps from your fridge while you're at it!
 
-*Currently deployed at:* https://scrappycookbook.netlify.app/
-
 ## Project Details
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
